@@ -4,11 +4,12 @@ import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+
+import com.dansejijie.library.widget.TestScrollViewActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,16 +32,16 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter=new MainAdapter(this, mDatas, null);
         recyclerView.setAdapter(mainAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.HORIZONTAL));
+
 
     }
 
     private void initDatas() {
 
-        mDatas= Arrays.asList(new Action("aa", new View.OnClickListener() {
+        mDatas= Arrays.asList(new Action("testScrollView", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"aa",Toast.LENGTH_SHORT).show();
+                TestScrollViewActivity.start(MainActivity.this);
             }
         }));
     }

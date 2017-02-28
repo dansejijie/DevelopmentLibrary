@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/test_scroll_view_vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="vertical"/>
+        <Button
+            android:id="@+id/test_scroll_view_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="horizontal"/>
+    </LinearLayout>
+
+    <com.dansejijie.library.widget.scrollview.CustomScrollView
+        android:id="@+id/test_scroll_view_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="40dp">
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:background="@color/colorPrimaryDark"/>-->
+        <LinearLayout
+            android:id="@+id/test_scroll_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:background="@color/colorPrimary"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:background="@color/colorAccent"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:background="@color/colorPrimary"/>
+        </LinearLayout>
+    </com.dansejijie.library.widget.scrollview.CustomScrollView>
+</LinearLayout>

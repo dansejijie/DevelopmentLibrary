@@ -45,5 +45,5 @@ dependencies {
     compile "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
     compile project(':utils')
     compile project(':widget')
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
 }
