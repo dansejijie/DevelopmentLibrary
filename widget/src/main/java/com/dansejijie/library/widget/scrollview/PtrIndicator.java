@@ -1,6 +1,8 @@
 package com.dansejijie.library.widget.scrollview;
 
+import android.graphics.Point;
 import android.graphics.PointF;
+import android.graphics.Rect;
 import android.util.Log;
 
 /**
@@ -9,26 +11,264 @@ import android.util.Log;
 
 public class PtrIndicator {
 
+    public final static byte PTR_STATUS_INIT = 1;
+    private byte mStatus = PTR_STATUS_INIT;
+    public final static byte PTR_STATUS_PREPARE = 2;
+    public final static byte PTR_STATUS_READY_LOADING = 3;
+    public final static byte PTR_STATUS_LOADING = 4;
+    public final static byte PTR_STATUS_COMPLETE = 5;
+    private byte mFooterStatus=PTR_STATUS_INIT;
+
+    private boolean mPullToRefresh = false;
+    private boolean mPullToFooterRefresh=false;
+
     public final static int POS_START = 0;
-    protected int mOffsetToRefresh = 0;
+
+    private int mHeaderHeight;
+    private float mOffsetToRefreshFactor=0.65f;//到达一定高度，就可以判定可以刷新
+    private int mOffsetToRefresh = 0;
+
+    private int mViewHeight;//控件的高度
+
+    private int mScrollRangeY;
+
+    private Point mCurrentScrollPoint=new Point();
+
+    private Point mPreScrollPoint=new Point();
+
+    private boolean mIsUnderTouch = false;
+
+    private PtrUIHandler mPtrUIHandler;
+
+    private int mOverFlingDistance=300;
+
+    private boolean mOverScrollByMaxDistance=true;//设置过度滑动的时候，是选择默认值，还是fling和headview的最高高度
+
+    public void setPullToRefresh(boolean b){
+        mPullToRefresh=b;
+    }
+
+    public void setPullToFooterRefresh(boolean b){
+        mPullToFooterRefresh=b;
+    }
+
+    public boolean isPullToRefresh(){
+        return mPullToRefresh;
+    }
+
+    public boolean isPullToFooterRefresh(){
+        return mPullToFooterRefresh;
+    }
+
+    public boolean isRefreshStatusInit(){
+        return mStatus==PTR_STATUS_INIT;
+    }
+
+    public boolean isRefreshStatusPrepare(){
+        return mStatus==PTR_STATUS_PREPARE;
+    }
+
+    public boolean isRefreshStatusReadyLoading(){
+        return mStatus==PTR_STATUS_READY_LOADING;
+    }
+
+    public boolean isRefreshStatusLoading(){
+        return mStatus==PTR_STATUS_LOADING;
+    }
+
+    public boolean isRefreshStatusComplete(){
+        return mStatus==PTR_STATUS_COMPLETE;
+    }
+
+    public void setRefreshComplete(){
+        if (mStatus==PTR_STATUS_LOADING){
+            mStatus=PTR_STATUS_COMPLETE;
+            if (mCurrentScrollPoint.y>=POS_START){
+                mStatus=PTR_STATUS_INIT;
+                Log.i(TAG,"mStatus:"+mStatus+"currentScrollY:"+currentScrollY+"mOffsetToRefresh:"+mOffsetToRefresh);
+                return;
+            }
+            if (mPtrUIHandler!=null){
+                mPtrUIHandler.onUIRefreshComplete();
+            }
+            Log.i(TAG,"mStatus:"+mStatus+"currentScrollY:"+currentScrollY+"mOffsetToRefresh:"+mOffsetToRefresh);
+        }
+    }
+
+    public boolean isRefreshStatusFooterInit(){
+        return mFooterStatus==PTR_STATUS_INIT;
+    }
+
+    public void setRefreshFooterComplete(){
+        if (mFooterStatus==PTR_STATUS_LOADING){
+            mFooterStatus=PTR_STATUS_INIT;
+        }
+    }
+
+    public boolean isRefreshStatusFooterLoading(){
+        return mFooterStatus==PTR_STATUS_LOADING;
+    }
+
+    public void setHeaderHeight(int height) {
+        mHeaderHeight = height;
+        mOffsetToRefresh= (int) (mOffsetToRefreshFactor*mHeaderHeight);
+    }
+
+    public void setOffsetToRefreshFactor(float factor){
+        mOffsetToRefreshFactor=factor;
+        mOffsetToRefresh= (int) (mOffsetToRefreshFactor*mHeaderHeight);
+    }
+
+    public void setViewHeight(int height){
+        mViewHeight=height;
+    }
+
+    /**
+     * 重点要处理的
+     * @return
+     */
+    public int getOverScrollDistance(){
+
+
+        int overDistance=mOverFlingDistance;
+
+        if (mPullToRefresh||mPullToFooterRefresh){
+            if (mOverScrollByMaxDistance){
+                overDistance=Math.max(mOverFlingDistance,mHeaderHeight);
+            }
+        }
+
+//        if (mIsUnderTouch&&mPullToRefresh){
+//            overDistance=mHeaderHeight;
+//        }
+//        if (!mIsUnderTouch&&mPullToRefresh&&mStatus!=PTR_STATUS_INIT){
+//            overDistance=mHeaderHeight;
+//        }
+//        if (!mIsUnderTouch)
+//        if (mCurrentScrollPoint.y>mScrollRangeY){
+//            overDistance=mOverFlingDistance;
+//        }
+        return overDistance;
+    }
+
+    public int getOverScrollFlingDistance(){
+
+        return mOverFlingDistance;
+    }
+
+    public void setScrollRange(int range){
+        mScrollRangeY=range;
+    }
+
+    /**
+     * 重要函数，用来设置刷新状态变化
+     * @param currentScrollX
+     * @param currentScrollY 当前view的currentScrollY
+     */
+    public void setCurrentScrollPoint(int currentScrollX,int currentScrollY){
+
+        if (mPullToRefresh&&mHeaderHeight>0){
+            if (currentScrollY>=POS_START&&(mStatus==PTR_STATUS_PREPARE||mStatus==PTR_STATUS_COMPLETE)){
+                mStatus=PTR_STATUS_INIT;
+                if (mPtrUIHandler!=null){
+                    mPtrUIHandler.onUIReset();
+                }
+            }else if ((mStatus==PTR_STATUS_INIT&&currentScrollY<POS_START&&mIsUnderTouch)||(mStatus==PTR_STATUS_READY_LOADING&&currentScrollY<POS_START&&currentScrollY>-mOffsetToRefresh&&mIsUnderTouch)){
+                mStatus=PTR_STATUS_PREPARE;
+                if (mPtrUIHandler!=null){
+                    mPtrUIHandler.onUIRefreshPrepare();
+                }
+            }else if (mStatus==PTR_STATUS_PREPARE&&mIsUnderTouch&&currentScrollY<-mOffsetToRefresh){
+                mStatus=PTR_STATUS_READY_LOADING;
+                if (mPtrUIHandler!=null){
+                    mPtrUIHandler.onUIReleaseToRefresh();
+                }
+            }else if (!mIsUnderTouch&&mStatus==PTR_STATUS_READY_LOADING&&currentScrollY<=-mOffsetToRefresh){
+                mStatus=PTR_STATUS_LOADING;
+                if (mPtrUIHandler!=null){
+                    mPtrUIHandler.onUIRefreshBegin();
+                }
+            }
+
+        }
+        if (mPullToFooterRefresh&&mCurrentScrollPoint.y>mScrollRangeY){
+            if (mFooterStatus==PTR_STATUS_INIT){
+                mFooterStatus=PTR_STATUS_LOADING;
+                if (mPtrUIHandler!=null){
+                    mPtrUIHandler.onUIRefreshFooterBegin();
+                }
+            }
+        }
+
+        mCurrentScrollPoint.set(currentScrollX,currentScrollY);
+    }
+
+    /**
+     *
+     * @param preScrollX
+     * @param preScrollY 当前View将要移动到的ScrollY
+     */
+
+    public void setPreScrollPoint(int preScrollX,int preScrollY){
+        mPreScrollPoint.set(preScrollX,preScrollY);
+    }
+
+    public boolean isOverFooter(){
+        return mCurrentScrollPoint.y>mScrollRangeY;
+    }
+
+    public boolean isCrossRefreshLineFromTopToBottom() {
+        return mCurrentScrollPoint.y<-mOffsetToRefresh;
+    }
+
+    public boolean isOverRefreshLineFromBottomToTop(){
+        return mCurrentScrollPoint.y>-mOffsetToRefresh;
+    }
+
+    public boolean isOverTop() {
+        return mCurrentScrollPoint.y >= POS_START;
+    }
+
+    public boolean isUnderTop() {
+        return mCurrentScrollPoint.y < POS_START;
+    }
+
+
+    public boolean willOverTop(int to) {
+        return to < POS_START;
+    }
+
+    public boolean isUnderTouch() {
+        return mIsUnderTouch;
+    }
+
+
+    public void setPtrUIHandler(PtrUIHandler handler){
+        mPtrUIHandler=handler;
+    }
+
+    public void removePtrUIHandler(){
+        mPtrUIHandler=null;
+    }
+
+    public void setOverScrollByMaxDistance(boolean b){
+        mOverScrollByMaxDistance=b;
+    }
+
+
+
+
     private PointF mPtLastMove = new PointF();
     private float mOffsetX;
     private float mOffsetY;
     private int mCurrentPos = 0;
     private int mLastPos = 0;
-    private int mHeaderHeight;
+
     private int mPressedPos = 0;
 
     private float mResistance = 1.7f;
-    private boolean mIsUnderTouch = false;
-    private int mOffsetToKeepHeaderWhileLoading = -1;
-    // record the refresh complete position
-    private int mRefreshCompleteY = 0;
 
     private static final String TAG=PtrIndicator.class.getSimpleName();
-
-    //额外添加，用来判断滑动状态是否是自由滑动
-    private boolean isFling=false;
     //第一次点击的位置
     private PointF mFirstPressDown=new PointF();
 
@@ -37,78 +277,19 @@ public class PtrIndicator {
 
     //当前处理过的移动的距离，遵循根号的递增
     private PointF mProcessCurrentDelta=new PointF();
-    //控件大小
-    private int viewWidth=0;
-
-    private int viewHeight=0;
 
     private int heightFactor=0;//控件高度-头部高度
 
-    private int lastScrollY=0;
 
     private int currentScrollY=0;
 
-    private int rangeScrollY;
-
-    private float offsetToRefreshFactor=0.65f;
-
-
-    public void setScrollY(int scrollY){
-        lastScrollY=currentScrollY;
-        currentScrollY=scrollY;
-    }
-
-    public void setRangeScrollY(int range){
-        rangeScrollY=range;
-    }
-    public boolean isFling(){
-        return isFling;
-    }
-    //只在三个地方调用，一个是在onTouchEvent里的up事件的fling里设置fling，一个是onTouchEvent的down里的mScroll.abortAnimation();一个是在coumpteScrollOffset里的已完成动画
-    public void setFling(boolean b){
-        isFling=b;
-    }
-
-    public boolean isUnderTouch() {
-        return mIsUnderTouch;
-    }
-
-    public float getResistance() {
-        return mResistance;
-    }
-
-    public void setResistance(float resistance) {
-        mResistance = resistance;
-    }
-
-    public void onUIRefreshComplete() {
-        mRefreshCompleteY = mCurrentPos;
-    }
-
-    public boolean goDownCrossFinishPosition() {
-        return mCurrentPos >= mRefreshCompleteY;
-    }
 
     protected void processOnMove(float currentX, float currentY, float offsetX, float offsetY) {
         setOffset(offsetX, offsetY / mResistance);
     }
 
-    public void setRatioOfHeaderHeightToRefresh(float ratio) {
-        offsetToRefreshFactor = ratio;
-        mOffsetToRefresh = (int) (mHeaderHeight * ratio);
-    }
-
-    public float getRatioOfHeaderToHeightRefresh() {
-        return offsetToRefreshFactor;
-    }
-
     public int getOffsetToRefresh() {
         return mOffsetToRefresh;
-    }
-
-    public void setOffsetToRefresh(int offset) {
-        offsetToRefreshFactor = mHeaderHeight * 1f / offset;
-        mOffsetToRefresh = offset;
     }
 
     public void onPressDown(float x, float y) {
@@ -174,136 +355,14 @@ public class PtrIndicator {
         return mProcessCurrentDelta.y-mProcessLastDelta.y;
     }
 
-    public void setViewWidthAndHeight(int width,int height){
-        this.viewWidth=width;
-        this.viewHeight=height;
-    }
 
     protected void setOffset(float x, float y) {
         mOffsetX = x;
         mOffsetY = y;
     }
 
-    public float getOffsetX() {
-        return mOffsetX;
-    }
 
-    public float getOffsetY() {
-        return mOffsetY;
-    }
 
-    public int getLastPosY() {
-        return mLastPos;
-    }
 
-    public int getCurrentPosY() {
-        return mCurrentPos;
-    }
 
-    public float getOffsetToRefreshFactor(){
-        return offsetToRefreshFactor;
-    }
-
-    /**
-     * Update current position before update the UI
-     */
-    public final void setCurrentPos(int current) {
-        mLastPos = mCurrentPos;
-        mCurrentPos = current;
-        onUpdatePos(current, mLastPos);
-    }
-
-    protected void onUpdatePos(int current, int last) {
-
-    }
-
-    public int getHeaderHeight() {
-        return mHeaderHeight;
-    }
-
-    public void setHeaderHeight(int height) {
-        mHeaderHeight = height;
-        updateHeight();
-
-        heightFactor= (int) (mHeaderHeight*mHeaderHeight*1.0f/(viewHeight-mHeaderHeight)*1.5);
-    }
-
-    protected void updateHeight() {
-        mOffsetToRefresh = (int) (offsetToRefreshFactor * mHeaderHeight);
-        mOffsetToKeepHeaderWhileLoading=mOffsetToRefresh;
-    }
-
-    public void convertFrom(PtrIndicator ptrSlider) {
-        mCurrentPos = ptrSlider.mCurrentPos;
-        mLastPos = ptrSlider.mLastPos;
-        mHeaderHeight = ptrSlider.mHeaderHeight;
-    }
-
-    public boolean hasLeftStartPosition() {
-        return mCurrentPos > POS_START;
-    }
-
-    public boolean hasJustLeftStartPosition() {
-        return mLastPos == POS_START && hasLeftStartPosition();
-    }
-
-    public boolean hasJustBackToStartPosition() {
-        return mLastPos != POS_START && isInStartPosition();
-    }
-
-    public boolean isOverOffsetToRefresh() {
-        return mCurrentPos >= getOffsetToRefresh();
-    }
-
-    public boolean hasMovedAfterPressedDown() {
-        return mCurrentPos != mPressedPos;
-    }
-
-    public boolean isInStartPosition() {
-        return mCurrentPos == POS_START;
-    }
-
-    public boolean crossRefreshLineFromTopToBottom() {
-        //return mLastPos < getOffsetToRefresh() && mCurrentPos >= getOffsetToRefresh();
-        Log.i(TAG,"lastScrollY:"+lastScrollY+" currentScrollY:"+currentScrollY+" mHeaderHeight*0.8:"+mHeaderHeight*offsetToRefreshFactor);
-        return currentScrollY<-mHeaderHeight*offsetToRefreshFactor;
-    }
-
-    public boolean overRefreshLineFromBottomToTop(){
-        return currentScrollY>-mHeaderHeight*offsetToRefreshFactor;
-    }
-
-    public boolean hasJustReachedHeaderHeightFromTopToBottom() {
-        return mLastPos < mHeaderHeight && mCurrentPos >= mHeaderHeight;
-    }
-
-    public boolean isOverOffsetToKeepHeaderWhileLoading() {
-        return mCurrentPos > getOffsetToKeepHeaderWhileLoading();
-    }
-
-    public void setOffsetToKeepHeaderWhileLoading(int offset) {
-        mOffsetToKeepHeaderWhileLoading = offset;
-    }
-
-    public int getOffsetToKeepHeaderWhileLoading() {
-        return mOffsetToKeepHeaderWhileLoading >= 0 ? mOffsetToKeepHeaderWhileLoading : mHeaderHeight;
-    }
-
-    public boolean isAlreadyHere(int to) {
-        return mCurrentPos == to;
-    }
-
-    public float getLastPercent() {
-        final float oldPercent = mHeaderHeight == 0 ? 0 : mLastPos * 1f / mHeaderHeight;
-        return oldPercent;
-    }
-
-    public float getCurrentPercent() {
-        final float currentPercent = mHeaderHeight == 0 ? 0 : mCurrentPos * 1f / mHeaderHeight;
-        return currentPercent;
-    }
-
-    public boolean willOverTop(int to) {
-        return to < POS_START;
-    }
 }

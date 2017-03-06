@@ -14,28 +14,28 @@ public interface PtrUIHandler {
      *
      * @param frame
      */
-    public void onUIReset(ViewGroup frame);
+    public void onUIReset();
 
     /**
      * prepare for loading
      *
      * @param frame
      */
-    public void onUIRefreshPrepare(ViewGroup frame);
+    public void onUIRefreshPrepare();
 
-    public void onUIReleaseToRefresh(ViewGroup frame);
+    public void onUIReleaseToRefresh();
 
     /**
      * perform refreshing UI
      */
-    public void onUIRefreshBegin(ViewGroup frame);
+    public void onUIRefreshBegin();
 
     /**
      * perform UI after refresh
      */
-    public void onUIRefreshComplete(ViewGroup frame);
+    public void onUIRefreshComplete();
 
-    public void onUIPositionChange(ViewGroup frame, boolean isUnderTouch, byte status, PtrIndicator indicator);
+    public void onUIPositionChange();
 
-    public void onUIRefreshFooterBegin(ViewGroup frame);
+    public void onUIRefreshFooterBegin();
 }

@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import com.dansejijie.library.test.TestInputEvent;
+import com.dansejijie.library.test.TestScrollView;
 import com.dansejijie.library.widget.TestScrollViewActivity;
 
 import java.util.Arrays;
@@ -33,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-
     }
 
     private void initDatas() {
@@ -42,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TestScrollViewActivity.start(MainActivity.this);
+            }
+        }),new Action("testScrollViewTest", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TestScrollView.start(MainActivity.this);
+            }
+        }),new Action("testInputEvent",new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                TestInputEvent.start(MainActivity.this);
             }
         }));
     }

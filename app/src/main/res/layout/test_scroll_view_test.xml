@@ -2,26 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/test_scroll_view_vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="vertical"/>
-        <Button
-            android:id="@+id/test_scroll_view_horizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="horizontal"/>
-    </LinearLayout>
-
-    <com.dansejijie.library.widget.scrollview.TCustomScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/test_scroll_view_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,7 +16,7 @@
             android:paddingBottom="100dp"
             android:background="#929292"
             android:orientation="vertical">
-            <com.dansejijie.library.widget.scrollview.CustomScrollView
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:background="@color/colorPrimary">
@@ -52,9 +33,10 @@
                         android:layout_height="300dp"
                         android:background="#538254"/>
                 </LinearLayout>
-            </com.dansejijie.library.widget.scrollview.CustomScrollView>
+            </android.support.v4.widget.NestedScrollView>
 
         </LinearLayout>
 
-    </com.dansejijie.library.widget.scrollview.TCustomScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
 </LinearLayout>

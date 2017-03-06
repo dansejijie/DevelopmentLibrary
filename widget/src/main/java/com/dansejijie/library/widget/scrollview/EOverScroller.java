@@ -27,6 +27,7 @@ import android.view.ViewConfiguration;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
+import android.widget.OverScroller;
 
 /**
  * This class encapsulates scrolling with the ability to overshoot the bounds
@@ -34,6 +35,8 @@ import android.view.animation.Interpolator;
  * {@link android.widget.Scroller} in most cases.
  */
 public class EOverScroller {
+
+    private static final String TAG=EOverScroller.class.getSimpleName();
     private int mMode;
 
     private final SplineOverScroller mScrollerX;
@@ -46,8 +49,6 @@ public class EOverScroller {
     private static final int DEFAULT_DURATION = 250;
     private static final int SCROLL_MODE = 0;
     private static final int FLING_MODE = 1;
-
-
 
     /**
      * Creates an OverScroller with a viscous fluid scroll interpolator and flywheel.
@@ -608,7 +609,7 @@ public class EOverScroller {
 
         //用来ScrollView回滚时所用的时候
         private static final int FAST_BACK=200;
-        private static final int SLOW_BACK=2500;
+        private static final int SLOW_BACK=1500;
         private int back_time=SLOW_BACK;
 
         static {
@@ -693,6 +694,8 @@ public class EOverScroller {
             mCurrentPosition = mStart = start;
             mFinal = start + distance;
 
+            Log.i(TAG,"startScroll,mFinal:"+mFinal);
+
             mStartTime = AnimationUtils.currentAnimationTimeMillis();
             mDuration = duration;
 
@@ -705,12 +708,13 @@ public class EOverScroller {
             mCurrentPosition = mFinal;
             // Not reset since WebView relies on this value for fast fling.
             // TODO: restore when WebView uses the fast fling implemented in this class.
-            // mCurrVelocity = 0.0f;
+            mCurrVelocity = 0.0f;//TODO 原先是不设置0的，目的是为了连续滑动的时候，速度越来越快，我这里设置0，是为了容易判断当时是否处于fling:mScroller.getCurrentVelocity>0
             mFinished = true;
         }
 
         void setFinalPosition(int position) {
             mFinal = position;
+            Log.i(TAG,"setFinalPosition,mFinal:"+mFinal);
             mFinished = false;
         }
 
@@ -754,6 +758,8 @@ public class EOverScroller {
             if (back_time==FAST_BACK){
                 back_time=SLOW_BACK;
             }
+
+            Log.i(TAG,"startSpringback,mFinal:"+mFinal);
         }
 
         void fling(int start, int velocity, int min, int max, int over) {
@@ -790,6 +796,8 @@ public class EOverScroller {
                 adjustDuration(mStart, mFinal, max);
                 mFinal = max;
             }
+
+            Log.i(TAG,"fling,mFinal:"+mFinal);
         }
 
         private double getSplineDeceleration(int velocity) {
@@ -879,6 +887,7 @@ public class EOverScroller {
             mOver = (int) distance;
             mState = BALLISTIC;
             mFinal = mStart + (int) (mVelocity > 0 ? distance : -distance);
+            Log.i(TAG,"onEdgeReached,mFinal:"+mFinal);
             mDuration = -(int) (1000.0f * mVelocity / mDeceleration);
         }
 

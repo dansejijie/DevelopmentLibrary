@@ -3,17 +3,19 @@ package com.dansejijie.library.widget.scrollview;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
+import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.NestedScrollingChild;
+import android.support.v4.view.NestedScrollingChildHelper;
+import android.support.v4.view.NestedScrollingParent;
+import android.support.v4.view.NestedScrollingParentHelper;
+import android.support.v4.view.ScrollingView;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
-import android.view.Gravity;
 import android.view.InputDevice;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.OrientationEventListener;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -23,23 +25,26 @@ import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.OverScroller;
 import android.widget.ScrollView;
 
+import com.race604.flyrefresh.PullHeaderLayout;
+
 import java.util.List;
+
+import static android.support.v4.view.ViewCompat.SCROLL_AXIS_HORIZONTAL;
+import static android.support.v4.view.ViewCompat.SCROLL_AXIS_VERTICAL;
 
 /**
  * Created by tygzx on 17/2/28.
  */
 
-public abstract class AbstractScrollView extends ViewGroup{
+public abstract class AbstractScrollView extends ViewGroup implements NestedScrollingParent,NestedScrollingChild,ScrollingView{
 
     static final int ANIMATED_SCROLL_GAP = 250;
 
     static final float MAX_SCROLL_FACTOR = 0.5f;
 
-    private static final String TAG = "ScrollView";
+    public String TAG = AbstractScrollView.class.getSimpleName();
 
     private long mLastScroll;
 
@@ -93,7 +98,7 @@ public abstract class AbstractScrollView extends ViewGroup{
     private boolean mSmoothScrollingEnabled = true;
 
     private int mTouchSlop;
-    private int mMinimumVelocity;
+    protected int mMinimumVelocity;
     private int mMaximumVelocity;
 
     protected int mOverscrollDistance = 200;
@@ -124,6 +129,19 @@ public abstract class AbstractScrollView extends ViewGroup{
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;
     protected int orientation= VERTICAL;
+
+    protected NestedScrollingParentHelper mParentHelper;
+    protected NestedScrollingChildHelper mChildHelper;
+
+    protected boolean nestedScrollingAsParent=false;//作为嵌套父类，是否在滚动状态，子类实现NestedScrollingChild，在滚动时，设置为true
+
+    protected boolean parentHasNested=false;//在嵌套滑动里，判断在到达边时是否有过过度滑动（判断标准是父嵌套滑动距离为0）
+
+
+    protected boolean leftReachBoard,rightReachBoard,topReachBoard,bottomReachBoard;
+
+    //该状态用来描述当子View到达顶部时，若父View嵌套滑动过，则标记true,完整的事件是从startNestedScroll 到stopNestedScroll
+    protected boolean parentLeftHasNested,parentRightHasNested,parentTopHasNested,parentBottomHasNested;
 
 
 
@@ -209,7 +227,7 @@ public abstract class AbstractScrollView extends ViewGroup{
 
 
     protected void initScrollView() {
-        mScroller = new EOverScroller(getContext());
+        mScroller = new EOverScroller(getContext(),new CustomAccelerateDecelerate());
         setFocusable(true);
         setDescendantFocusability(FOCUS_AFTER_DESCENDANTS);
         setWillNotDraw(false);
@@ -217,6 +235,10 @@ public abstract class AbstractScrollView extends ViewGroup{
         mTouchSlop = configuration.getScaledTouchSlop();
         mMinimumVelocity = configuration.getScaledMinimumFlingVelocity();
         mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
+
+        mParentHelper = new NestedScrollingParentHelper(this);
+        mChildHelper = new NestedScrollingChildHelper(this);
+        setNestedScrollingEnabled(true);
     }
 
 
@@ -344,15 +366,15 @@ public abstract class AbstractScrollView extends ViewGroup{
                     break;
                 }
 
-                final int pointerIndex = ev.findPointerIndex(activePointerId);
+                final int pointerIndex = MotionEventCompat.findPointerIndex(ev, activePointerId);
                 if (pointerIndex == -1) {
                     Log.e(TAG, "Invalid pointerId=" + activePointerId
                             + " in onInterceptTouchEvent");
                     break;
                 }
 
-                final int y = (int) ev.getY(pointerIndex);
-                final int x = (int) ev.getX(pointerIndex);
+                final int y = (int) MotionEventCompat.getY(ev, pointerIndex);
+                final int x = (int) MotionEventCompat.getX(ev, pointerIndex);
                 final int yDiff = Math.abs(y - mLastMotionY);
                 final int xDiff = (int) Math.abs(x - mLastMotionX);
                 if (yDiff > mTouchSlop && (getNestedScrollAxes() & SCROLL_AXIS_VERTICAL) == 0||xDiff>mTouchSlop) {
@@ -384,11 +406,12 @@ public abstract class AbstractScrollView extends ViewGroup{
 
                 mLastMotionY = y;
                 mLastMotionX = x;
-                mActivePointerId = ev.getPointerId(0);
+                mActivePointerId = MotionEventCompat.getPointerId(ev, 0);
 
                 initOrResetVelocityTracker();
                 mVelocityTracker.addMovement(ev);
 
+                mScroller.computeScrollOffset();
                 mIsBeingDragged = !mScroller.isFinished();
 
                 if (orientation==VERTICAL){
@@ -407,9 +430,10 @@ public abstract class AbstractScrollView extends ViewGroup{
                 mActivePointerId = INVALID_POINTER;
                 recycleVelocityTracker();
                 if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRangeX(), 0,  getScrollRangeY())) {
-                    postInvalidateOnAnimation();
+                    ViewCompat.postInvalidateOnAnimation(this);
                 }
-                stopNestedScroll();
+                //Log.i(TAG,"onInterceptTouchEvent:UP or Cancel");
+                //stopNestedScroll();
                 break;
             case MotionEvent.ACTION_POINTER_DOWN: {
                 final int index = ev.getActionIndex();
@@ -439,7 +463,7 @@ public abstract class AbstractScrollView extends ViewGroup{
 
         MotionEvent vtev = MotionEvent.obtain(ev);
 
-        final int actionMasked = ev.getActionMasked();
+        final int actionMasked = MotionEventCompat.getActionMasked(ev);
 
         if (actionMasked == MotionEvent.ACTION_DOWN) {
             mNestedYOffset = 0;
@@ -470,28 +494,30 @@ public abstract class AbstractScrollView extends ViewGroup{
                 // Remember where the motion event started
                 mLastMotionY = (int) ev.getY();
                 mLastMotionX = (int) ev.getX();
-                mActivePointerId = ev.getPointerId(0);
+                mActivePointerId =  MotionEventCompat.getPointerId(ev, 0);
                 if (orientation==VERTICAL){
                     startNestedScroll(SCROLL_AXIS_VERTICAL);
                 }else {
                     startNestedScroll(SCROLL_AXIS_HORIZONTAL);
                 }
-
                 abstractOnTouchDown(ev);
 
                 break;
             }
             case MotionEvent.ACTION_MOVE:
-                final int activePointerIndex = ev.findPointerIndex(mActivePointerId);
+
+                Log.i(TAG,"Move");
+                final int activePointerIndex = MotionEventCompat.findPointerIndex(ev,
+                        mActivePointerId);
                 if (activePointerIndex == -1) {
-                    Log.e(TAG, "Invalid pointerId=" + mActivePointerId + " in onTouchEvent");
+                    //Log.e(TAG, "Invalid pointerId=" + mActivePointerId + " in onTouchEvent");
                     break;
                 }
 
                 abstractOnTouchMove(ev);
 
-                final int y = (int) ev.getY(activePointerIndex);
-                final int x = (int) ev.getX(activePointerIndex);
+                final int y = (int) MotionEventCompat.getY(ev, activePointerIndex);
+                final int x = (int) MotionEventCompat.getX(ev, activePointerIndex);
                 int deltaX = mLastMotionX - x;
                 int deltaY = mLastMotionY - y;
                 if (orientation==VERTICAL){
@@ -499,21 +525,43 @@ public abstract class AbstractScrollView extends ViewGroup{
                 }else if (orientation==HORIZONTAL){
                     deltaY=0;
                 }
+                //dispatchNestedPreScroll只有在子View到达边才会被调用
+                if (leftReachBoard&&deltaX<0||rightReachBoard&&deltaX>0||topReachBoard&&deltaY<0||bottomReachBoard&&deltaY>0){
 
-                if (dispatchNestedPreScroll(deltaX, deltaY, mScrollConsumed, mScrollOffset)) {
-                    deltaY -= mScrollConsumed[1];
-                    deltaX -= mScrollConsumed[0];
-                    vtev.offsetLocation(mScrollOffset[0], mScrollOffset[1]);
-                    mNestedYOffset += mScrollOffset[1];
-                    mNestedXOffset += mScrollOffset[0];
+                    if (dispatchNestedPreScroll(deltaX, deltaY, mScrollConsumed, mScrollOffset)) {
+                        deltaY -= mScrollConsumed[1];
+                        deltaX -= mScrollConsumed[0];
+                        vtev.offsetLocation(mScrollOffset[0], mScrollOffset[1]);
+                        mNestedYOffset += mScrollOffset[1];
+                        mNestedXOffset += mScrollOffset[0];
+
+                        if (orientation==VERTICAL){  //// TODO: 这里的正负要搞清楚，别弄错了
+                            if (mScrollConsumed[1]<0){
+                                parentTopHasNested=true;
+                            }else if (mScrollConsumed[1]>0){
+                                parentBottomHasNested=true;
+                            }
+                        }else {
+                            if (mScrollConsumed[0]<0){
+                                parentLeftHasNested=true;
+                            }else if (mScrollConsumed[0]>0){
+                                parentRightHasNested=true;
+                            }
+                        }
+                    }
+
                 }
+
 
                 int delta =orientation==VERTICAL? deltaY:deltaX;
                 if (!mIsBeingDragged && Math.abs(delta) > mTouchSlop) {
                     final ViewParent parent = getParent();
+                    Log.i(TAG,"onTouchEvent:requestDisallowInterceptTouchEvent before:deltaY:"+deltaY);
                     if (parent != null) {
+                        Log.i(TAG,"Move");
                         parent.requestDisallowInterceptTouchEvent(true);
                     }
+                    //Log.i(TAG,"onTouchEvent:requestDisallowInterceptTouchEvent later:deltaY:"+deltaY);
                     mIsBeingDragged = true;
                     if (delta > 0) {
                         delta -= mTouchSlop;
@@ -526,7 +574,7 @@ public abstract class AbstractScrollView extends ViewGroup{
                 }else if (orientation==HORIZONTAL){
                     deltaX=delta;
                 }
-
+                //Log.i(TAG,"onTouchEvent:mIsBeingDragged:"+mIsBeingDragged);
                 if (mIsBeingDragged) {
                     // Scroll to follow the motion event
                     mLastMotionY = y - mScrollOffset[1];
@@ -551,58 +599,43 @@ public abstract class AbstractScrollView extends ViewGroup{
                     final int scrolledDeltaX = getScrollX() - oldX;
                     final int unconsumedY = deltaY - scrolledDeltaY;
                     final int unconsumedX = deltaX - scrolledDeltaX;
+
+                    Log.i(TAG,"dispatchNestedScroll:unconsumedY:"+unconsumedY);
                     if (dispatchNestedScroll(scrolledDeltaX, scrolledDeltaY, unconsumedX, unconsumedY, mScrollOffset)) {
+                        parentHasNested=true;
                         mLastMotionY -= mScrollOffset[1];
                         mLastMotionX -= mScrollOffset[0];
                         vtev.offsetLocation(mScrollOffset[0], mScrollOffset[1]);
                         mNestedYOffset += mScrollOffset[1];
                         mNestedXOffset += mScrollOffset[0];
-                    }
+                    }/*else {
+                        if (abstractOverScrollBy(unconsumedX, unconsumedY, getScrollX(), getScrollY(), rangeX, rangeY, mOverscrollDistance, mOverscrollDistance, true)
+                                && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }*/
                 }
 
                 break;
             case MotionEvent.ACTION_UP:
+                abstractOnTouchUp();
                 if (mIsBeingDragged) {
                     final VelocityTracker velocityTracker = mVelocityTracker;
                     velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
                     int initialVelocityY = (int) velocityTracker.getYVelocity(mActivePointerId);
                     int initialVelocityX = (int) velocityTracker.getXVelocity(mActivePointerId);
-
-                    if (orientation==VERTICAL){
-                        if ((Math.abs(initialVelocityY) > mMinimumVelocity)) {
-                            flingWithNestedDispatch(0,-initialVelocityY);
-
-                        }else {
-                            abstractOnTouchUp();
-                        }
-                    }else {
-                        if ((Math.abs(initialVelocityX) > mMinimumVelocity) ) {
-                            flingWithNestedDispatch(-initialVelocityX,0);
-
-                        }else {
-                            abstractOnTouchUp();
-                        }
-                    }
-                    /*else if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRangeX(), 0,
-                            getScrollRangeY())) {
-                        postInvalidateOnAnimation();
-                    }*/
-                    mActivePointerId = INVALID_POINTER;
-                    endDrag();
-                }else {
-
+                    abstractOnTouchUpAndScroll(initialVelocityX,initialVelocityY);
                 }
+                mActivePointerId = INVALID_POINTER;
+                endDrag();
                 break;
             case MotionEvent.ACTION_CANCEL:
                 if (mIsBeingDragged && getChildCount() > 0) {
-
                     abstractOnTouchCancel();
-//                    if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRangeX(), 0, getScrollRangeY())) {
-//                        postInvalidateOnAnimation();
-//                    }
-                    mActivePointerId = INVALID_POINTER;
-                    endDrag();
                 }
+                mActivePointerId = INVALID_POINTER;
+                endDrag();
                 break;
             case MotionEvent.ACTION_POINTER_DOWN: {
                 final int index = ev.getActionIndex();
@@ -866,29 +899,42 @@ public abstract class AbstractScrollView extends ViewGroup{
         }
     }
 
-    private void flingWithNestedDispatch(int velocityX, int velocityY) {
+    protected boolean flingWithNestedDispatch(int velocityX, int velocityY) {
+        Log.i(TAG,"flingWithNestedDispatch");
 //        final boolean canFlingY = (getScrollY() > 0 || velocityY > 0) &&
 //                (getScrollY() < getScrollRangeY() || velocityY < 0);
 //        final boolean canFlingX = (getScrollX() > 0 || velocityX > 0) &&
 //                (getScrollX() < getScrollRangeX() || velocityX < 0);
-        final boolean canFlingY = true;
-        final boolean canFlingX = true;
 
+//        if (orientation==VERTICAL){
+//            if (!dispatchNestedPreFling(0, velocityY)) {
+//                dispatchNestedFling(0, velocityY, canFlingY);
+//                if (canFlingY) {
+//                    fling(velocityX,velocityY);
+//                }
+//            }
+//        }else {
+//            if (!dispatchNestedPreFling(velocityX, 0)) {
+//                dispatchNestedFling(velocityX, 0, canFlingX);
+//                if (canFlingX) {
+//                    fling(velocityX,velocityY);
+//                }
+//            }
+//        }
+//        return true;
+
+        final boolean canFlingX=true;
+        final boolean canFlingY=true;
         if (orientation==VERTICAL){
-            if (!dispatchNestedPreFling(0, velocityY)) {
-                dispatchNestedFling(0, velocityY, canFlingY);
-                if (canFlingY) {
-                    fling(velocityX,velocityY);
-                }
+            if (canFlingX){
+                fling(velocityX,velocityY);
             }
         }else {
-            if (!dispatchNestedPreFling(velocityX, 0)) {
-                dispatchNestedFling(velocityX, 0, canFlingX);
-                if (canFlingX) {
-                    fling(velocityX,velocityY);
-                }
+            if (canFlingY){
+                fling(velocityX,velocityY);
             }
         }
+        return true;
 
     }
 
@@ -904,24 +950,24 @@ public abstract class AbstractScrollView extends ViewGroup{
             return;
         }
         if (orientation==VERTICAL){
-            dy=0;
-        }else {
             dx=0;
+        }else {
+            dy=0;
         }
         long duration = AnimationUtils.currentAnimationTimeMillis() - mLastScroll;
         if (duration > ANIMATED_SCROLL_GAP) {
-            final int height = getHeight() - getPaddingBottom() - getPaddingTop();
-            final int bottom = abstractGetContentView().getHeight();
-            final int maxY = Math.max(0, bottom - height);
-            final int scrollY = getScrollY();
-
-            final int width = getWidth() - getPaddingRight() - getPaddingLeft();
-            final int right = abstractGetContentView().getWidth();
-            final int maxX = Math.max(0,right - width);
-            final int scrollX = getScrollX();
-            dy = Math.max(0, Math.min(scrollY + dy, maxY)) - scrollY;
-            dx = Math.max(0,Math.min(scrollX + dx, maxX)) - scrollX;
-            mScroller.startScroll(getScrollX(), scrollY, dx, dy);
+//            final int height = getHeight() - getPaddingBottom() - getPaddingTop();
+//            final int bottom = abstractGetContentView().getHeight();
+//            final int maxY = Math.max(0, bottom - height);
+//            final int scrollY = getScrollY();
+//
+//            final int width = getWidth() - getPaddingRight() - getPaddingLeft();
+//            final int right = abstractGetContentView().getWidth();
+//            final int maxX = Math.max(0,right - width);
+//            final int scrollX = getScrollX();
+//            dy = Math.max(0, Math.min(scrollY + dy, maxY)) - scrollY;
+//            dx = Math.max(0,Math.min(scrollX + dx, maxX)) - scrollX;
+            mScroller.startScroll(getScrollX(), getScrollY(), dx, dy);
 
             postInvalidateOnAnimation();
         } else {
@@ -960,7 +1006,7 @@ public abstract class AbstractScrollView extends ViewGroup{
      * children.</p>
      */
     @Override
-    protected int computeVerticalScrollRange() {
+    public int computeVerticalScrollRange() {
         final int count = getChildCount();
         final int contentHeight = getHeight() - getPaddingBottom() - getPaddingTop();
         if (count == 0) {
@@ -980,8 +1026,13 @@ public abstract class AbstractScrollView extends ViewGroup{
     }
 
     @Override
-    protected int computeVerticalScrollOffset() {
+    public int computeVerticalScrollOffset() {
         return Math.max(0, super.computeVerticalScrollOffset());
+    }
+
+    @Override
+    public int computeVerticalScrollExtent() {
+        return super.computeVerticalScrollExtent();
     }
 
     /**
@@ -989,7 +1040,7 @@ public abstract class AbstractScrollView extends ViewGroup{
      * children.</p>
      */
     @Override
-    protected int computeHorizontalScrollRange() {
+    public int computeHorizontalScrollRange() {
         final int count = getChildCount();
         final int contentWidth = getWidth() - getPaddingLeft() - getPaddingRight();
         if (count == 0) {
@@ -1009,13 +1060,18 @@ public abstract class AbstractScrollView extends ViewGroup{
     }
 
     @Override
-    protected int computeHorizontalScrollOffset() {
+    public int computeHorizontalScrollOffset() {
         return Math.max(0, super.computeHorizontalScrollOffset());
     }
 
     @Override
+    public int computeHorizontalScrollExtent() {
+        return super.computeHorizontalScrollExtent();
+    }
+
+    @Override
     public void computeScroll() {
-        Log.i(TAG, "computeScroll");
+        //Log.i(TAG, "computeScroll");
         if (mScroller.computeScrollOffset()) {
             // This is called at drawing time by ViewGroup.  We don't want to
             // re-show the scrollbars at this point, which scrollTo will do,
@@ -1037,6 +1093,8 @@ public abstract class AbstractScrollView extends ViewGroup{
             int oldY = getScrollY();
             int x = mScroller.getCurrX();
             int y = mScroller.getCurrY();
+
+            Log.i(TAG,"mFinalX:"+mScroller.getFinalX());
 
             if (oldX != x || oldY != y) {
                 final int rangeX = getScrollRangeX();
@@ -1063,7 +1121,7 @@ public abstract class AbstractScrollView extends ViewGroup{
             }
         } else {
 
-            Log.i(TAG,"computeScroll:died");
+            //Log.i(TAG,"computeScroll:died");
         }
     }
 
@@ -1365,18 +1423,15 @@ public abstract class AbstractScrollView extends ViewGroup{
             int bottom = abstractGetContentView().getHeight();
 
             int width = getWidth() - getPaddingRight() - getPaddingLeft();
-            int right = abstractGetContentView().getRight();
+            int right = abstractGetContentView().getWidth();
 
             if (orientation==VERTICAL){
-                mScroller.fling(getScrollX(), getScrollY(), 0, velocityY, 0, 0, 0,
-                        Math.max(0, bottom - height), 0, height / 2);
+                mScroller.fling(getScrollX(), getScrollY(), 0, velocityY, 0, 0, 0, Math.max(0, bottom - height), 0, height / 2);
                 postInvalidateOnAnimation();
             }else {
-                mScroller.fling(getScrollX(), getScrollY(), velocityX, 0, 0, 0, 0,
-                        Math.max(0, right - width), 0, width / 2);
+                mScroller.fling(getScrollX(), getScrollY(), velocityX, 0, 0, Math.max(0, right - width), 0, 0, width / 2, 0);
                 postInvalidateOnAnimation();
             }
-
 
         }
     }
@@ -1384,6 +1439,7 @@ public abstract class AbstractScrollView extends ViewGroup{
     private void endDrag() {
         mIsBeingDragged = false;
         recycleVelocityTracker();
+        stopNestedScroll();
     }
 
 //    /**
@@ -1405,6 +1461,12 @@ public abstract class AbstractScrollView extends ViewGroup{
 //
 //    }
 
+
+    @Override
+    public void scrollBy(int x, int y) {
+        abstractScrollTo(getScrollX() + x, getScrollY() + y);
+    }
+
     @Override
     public void setOverScrollMode(int mode) {
         super.setOverScrollMode(mode);
@@ -1412,6 +1474,7 @@ public abstract class AbstractScrollView extends ViewGroup{
 
     @Override
     public void draw(Canvas canvas) {
+        abstractDraw(canvas);
         super.draw(canvas);
     }
 
@@ -1560,6 +1623,171 @@ public abstract class AbstractScrollView extends ViewGroup{
         this.orientation=orientation;
     }
 
+
+    //子类
+    @Override
+    public void setNestedScrollingEnabled(boolean enabled) {
+        //Log.i(TAG,"setNestedScrollingEnabled");
+        mChildHelper.setNestedScrollingEnabled(enabled);
+    }
+
+    @Override
+    public boolean isNestedScrollingEnabled() {
+        //Log.i(TAG,"isNestedScrollingEnabled");
+        return mChildHelper.isNestedScrollingEnabled();
+    }
+
+    @Override
+    public boolean startNestedScroll(int axes) {
+
+        resetParentHasNestedStateWhenChildReachBoard();
+        return mChildHelper.startNestedScroll(axes);
+    }
+
+    @Override
+    public void stopNestedScroll() {
+        resetParentHasNestedStateWhenChildReachBoard();
+        mChildHelper.stopNestedScroll();
+    }
+
+    @Override
+    public boolean hasNestedScrollingParent() {
+        //Log.i(TAG,"hasNestedScrollingParent");
+        return mChildHelper.hasNestedScrollingParent();
+    }
+
+    @Override
+    public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow) {
+        //Log.i(TAG,"dispatchNestedScroll");
+        return mChildHelper.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed,
+                offsetInWindow);
+    }
+
+    @Override
+    public boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow) {
+        //Log.i(TAG,"dispatchNestedPreScroll");
+        return mChildHelper.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow);
+    }
+
+    @Override
+    public boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed) {
+
+        return mChildHelper.dispatchNestedFling(velocityX, velocityY, consumed);
+    }
+
+    @Override
+    public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
+        return false;
+        //return mChildHelper.dispatchNestedPreFling(velocityX, velocityY);
+    }
+
+
+    //父类
+    @Override
+    public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
+
+        nestedScrollingAsParent=true;
+
+        //Log.i(TAG,"onStartNestedScroll");
+        if (orientation==VERTICAL){
+            return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
+        }else {
+            return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_HORIZONTAL) != 0;
+        }
+    }
+
+    @Override
+    public void onNestedScrollAccepted(View child, View target, int nestedScrollAxes) {
+        //Log.i(TAG,"onNestedScrollAccepted");
+        mParentHelper.onNestedScrollAccepted(child, target, nestedScrollAxes);
+
+        if (orientation==VERTICAL){
+            startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
+        }else {
+            startNestedScroll(ViewCompat.SCROLL_AXIS_HORIZONTAL);
+        }
+
+    }
+
+    @Override
+    public void onStopNestedScroll(View target) {
+        nestedScrollingAsParent=false;
+        mParentHelper.onStopNestedScroll(target);
+        stopNestedScroll();
+    }
+
+    @Override
+    public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
+
+        Log.i(TAG,"onNestedScroll:dyUnconsumed:"+dyUnconsumed+" dyConsumed:"+dyConsumed);
+        abstractOnNestedScroll(target,dxConsumed,dyConsumed,dxUnconsumed,dyUnconsumed);
+
+    }
+
+    @Override
+    public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
+
+        //用来处理在嵌套滑动中，若是父类，则不过度滑动
+
+        Log.i(TAG,"onNestedPreScroll"+" dy:"+dy);
+        if (orientation==VERTICAL){
+            if (getScrollY()+dy<0){
+                dy=-getScrollY();
+            }else if (getScrollY()+dy>getScrollRangeY()){
+                dy=getScrollRangeY()-getScrollY();
+            }
+        }else {
+            if (getScrollX()+dx<0){
+                dx=-getScrollX();
+            }else if (getScrollX()+dx>getScrollRangeX()){
+                dx=getScrollRangeX()-getScrollX();
+            }
+        }
+
+        int oldScrollX=getScrollX();
+        int oldScrollY=getScrollY();
+        abstractOverScrollBy(dx,dy,getScrollX(),getScrollY(),getScrollRangeX(),getScrollRangeY(),mOverscrollDistance,mOverflingDistance,true);
+
+        int deltaX=getScrollX()-oldScrollX;
+        int deltaY=getScrollY()-oldScrollY;
+
+        consumed[0]=deltaX;
+        consumed[1]=deltaY;
+    }
+
+    @Override
+    public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed) {
+        if (!consumed) {
+            flingWithNestedDispatch((int) velocityX,(int) velocityY);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
+        return flingWithNestedDispatch((int) velocityX,(int) velocityY);
+    }
+
+    @Override
+    public int getNestedScrollAxes() {
+        return mParentHelper.getNestedScrollAxes();
+    }
+
+
+    //重置父View嵌套状态，该状态用来描述当子View到达顶部时，若父View嵌套滑动过，则标记true
+    protected void resetParentHasNestedStateWhenChildReachBoard(){//为了这个把interceptedTouchEvent的stopNestedScroll注释掉了
+        parentRightHasNested=false;
+        parentLeftHasNested=false;
+        parentBottomHasNested=false;
+        parentTopHasNested=false;
+
+        leftReachBoard=false;
+        rightReachBoard=false;
+        topReachBoard=false;
+        bottomReachBoard=false;
+    }
+
     protected abstract void abstractMeasureChild(View child, int parentWidthMeasureSpec, int parentHeightMeasureSpec);
 
     protected abstract void abstractMeasureChildWithMargins(View child, int parentWidthMeasureSpec, int widthUsed,int parentHeightMeasureSpec, int heightUsed);
@@ -1604,5 +1832,13 @@ public abstract class AbstractScrollView extends ViewGroup{
 
     protected abstract void abstractOnTouchUp();
 
+    protected abstract void abstractOnTouchUpAndScroll(int vx,int vy);
+
     protected abstract void abstractOnTouchCancel();
+
+    protected abstract void abstractDraw(Canvas canvas);
+
+    protected abstract void abstractOnNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed);
+
+    protected abstract void abstractOnNestedPreScroll(View target,int dx,int dy,int[]consumed);
 }

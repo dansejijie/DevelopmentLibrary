@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".widget.TestScrollViewActivity"></activity>
+        <activity android:name=".test.TestScrollView"></activity>
+        <activity android:name=".test.TestInputEvent"></activity>
     </application>
 
 </manifest>
