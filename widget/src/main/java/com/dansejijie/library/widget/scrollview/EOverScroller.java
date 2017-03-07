@@ -708,8 +708,11 @@ public class EOverScroller {
             mCurrentPosition = mFinal;
             // Not reset since WebView relies on this value for fast fling.
             // TODO: restore when WebView uses the fast fling implemented in this class.
-            mCurrVelocity = 0.0f;//TODO 原先是不设置0的，目的是为了连续滑动的时候，速度越来越快，我这里设置0，是为了容易判断当时是否处于fling:mScroller.getCurrentVelocity>0
+            //mCurrVelocity = 0.0f;
             mFinished = true;
+
+            fling=false;
+
         }
 
         void setFinalPosition(int position) {
@@ -729,6 +732,7 @@ public class EOverScroller {
             mFinished = true;
 
             mCurrentPosition = mStart = mFinal = start;
+
             mVelocity = 0;
 
             mStartTime = AnimationUtils.currentAnimationTimeMillis();
@@ -955,6 +959,7 @@ public class EOverScroller {
 
                     distance = distanceCoef * mSplineDistance;
                     mCurrVelocity = velocityCoef * mSplineDistance / mSplineDuration * 1000.0f;
+                    fling=true;
                     break;
                 }
 
@@ -987,6 +992,12 @@ public class EOverScroller {
         public void setBackTime(int back){
             back_time=back;
         }
+
+        //自定义函数，表面当前在flying
+        private boolean fling=false;
+        public boolean isFling(){
+            return fling;
+        }
     }
 
     /**
@@ -996,6 +1007,10 @@ public class EOverScroller {
     public void setBackTime(int back){
         mScrollerX.setBackTime(back);
         mScrollerY.setBackTime(back);
+    }
+
+    public boolean isFling(){
+        return mScrollerX.isFling()||mScrollerY.isFling();
     }
 
 }

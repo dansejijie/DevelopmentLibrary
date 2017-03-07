@@ -133,18 +133,15 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     protected NestedScrollingParentHelper mParentHelper;
     protected NestedScrollingChildHelper mChildHelper;
 
-    protected boolean nestedScrollingAsParent=false;//作为嵌套父类，是否在滚动状态，子类实现NestedScrollingChild，在滚动时，设置为true
-
-    protected boolean parentHasNested=false;//在嵌套滑动里，判断在到达边时是否有过过度滑动（判断标准是父嵌套滑动距离为0）
-
-
     protected boolean leftReachBoard,rightReachBoard,topReachBoard,bottomReachBoard;
 
-    //该状态用来描述当子View到达顶部时，若父View嵌套滑动过，则标记true,完整的事件是从startNestedScroll 到stopNestedScroll
     protected boolean parentLeftHasNested,parentRightHasNested,parentTopHasNested,parentBottomHasNested;
 
+    protected boolean notifiedScrollingAsParent=false;//被子View通知过嵌套滑动，则不再过渡滑动
 
+    protected boolean notifiedScrollingFlingAsParent=false;
 
+    //protected int notifiedScrollingByChildViewId=-1;//通知父嵌套滑动的子ViewId
 
     public AbstractScrollView(Context context) {
         this(context, null);
@@ -473,6 +470,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
         switch (actionMasked) {
             case MotionEvent.ACTION_DOWN: {
+                notifiedScrollingAsParent=false;
                 if (getChildCount() == 0) {
                     return false;
                 }
@@ -529,6 +527,9 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 if (leftReachBoard&&deltaX<0||rightReachBoard&&deltaX>0||topReachBoard&&deltaY<0||bottomReachBoard&&deltaY>0){
 
                     if (dispatchNestedPreScroll(deltaX, deltaY, mScrollConsumed, mScrollOffset)) {
+
+                        Log.i(TAG,"dispatchNestedPreScroll:mScrollOffsetY:"+mScrollOffset[1]);
+
                         deltaY -= mScrollConsumed[1];
                         deltaX -= mScrollConsumed[0];
                         vtev.offsetLocation(mScrollOffset[0], mScrollOffset[1]);
@@ -602,23 +603,21 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
                     Log.i(TAG,"dispatchNestedScroll:unconsumedY:"+unconsumedY);
                     if (dispatchNestedScroll(scrolledDeltaX, scrolledDeltaY, unconsumedX, unconsumedY, mScrollOffset)) {
-                        parentHasNested=true;
+
+                        Log.i(TAG,"dispatchNestedScroll:mScrollOffset:"+mScrollOffset[1]);
                         mLastMotionY -= mScrollOffset[1];
                         mLastMotionX -= mScrollOffset[0];
+
+                        Log.i(TAG,"mLastMotionY:"+mLastMotionY);
                         vtev.offsetLocation(mScrollOffset[0], mScrollOffset[1]);
                         mNestedYOffset += mScrollOffset[1];
                         mNestedXOffset += mScrollOffset[0];
-                    }/*else {
-                        if (abstractOverScrollBy(unconsumedX, unconsumedY, getScrollX(), getScrollY(), rangeX, rangeY, mOverscrollDistance, mOverscrollDistance, true)
-                                && !hasNestedScrollingParent()) {
-                            // Break our velocity if we hit a scroll barrier.
-                            mVelocityTracker.clear();
-                        }
-                    }*/
+                    }
                 }
 
                 break;
             case MotionEvent.ACTION_UP:
+                Log.e(TAG,"onTouchEvent:Up");
                 abstractOnTouchUp();
                 if (mIsBeingDragged) {
                     final VelocityTracker velocityTracker = mVelocityTracker;
@@ -1624,7 +1623,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     }
 
 
-    //子类
+    //子View
     @Override
     public void setNestedScrollingEnabled(boolean enabled) {
         //Log.i(TAG,"setNestedScrollingEnabled");
@@ -1646,6 +1645,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public void stopNestedScroll() {
+
         resetParentHasNestedStateWhenChildReachBoard();
         mChildHelper.stopNestedScroll();
     }
@@ -1682,12 +1682,10 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     }
 
 
-    //父类
+    //父View
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
-
-        nestedScrollingAsParent=true;
-
+        notifiedScrollingAsParent=true;
         //Log.i(TAG,"onStartNestedScroll");
         if (orientation==VERTICAL){
             return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
@@ -1711,7 +1709,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public void onStopNestedScroll(View target) {
-        nestedScrollingAsParent=false;
+        notifiedScrollingAsParent=false;
         mParentHelper.onStopNestedScroll(target);
         stopNestedScroll();
     }
@@ -1720,7 +1718,9 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
 
         Log.i(TAG,"onNestedScroll:dyUnconsumed:"+dyUnconsumed+" dyConsumed:"+dyConsumed);
+
         abstractOnNestedScroll(target,dxConsumed,dyConsumed,dxUnconsumed,dyUnconsumed);
+
 
     }
 
@@ -1728,7 +1728,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
 
         //用来处理在嵌套滑动中，若是父类，则不过度滑动
-
         Log.i(TAG,"onNestedPreScroll"+" dy:"+dy);
         if (orientation==VERTICAL){
             if (getScrollY()+dy<0){
@@ -1758,7 +1757,27 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     @Override
     public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed) {
         if (!consumed) {
+
+            int oldScrollX=getScrollX();
+            int oldScrollY=getScrollY();
             flingWithNestedDispatch((int) velocityX,(int) velocityY);
+
+            int deltaY=getScrollY()-oldScrollY;
+            int deltaX=getScrollX()-oldScrollX;
+            if (deltaY<0){
+                parentTopHasNested=true;
+            }else if (deltaY>0){
+                parentBottomHasNested=true;
+            }
+
+            if (deltaX<0){
+                parentLeftHasNested=true;
+            }else if (deltaX>0){
+                parentRightHasNested=true;
+            }
+
+            notifiedScrollingFlingAsParent=true;
+
             return true;
         }
         return false;
@@ -1766,7 +1785,29 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
-        return flingWithNestedDispatch((int) velocityX,(int) velocityY);
+
+        int oldScrollX=getScrollX();
+        int oldScrollY=getScrollY();
+
+        boolean b= flingWithNestedDispatch((int) velocityX,(int) velocityY);
+
+        int deltaY=getScrollY()-oldScrollY;
+        int deltaX=getScrollX()-oldScrollX;
+        if (deltaY<0){
+            parentTopHasNested=true;
+        }else if (deltaY>0){
+            parentBottomHasNested=true;
+        }
+
+        if (deltaX<0){
+            parentLeftHasNested=true;
+        }else if (deltaX>0){
+            parentRightHasNested=true;
+        }
+
+
+        return b;
+
     }
 
     @Override
@@ -1777,11 +1818,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     //重置父View嵌套状态，该状态用来描述当子View到达顶部时，若父View嵌套滑动过，则标记true
     protected void resetParentHasNestedStateWhenChildReachBoard(){//为了这个把interceptedTouchEvent的stopNestedScroll注释掉了
-        parentRightHasNested=false;
-        parentLeftHasNested=false;
-        parentBottomHasNested=false;
-        parentTopHasNested=false;
-
         leftReachBoard=false;
         rightReachBoard=false;
         topReachBoard=false;
