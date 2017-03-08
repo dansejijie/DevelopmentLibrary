@@ -42,8 +42,8 @@ public class TestScrollViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_scroll_view);
-        customScrollView= (TCustomScrollView) findViewById(R.id.test_scroll_view_view);
-        customScrollView.TAG="TCustomScrollView";
+//        customScrollView= (TCustomScrollView) findViewById(R.id.test_scroll_view_view);
+//        customScrollView.TAG="TCustomScrollView";
 //        linearLayout= (LinearLayout) findViewById(R.id.test_scroll_view_container);
 //        verticalBtn= (Button) findViewById(R.id.test_scroll_view_vertical);
 //        horizontalBtn= (Button) findViewById(R.id.test_scroll_view_horizontal);

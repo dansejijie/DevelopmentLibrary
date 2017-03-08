@@ -10,6 +10,7 @@ import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ScrollingView;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -25,14 +26,10 @@ import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
-import android.widget.ScrollView;
 
-import com.race604.flyrefresh.PullHeaderLayout;
+import com.orhanobut.logger.Logger;
 
 import java.util.List;
-
-import static android.support.v4.view.ViewCompat.SCROLL_AXIS_HORIZONTAL;
-import static android.support.v4.view.ViewCompat.SCROLL_AXIS_VERTICAL;
 
 /**
  * Created by tygzx on 17/2/28.
@@ -236,6 +233,8 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
         mParentHelper = new NestedScrollingParentHelper(this);
         mChildHelper = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
+
+        Logger.init(TAG).methodCount(3).methodOffset(2);
     }
 
 
@@ -348,6 +347,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
         switch (action & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_MOVE: {
+                Logger.d("%s onInterceptTouchEvent:ACTION_MOVE",TAG);
                 /*
                  * mIsBeingDragged == false, otherwise the shortcut would have caught it. Check
                  * whether the user has moved far enough from his original down touch.
@@ -374,9 +374,10 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 final int x = (int) MotionEventCompat.getX(ev, pointerIndex);
                 final int yDiff = Math.abs(y - mLastMotionY);
                 final int xDiff = (int) Math.abs(x - mLastMotionX);
-                if (yDiff > mTouchSlop && (getNestedScrollAxes() & SCROLL_AXIS_VERTICAL) == 0||xDiff>mTouchSlop) {
+                if ((yDiff > mTouchSlop &&orientation==VERTICAL&&(getNestedScrollAxes() & SCROLL_AXIS_VERTICAL) == 0/*)||(xDiff>mTouchSlop&&orientation==HORIZONTAL&&(getNestedScrollAxes()&SCROLL_AXIS_HORIZONTAL)==0*/)) {
                     mIsBeingDragged = true;
                     mLastMotionY = y;
+
                     mLastMotionX = x;
                     initVelocityTrackerIfNotExists();
                     mVelocityTracker.addMovement(ev);
@@ -384,14 +385,16 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                     mNestedXOffset = 0;
                     final ViewParent parent = getParent();
                     if (parent != null) {
+                        Logger.e("%s onInterceptTouchEvent:requestDisallowInterceptTouchEvent:before",TAG);
                         parent.requestDisallowInterceptTouchEvent(true);
+                        Logger.e("%s onInterceptTouchEvent:requestDisallowInterceptTouchEvent:after",TAG);
                     }
                 }
                 break;
             }
 
             case MotionEvent.ACTION_DOWN: {
-
+                Logger.d("%s onInterceptTouchEvent:ACTION_DOWN",TAG);
                 final int y = (int) ev.getY();
                 final int x = (int) ev.getX();
 
@@ -421,6 +424,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
             }
 
             case MotionEvent.ACTION_CANCEL:
+                Logger.d("%s onInterceptTouchEvent:ACTION_CANCEL",TAG);
             case MotionEvent.ACTION_UP:
                 /* Release the drag */
                 mIsBeingDragged = false;
@@ -429,10 +433,11 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 if (mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRangeX(), 0,  getScrollRangeY())) {
                     ViewCompat.postInvalidateOnAnimation(this);
                 }
-                //Log.i(TAG,"onInterceptTouchEvent:UP or Cancel");
+
                 //stopNestedScroll();
                 break;
             case MotionEvent.ACTION_POINTER_DOWN: {
+                Logger.d("%s onInterceptTouchEvent:ACTION_POINTER_DOWN",TAG);
                 final int index = ev.getActionIndex();
                 mLastMotionX = (int) ev.getX(index);
                 mLastMotionY= (int) ev.getY(index);
@@ -440,6 +445,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 break;
             }
             case MotionEvent.ACTION_POINTER_UP:
+                Logger.d("%s onInterceptTouchEvent:ACTION_POINTER_UP",TAG);
                 onSecondaryPointerUp(ev);
                 mLastMotionX = (int) ev.getX(ev.findPointerIndex(mActivePointerId));
                 mLastMotionY=(int)ev.getY(ev.findPointerIndex(mActivePointerId));
@@ -470,6 +476,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
         switch (actionMasked) {
             case MotionEvent.ACTION_DOWN: {
+                Logger.d("%s onTouchEvent:ACTION_DOWN",TAG);
                 notifiedScrollingAsParent=false;
                 if (getChildCount() == 0) {
                     return false;
@@ -499,16 +506,17 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                     startNestedScroll(SCROLL_AXIS_HORIZONTAL);
                 }
                 abstractOnTouchDown(ev);
-
+                Logger.e("%s onTouchEvent:mIsBeingDragged:%s",TAG,mIsBeingDragged+" ");
                 break;
             }
             case MotionEvent.ACTION_MOVE:
 
-                Log.i(TAG,"Move");
+                Logger.d("%s onTouchEvent:ACTION_MOVE",TAG);
+
                 final int activePointerIndex = MotionEventCompat.findPointerIndex(ev,
                         mActivePointerId);
                 if (activePointerIndex == -1) {
-                    //Log.e(TAG, "Invalid pointerId=" + mActivePointerId + " in onTouchEvent");
+                    Log.e(TAG, "Invalid pointerId=" + mActivePointerId + " in onTouchEvent");
                     break;
                 }
 
@@ -518,6 +526,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 final int x = (int) MotionEventCompat.getX(ev, activePointerIndex);
                 int deltaX = mLastMotionX - x;
                 int deltaY = mLastMotionY - y;
+
                 if (orientation==VERTICAL){
                     deltaX=0;
                 }else if (orientation==HORIZONTAL){
@@ -528,7 +537,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
                     if (dispatchNestedPreScroll(deltaX, deltaY, mScrollConsumed, mScrollOffset)) {
 
-                        Log.i(TAG,"dispatchNestedPreScroll:mScrollOffsetY:"+mScrollOffset[1]);
+
 
                         deltaY -= mScrollConsumed[1];
                         deltaX -= mScrollConsumed[0];
@@ -557,12 +566,13 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 int delta =orientation==VERTICAL? deltaY:deltaX;
                 if (!mIsBeingDragged && Math.abs(delta) > mTouchSlop) {
                     final ViewParent parent = getParent();
-                    Log.i(TAG,"onTouchEvent:requestDisallowInterceptTouchEvent before:deltaY:"+deltaY);
+
                     if (parent != null) {
-                        Log.i(TAG,"Move");
+                        Logger.e("%s onTouchEvent:requestDisallowInterceptTouchEvent:before",TAG);
                         parent.requestDisallowInterceptTouchEvent(true);
+                        Logger.e("%s onTouchEvent:requestDisallowInterceptTouchEvent:after",TAG);
                     }
-                    //Log.i(TAG,"onTouchEvent:requestDisallowInterceptTouchEvent later:deltaY:"+deltaY);
+
                     mIsBeingDragged = true;
                     if (delta > 0) {
                         delta -= mTouchSlop;
@@ -601,23 +611,24 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                     final int unconsumedY = deltaY - scrolledDeltaY;
                     final int unconsumedX = deltaX - scrolledDeltaX;
 
-                    Log.i(TAG,"dispatchNestedScroll:unconsumedY:"+unconsumedY);
                     if (dispatchNestedScroll(scrolledDeltaX, scrolledDeltaY, unconsumedX, unconsumedY, mScrollOffset)) {
 
-                        Log.i(TAG,"dispatchNestedScroll:mScrollOffset:"+mScrollOffset[1]);
+
                         mLastMotionY -= mScrollOffset[1];
                         mLastMotionX -= mScrollOffset[0];
 
-                        Log.i(TAG,"mLastMotionY:"+mLastMotionY);
                         vtev.offsetLocation(mScrollOffset[0], mScrollOffset[1]);
                         mNestedYOffset += mScrollOffset[1];
                         mNestedXOffset += mScrollOffset[0];
                     }
+
+                    mScrollOffset[0]=0;//todo 这里自己添加的，解决加速上滑的问题
+                    mScrollOffset[1]=0;
                 }
 
                 break;
             case MotionEvent.ACTION_UP:
-                Log.e(TAG,"onTouchEvent:Up");
+                Logger.d("%s onTouchEvent:ACTION_UP",TAG);
                 abstractOnTouchUp();
                 if (mIsBeingDragged) {
                     final VelocityTracker velocityTracker = mVelocityTracker;
@@ -630,6 +641,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 endDrag();
                 break;
             case MotionEvent.ACTION_CANCEL:
+                Logger.d("%s onTouchEvent:ACTION_CANCEL",TAG);
                 if (mIsBeingDragged && getChildCount() > 0) {
                     abstractOnTouchCancel();
                 }
@@ -637,6 +649,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 endDrag();
                 break;
             case MotionEvent.ACTION_POINTER_DOWN: {
+                Logger.d("%s onTouchEvent:ACTION_POINTER_DOWN",TAG);
                 final int index = ev.getActionIndex();
                 mLastMotionY = (int) ev.getY(index);
                 mLastMotionX= (int) ev.getX(index);
@@ -644,6 +657,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
                 break;
             }
             case MotionEvent.ACTION_POINTER_UP:
+                Logger.d("%s onTouchEvent:ACTION_POINTER_UP",TAG);
                 onSecondaryPointerUp(ev);
                 mLastMotionY = (int) ev.getY(ev.findPointerIndex(mActivePointerId));
                 mLastMotionX = (int) ev.getX(ev.findPointerIndex(mActivePointerId));
@@ -899,28 +913,7 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     }
 
     protected boolean flingWithNestedDispatch(int velocityX, int velocityY) {
-        Log.i(TAG,"flingWithNestedDispatch");
-//        final boolean canFlingY = (getScrollY() > 0 || velocityY > 0) &&
-//                (getScrollY() < getScrollRangeY() || velocityY < 0);
-//        final boolean canFlingX = (getScrollX() > 0 || velocityX > 0) &&
-//                (getScrollX() < getScrollRangeX() || velocityX < 0);
 
-//        if (orientation==VERTICAL){
-//            if (!dispatchNestedPreFling(0, velocityY)) {
-//                dispatchNestedFling(0, velocityY, canFlingY);
-//                if (canFlingY) {
-//                    fling(velocityX,velocityY);
-//                }
-//            }
-//        }else {
-//            if (!dispatchNestedPreFling(velocityX, 0)) {
-//                dispatchNestedFling(velocityX, 0, canFlingX);
-//                if (canFlingX) {
-//                    fling(velocityX,velocityY);
-//                }
-//            }
-//        }
-//        return true;
 
         final boolean canFlingX=true;
         final boolean canFlingY=true;
@@ -1092,8 +1085,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
             int oldY = getScrollY();
             int x = mScroller.getCurrX();
             int y = mScroller.getCurrY();
-
-            Log.i(TAG,"mFinalX:"+mScroller.getFinalX());
 
             if (oldX != x || oldY != y) {
                 final int rangeX = getScrollRangeX();
@@ -1626,13 +1617,11 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     //子View
     @Override
     public void setNestedScrollingEnabled(boolean enabled) {
-        //Log.i(TAG,"setNestedScrollingEnabled");
         mChildHelper.setNestedScrollingEnabled(enabled);
     }
 
     @Override
     public boolean isNestedScrollingEnabled() {
-        //Log.i(TAG,"isNestedScrollingEnabled");
         return mChildHelper.isNestedScrollingEnabled();
     }
 
@@ -1652,7 +1641,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public boolean hasNestedScrollingParent() {
-        //Log.i(TAG,"hasNestedScrollingParent");
         return mChildHelper.hasNestedScrollingParent();
     }
 
@@ -1665,7 +1653,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow) {
-        //Log.i(TAG,"dispatchNestedPreScroll");
         return mChildHelper.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow);
     }
 
@@ -1678,7 +1665,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     @Override
     public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
         return false;
-        //return mChildHelper.dispatchNestedPreFling(velocityX, velocityY);
     }
 
 
@@ -1686,7 +1672,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     @Override
     public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
         notifiedScrollingAsParent=true;
-        //Log.i(TAG,"onStartNestedScroll");
         if (orientation==VERTICAL){
             return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
         }else {
@@ -1696,7 +1681,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public void onNestedScrollAccepted(View child, View target, int nestedScrollAxes) {
-        //Log.i(TAG,"onNestedScrollAccepted");
         mParentHelper.onNestedScrollAccepted(child, target, nestedScrollAxes);
 
         if (orientation==VERTICAL){
@@ -1717,8 +1701,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     @Override
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
 
-        Log.i(TAG,"onNestedScroll:dyUnconsumed:"+dyUnconsumed+" dyConsumed:"+dyConsumed);
-
         abstractOnNestedScroll(target,dxConsumed,dyConsumed,dxUnconsumed,dyUnconsumed);
 
 
@@ -1728,7 +1710,6 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
 
         //用来处理在嵌套滑动中，若是父类，则不过度滑动
-        Log.i(TAG,"onNestedPreScroll"+" dy:"+dy);
         if (orientation==VERTICAL){
             if (getScrollY()+dy<0){
                 dy=-getScrollY();
@@ -1756,6 +1737,8 @@ public abstract class AbstractScrollView extends ViewGroup implements NestedScro
 
     @Override
     public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed) {
+
+        //Logger.e("%s onNestedFling",TAG);
         if (!consumed) {
 
             int oldScrollX=getScrollX();

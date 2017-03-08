@@ -16,6 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.orhanobut.logger.Logger;
+
 import java.util.ArrayList;
 
 /**
@@ -195,37 +198,7 @@ public class  CustomScrollView extends AbstractScrollView{
 
     public boolean isFling(){
 
-        //return !mScroller.isFinished()&&!mPtrIndicator.isUnderTouch();
-        Log.i(TAG,"isFling:"+mScroller.isFling());
         return mScroller.isFling();
-    }
-
-    /**
-     *该函数放在滑动函数{scroll to ..}的后面
-     * @return
-     */
-    public boolean isReachBorder(int oldScrollX,int oldScrollY,int newScrollX,int newScrollY){
-
-//        if (orientation==VERTICAL){
-//            if (directionY<0&&getScrollY()==0){
-//                return true;
-//            }
-//            if (directionY>0&&getScrollY()==getScrollRangeY()){
-//                return true;
-//            }
-//        }else {
-//
-//            if (directionX<0&&getScrollX()==0){
-//                return true;
-//            }
-//            if (directionX>0&&getScrollX()==getScrollRangeX()){
-//                return true;
-//            }
-//        }
-//
-//        Log.i(TAG,"directionY:"+directionY+" getScrollY:"+getScrollY());
-
-        return false;
     }
 
 
@@ -414,7 +387,7 @@ public class  CustomScrollView extends AbstractScrollView{
     @Override
     protected boolean abstractOverScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
 
-        Log.i(TAG,"abstractOverScrollBy:deltaY:"+deltaY+" scrollY:"+scrollY+" scrollY:"+scrollY);
+        //Log.i(TAG,"abstractOverScrollBy:deltaY:"+deltaY+" scrollY:"+scrollY+" scrollY:"+scrollY);
 
         maxOverScrollX=300;
         maxOverScrollY=300;
@@ -472,8 +445,14 @@ public class  CustomScrollView extends AbstractScrollView{
             newScrollY=0;
             topReachBoard=true;
         }
+        if (oldScrollY==0){
+            topReachBoard=true;
+        }
         if (oldScrollY<getScrollRangeY()&&newScrollY>getScrollRangeY()){
             newScrollY=getScrollRangeY();
+            bottomReachBoard=true;
+        }
+        if (oldScrollY==getScrollRangeY()){
             bottomReachBoard=true;
         }
 
@@ -481,8 +460,15 @@ public class  CustomScrollView extends AbstractScrollView{
             newScrollX=0;
             leftReachBoard=true;
         }
+        if (oldScrollX==0){
+            leftReachBoard=true;
+        }
         if (oldScrollX<getScrollRangeX()&&newScrollX>getScrollRangeX()){
             newScrollX=getScrollRangeX();
+            rightReachBoard=true;
+        }
+
+        if (oldScrollX==getScrollRangeX()){
             rightReachBoard=true;
         }
 
@@ -506,7 +492,7 @@ public class  CustomScrollView extends AbstractScrollView{
 
         /*******************当此View作为父View，且被子View通知过嵌套滑动的话，则父View不过度滑动************************/
         if(notifiedScrollingAsParent||notifiedScrollingFlingAsParent){//最好区分上下左右
-            Log.i(TAG,"notifiedScrollingAsParent");
+
             if (orientation==VERTICAL){
                 if (newScrollY<0){
                     newScrollY=0;
@@ -532,8 +518,6 @@ public class  CustomScrollView extends AbstractScrollView{
 
     @Override
     protected void abstractOnOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
-
-        Log.i(TAG,"abstractOnOverScrolled:scrollY:"+scrollY);
         // Treat animating scrolls differently; see #computeScroll() for why.
         if (!mScroller.isFinished()) {
             final int oldX = getScrollX();
@@ -542,7 +526,6 @@ public class  CustomScrollView extends AbstractScrollView{
             postInvalidateOnAnimation();
             //invalidateParentIfNeeded();
             if (clampedY||clampedX) {
-                Log.i(TAG,"clampedX or clampedY");
                 mScroller.springBack(getScrollX(), getScrollY(), 0, getScrollRangeX(), 0, getScrollRangeY());
             }
         } else {
@@ -555,7 +538,6 @@ public class  CustomScrollView extends AbstractScrollView{
     @Override
     protected void abstractScrollTo(int scrollX, int scrollY) {
 
-        Log.i(TAG,"abstractScrollTo:scrollY:"+scrollY);
         if (orientation==VERTICAL){
             scrollX=0;
             mPtrIndicator.setPreScrollPoint(scrollX,scrollY);
@@ -574,8 +556,9 @@ public class  CustomScrollView extends AbstractScrollView{
             return;
         }
 
-        if (isFling()&&(leftReachBoard||rightReachBoard||topReachBoard||bottomReachBoard)){  //todo 还可以优化，边界越界问题
-            Log.i(TAG,"isFling:"+isFling());
+        //由于leftReachBoaed等一开始就全部被设置true里，但是若快速拖动且方向为Y，则在判断isFling()为true时，必然topReachBoard和bottomReachBoard被设置为false,但是leftReachBoard还是true，所以用orientation加强过滤
+        if (isFling()&&(((leftReachBoard||rightReachBoard)&&orientation==HORIZONTAL)||((topReachBoard||bottomReachBoard)&&orientation==VERTICAL))){
+
             if (orientation==VERTICAL){
                 startNestedScroll(SCROLL_AXIS_VERTICAL);
             }else {
@@ -593,12 +576,14 @@ public class  CustomScrollView extends AbstractScrollView{
                     vx=directionX<0?-vx:vx;
                 }
                 mScroller.abortAnimation();
+                vx=vx/2;
+                vy=vy/2;//减缓速度
                 dispatchNestedFling(vx,vy,false);
                 stopNestedScroll();
             }
 
         }else {
-            Log.i(TAG,"mChildHelper.hasNestedScrollingParent():"+mChildHelper.hasNestedScrollingParent()+" isFling():"+isFling());
+            //Log.i(TAG,"mChildHelper.hasNestedScrollingParent():"+mChildHelper.hasNestedScrollingParent()+" isFling():"+isFling());
         }
 
         //计算过度下拉后的空白位置
@@ -642,7 +627,6 @@ public class  CustomScrollView extends AbstractScrollView{
                 if (initialVelocityY<0&&bottomReachBoard){
                     return;
                 }
-                Log.i(TAG,"abstractOnTouchUpAndScroll:flingWithNestedDispatch");
                 flingWithNestedDispatch(0,-initialVelocityY);
 
             }else {
@@ -686,14 +670,13 @@ public class  CustomScrollView extends AbstractScrollView{
     protected void abstractDraw(Canvas canvas) {
 
         mPaint.setColor(mEmptyColor);
-        //canvas.drawRect(mEmptyRect,mPaint);
     }
 
     @Override
     protected void abstractOnNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
         final int oldScrollY = getScrollY();
         final int oldScrollX = getScrollX();
-        Log.i(TAG,"abstractOnNestedScroll:before:dyUnconsumed:"+dyUnconsumed+" dyConsumed:"+dyConsumed);
+
         //用来处理在嵌套滑动中，若是父类，则不过度滑动
         if (orientation==VERTICAL){
             if (getScrollY()+dyUnconsumed<0){
@@ -708,7 +691,6 @@ public class  CustomScrollView extends AbstractScrollView{
                 dxUnconsumed=getScrollRangeX()-getScrollX();
             }
         }
-        Log.i(TAG,"abstractOnNestedScroll:later:dyUnconsumed:"+dyUnconsumed+" dyConsumed:"+dyConsumed);
         abstractOverScrollBy(dxUnconsumed,dyUnconsumed,getScrollX(),getScrollY(),getScrollRangeX(),getScrollRangeY(),mOverscrollDistance,mOverflingDistance,true);
         //scrollBy(dxConsumed, dyUnconsumed);
 
@@ -724,7 +706,6 @@ public class  CustomScrollView extends AbstractScrollView{
     @Override
     protected void abstractOnNestedPreScroll(View target, int dx, int dy, int[] consumed) {
 
-        Log.i(TAG,"onNestedPreScroll"+" dy:"+dy);
         if (orientation==VERTICAL){
             if (getScrollY()+dy<0){
                 dy=-getScrollY();

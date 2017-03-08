@@ -21,40 +21,31 @@
             android:text="horizontal"/>
     </LinearLayout>
 
-    <com.dansejijie.library.widget.scrollview.TCustomScrollView
+    <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
         android:id="@+id/test_scroll_view_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="40dp"
         android:background="@color/colorAccent">
 
-        <LinearLayout
+        <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="100dp"
-            android:paddingBottom="100dp"
-            android:background="#929292"
-            android:orientation="vertical">
-            <com.dansejijie.library.widget.scrollview.CustomScrollView
+            android:layout_height="400dp"
+            android:background="@color/colorPrimary">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/colorPrimary">
-                <LinearLayout
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:background="#085824"/>
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:background="#538254"/>
-                </LinearLayout>
-            </com.dansejijie.library.widget.scrollview.CustomScrollView>
+                    android:layout_height="300dp"
+                    android:background="#085824"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="#538254"/>
+            </LinearLayout>
+        </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
 
-        </LinearLayout>
-
-    </com.dansejijie.library.widget.scrollview.TCustomScrollView>
+    </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
 </LinearLayout>

@@ -24,6 +24,16 @@ android {
 
     }
 
+    sourceSets{
+        main{
+            res.srcDirs=[
+                    'src/main/res',
+                    'src/main/res/layouts',
+                    'src/main/res/layouts/amuse',
+            ]
+        }
+    }
+
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
