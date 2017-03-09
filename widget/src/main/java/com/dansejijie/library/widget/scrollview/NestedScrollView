@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.InputDeviceCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.NestedScrollingChild;
@@ -12,6 +16,12 @@ import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.VelocityTrackerCompat;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import android.support.v4.widget.EdgeEffectCompat;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v4.widget.ScrollerCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -23,12 +33,11 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
-
-import com.orhanobut.logger.Logger;
 
 import java.util.List;
 
@@ -47,10 +56,12 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
 
     static final float MAX_SCROLL_FACTOR = 0.5f;
 
+    private static final String TAG = "NestedScrollView";
+
     private long mLastScroll;
 
     private final Rect mTempRect = new Rect();
-    private EOverScroller mScroller;
+    private OverScroller mScroller;
 //    private EdgeEffectCompat mEdgeGlowTop;
 //    private EdgeEffectCompat mEdgeGlowBottom;
 
@@ -127,14 +138,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
     private final NestedScrollingChildHelper mChildHelper;
 
     private float mVerticalScrollFactor;
-
-    public String TAG="CustomNestedScrollView";
-
-    //作为父View被通知快速滑动，设置true,用来在onIntercepteTouchEvent的move里判断，当是因嵌套快速滑动时，不去拦截
-    // 生命周期 true:被通知onNestedFling    false:在onTntercepteTouchEvent的move里设置mIsBeingDragged之后
-    //protected boolean notifiedFlingAsParent=false;
-
-
 
     public CustomNestedScrollView(Context context) {
         this(context, null);
@@ -311,7 +314,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
     }
 
     private void initScrollView() {
-        mScroller = new EOverScroller(getContext(), null);
+        mScroller = new OverScroller(getContext(), null);
         setFocusable(true);
         setDescendantFocusability(FOCUS_AFTER_DESCENDANTS);
         setWillNotDraw(false);
@@ -319,8 +322,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
         mTouchSlop = configuration.getScaledTouchSlop();
         mMinimumVelocity = configuration.getScaledMinimumFlingVelocity();
         mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
-
-        Logger.init().methodCount(4);
     }
 
     @Override
@@ -605,7 +606,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                         parent.requestDisallowInterceptTouchEvent(true);
                     }
                 }
-
                 break;
             }
 
@@ -632,9 +632,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                 * being flinged.
                 */
                 mIsBeingDragged = !mScroller.isFinished();
-                if (mIsBeingDragged&&TAG=="TCustomNestedScrollView"){
-                    Log.i(TAG,TAG);
-                }
                 startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
                 break;
             }
@@ -776,8 +773,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                 }
                 break;
             case MotionEvent.ACTION_UP:
-
-
                 if (mIsBeingDragged) {
                     final VelocityTracker velocityTracker = mVelocityTracker;
                     velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
@@ -785,14 +780,11 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                             mActivePointerId);
 
                     if ((Math.abs(initialVelocity) > mMinimumVelocity)) {
-                        Logger.e("%s MotionEvent.ACTION_UP",TAG);
                         flingWithNestedDispatch(-initialVelocity);
                     }
 
                     mActivePointerId = INVALID_POINTER;
                     endDrag();
-                }else {
-                    Logger.e("%s 在up里出现了mIsBeingDragged,判断是否是单纯的一下点击",TAG);
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
@@ -1249,9 +1241,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
             final int maxY = Math.max(0, bottom - height);
             final int scrollY = getScrollY();
             dy = Math.max(0, Math.min(scrollY + dy, maxY)) - scrollY;
-            if (TAG=="TCustomNestedScrollView"){
-                Logger.e("%s fling",TAG);
-            }
+
             mScroller.startScroll(getScrollX(), scrollY, 0, dy);
             ViewCompat.postInvalidateOnAnimation(this);
         } else {
@@ -1609,9 +1599,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
             int height = getHeight() - getPaddingBottom() - getPaddingTop();
             int bottom = getChildAt(0).getHeight();
 
-            if (TAG=="TCustomNestedScrollView"){
-                Logger.e("%s fling",TAG);
-            }
             mScroller.fling(getScrollX(), getScrollY(), 0, velocityY, 0, 0, 0,
                     Math.max(0, bottom - height), 0, height/2);
 
@@ -1624,10 +1611,8 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
         final boolean canFling = (scrollY > 0 || velocityY > 0) &&
                 (scrollY < getScrollRange() || velocityY < 0);
         if (!dispatchNestedPreFling(0, velocityY)) {
-            Logger.e("%s flingWithNestedDispatch canFling:%s",TAG,canFling);
             dispatchNestedFling(0, velocityY, canFling);
             if (canFling) {
-
                 fling(velocityY);
             }
         }

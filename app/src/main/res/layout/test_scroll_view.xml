@@ -2,50 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/test_scroll_view_vertical"
-            android:layout_width="0dp"
+            android:id="@+id/test_scroll_view_preview"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="vertical"/>
+            android:text="上一个"/>
         <Button
-            android:id="@+id/test_scroll_view_horizontal"
-            android:layout_width="0dp"
+            android:id="@+id/test_scroll_view_last"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="horizontal"/>
+            android:text="下一个"/>
     </LinearLayout>
-
-    <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
-        android:id="@+id/test_scroll_view_view"
+    <ViewSwitcher
+        android:id="@+id/test_scroll_view_switcher"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="40dp"
-        android:background="@color/colorAccent">
+        android:layout_height="match_parent">
+        <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
+            android:id="@+id/test_scroll_view_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:background="@color/colorAccent">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="150dp"
+                android:paddingBottom="150dp"
+                android:background="#929292"
+                android:orientation="vertical">
+                <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp"
+                    android:background="@color/colorPrimary">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="500dp"
+                            android:background="#085824"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="500dp"
+                            android:background="#538254"/>
+                    </LinearLayout>
+                </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
+
+            </LinearLayout>
+
+        </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
         <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="@color/colorPrimary">
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:background="@color/colorAccent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="400dp"
                     android:background="#085824"/>
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="400dp"
                     android:background="#538254"/>
             </LinearLayout>
-        </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
 
-    </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
+        </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
+    </ViewSwitcher>
+
 </LinearLayout>

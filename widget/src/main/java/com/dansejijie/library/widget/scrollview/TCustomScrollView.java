@@ -20,4 +20,10 @@ public class TCustomScrollView extends CustomScrollView {
     public TCustomScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+    @Override
+    protected void initScrollView() {
+        super.initScrollView();
+        TAG="TCustomScrollView";
+    }
 }

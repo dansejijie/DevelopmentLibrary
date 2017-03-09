@@ -26,6 +26,7 @@ import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
+import android.widget.ScrollView;
 
 import com.orhanobut.logger.Logger;
 

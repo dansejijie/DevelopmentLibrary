@@ -11,12 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ViewSwitcher;
 
 import com.dansejijie.library.widget.scrollview.AbstractScrollView;
+import com.dansejijie.library.widget.scrollview.CustomNestedScrollView;
 import com.dansejijie.library.widget.scrollview.CustomScrollView;
 import com.dansejijie.library.R;
 import com.dansejijie.library.widget.scrollview.PtrIndicator;
 import com.dansejijie.library.widget.scrollview.PtrUIHandler;
+import com.dansejijie.library.widget.scrollview.TCustomNestedScrollView;
 import com.dansejijie.library.widget.scrollview.TCustomScrollView;
 
 import junit.framework.Test;
@@ -29,9 +32,10 @@ public class TestScrollViewActivity extends Activity {
 
     private static final String TAG=TestScrollViewActivity.class.getSimpleName();
 
-    TCustomScrollView customScrollView;
+    CustomNestedScrollView customScrollView;
     LinearLayout linearLayout;
-    Button verticalBtn,horizontalBtn;
+    Button previewBtn,lastBtn;
+    ViewSwitcher viewSwitcher;
 
     public static void start(Context context){
         Intent intent=new Intent(context,TestScrollViewActivity.class);
@@ -42,8 +46,27 @@ public class TestScrollViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_scroll_view);
-//        customScrollView= (TCustomScrollView) findViewById(R.id.test_scroll_view_view);
-//        customScrollView.TAG="TCustomScrollView";
+        customScrollView= (CustomNestedScrollView) findViewById(R.id.test_scroll_view_view);
+        customScrollView.TAG="TCustomNestedScrollView";
+//
+        viewSwitcher= (ViewSwitcher) findViewById(R.id.test_scroll_view_switcher);
+        previewBtn= (Button) findViewById(R.id.test_scroll_view_preview);
+        lastBtn= (Button) findViewById(R.id.test_scroll_view_last);
+
+        previewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewSwitcher.showPrevious();
+            }
+        });
+
+        lastBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewSwitcher.showNext();
+            }
+        });
+
 //        linearLayout= (LinearLayout) findViewById(R.id.test_scroll_view_container);
 //        verticalBtn= (Button) findViewById(R.id.test_scroll_view_vertical);
 //        horizontalBtn= (Button) findViewById(R.id.test_scroll_view_horizontal);

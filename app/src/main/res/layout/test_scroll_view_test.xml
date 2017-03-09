@@ -2,41 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/test_scroll_view_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="40dp"
-        android:background="@color/colorAccent">
+    <!--<com.dansejijie.library.widget.test.TouchView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
+    <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="100dp"
-            android:paddingBottom="100dp"
-            android:background="#929292"
-            android:orientation="vertical">
-            <android.support.v4.widget.NestedScrollView
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent">
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@color/colorPrimary">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:background="#085824"/>
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:background="#538254"/>
-                </LinearLayout>
-            </android.support.v4.widget.NestedScrollView>
-
+                android:layout_height="600dp"
+                android:background="@color/colorPrimaryDark"/>
         </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
+    </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
 
 </LinearLayout>
