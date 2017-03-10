@@ -30,7 +30,7 @@ import junit.framework.Test;
 
 public class TestScrollViewActivity extends Activity {
 
-    private static final String TAG=TestScrollViewActivity.class.getSimpleName();
+    public String TAG=TestScrollViewActivity.class.getSimpleName();
 
     CustomNestedScrollView customScrollView;
     LinearLayout linearLayout;

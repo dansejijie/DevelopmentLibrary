@@ -26,7 +26,6 @@ import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-import android.widget.ScrollView;
 
 import com.orhanobut.logger.Logger;
 
@@ -47,10 +46,12 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
 
     static final float MAX_SCROLL_FACTOR = 0.5f;
 
+    public String TAG = "NestedScrollView";
+
     private long mLastScroll;
 
     private final Rect mTempRect = new Rect();
-    private EOverScroller mScroller;
+    private OverScroller mScroller;
 //    private EdgeEffectCompat mEdgeGlowTop;
 //    private EdgeEffectCompat mEdgeGlowBottom;
 
@@ -128,13 +129,9 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
 
     private float mVerticalScrollFactor;
 
-    public String TAG="CustomNestedScrollView";
+    protected boolean parentTopHasNested,parentBottomHasNested;
 
-    //作为父View被通知快速滑动，设置true,用来在onIntercepteTouchEvent的move里判断，当是因嵌套快速滑动时，不去拦截
-    // 生命周期 true:被通知onNestedFling    false:在onTntercepteTouchEvent的move里设置mIsBeingDragged之后
-    //protected boolean notifiedFlingAsParent=false;
-
-
+    protected boolean parentTopHasEverNested,parentBottomHasEverNested;
 
     public CustomNestedScrollView(Context context) {
         this(context, null);
@@ -234,7 +231,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
     public void onNestedScroll(View target, int dxConsumed, int dyConsumed, int dxUnconsumed,
                                int dyUnconsumed) {
         final int oldScrollY = getScrollY();
-        scrollBy(0, dyUnconsumed);
+        overScrollByCompat(dxUnconsumed,dyUnconsumed,true);
         final int myConsumed = getScrollY() - oldScrollY;
         final int myUnconsumed = dyUnconsumed - myConsumed;
         dispatchNestedScroll(0, myConsumed, 0, myUnconsumed, null);
@@ -311,7 +308,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
     }
 
     private void initScrollView() {
-        mScroller = new EOverScroller(getContext(), null);
+        mScroller = new OverScroller(getContext(), null);
         setFocusable(true);
         setDescendantFocusability(FOCUS_AFTER_DESCENDANTS);
         setWillNotDraw(false);
@@ -320,7 +317,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
         mMinimumVelocity = configuration.getScaledMinimumFlingVelocity();
         mMaximumVelocity = configuration.getScaledMaximumFlingVelocity();
 
-        Logger.init().methodCount(4);
+        ViewCompat.setOverScrollMode(this,ViewCompat.OVER_SCROLL_ALWAYS);
     }
 
     @Override
@@ -605,7 +602,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                         parent.requestDisallowInterceptTouchEvent(true);
                     }
                 }
-
                 break;
             }
 
@@ -632,9 +628,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                 * being flinged.
                 */
                 mIsBeingDragged = !mScroller.isFinished();
-                if (mIsBeingDragged&&TAG=="TCustomNestedScrollView"){
-                    Log.i(TAG,TAG);
-                }
                 startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
                 break;
             }
@@ -736,48 +729,93 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                             (overscrollMode == ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS &&
                                     range > 0);
 
-                    // Calling overScrollByCompat will call onOverScrolled, which
-                    // calls onScrollChanged if applicable.
-                    if (overScrollByCompat(0, deltaY, 0, getScrollY(), 0, range, 0,
-                            0, true) && !hasNestedScrollingParent()) {
-                        // Break our velocity if we hit a scroll barrier.
-                        mVelocityTracker.clear();
-                    }
+                    int nestedDy=deltaY;//专门用来发给父View嵌套滑动的
+                    //这里未考虑子View高小于父View高
+                    if (getScrollY()>0&&getScrollY()<getScrollRange()&&(getScrollY()+deltaY>=0&&getScrollY()+deltaY<=getScrollRange())){
+                        if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }else {
 
-                    final int scrolledDeltaY = getScrollY() - oldY;
-                    final int unconsumedY = deltaY - scrolledDeltaY;
-                    if (dispatchNestedScroll(0, scrolledDeltaY, 0, unconsumedY, mScrollOffset)) {
-                        mLastMotionY -= mScrollOffset[1];
-                        vtev.offsetLocation(0, mScrollOffset[1]);
-                        mNestedYOffset += mScrollOffset[1];
+                        if (deltaY<0){
+                            if (getScrollY()==0){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else if (getScrollY()==getScrollRange()){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else {
+                                if (getScrollY()+deltaY<=0&&getScrollY()>=0){
+                                    nestedDy=getScrollY()+deltaY;
+                                    deltaY=-getScrollY();
+                                }else {
+                                    Logger.e("%s scrollY:%s range:%s deltaY:%s",TAG,getScrollY(),getScrollRange(),deltaY);
+                                    nestedDy=0;
+                                }
+                            }
+                        }else {
+
+                            if (getScrollY()==0){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else if (getScrollY()==getScrollRange()){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else {
+                                if (getScrollY()+deltaY>=getScrollRange()&&getScrollY()>=0){
+                                    nestedDy=deltaY-(getScrollRange()-getScrollY());
+                                    deltaY=getScrollRange()-getScrollY();
+                                }else {
+                                    Logger.e("%s scrollY:%s range:%s deltaY:%s",TAG,getScrollY(),getScrollRange(),deltaY);
+                                    nestedDy=0;
+                                }
+                            }
+
+                        }
+
+                        if (nestedDy!=0){
+                            if (dispatchNestedScroll(0,0,0,nestedDy,mScrollOffset)){//TODO return true 仅仅是表明父View收到通知，不能表明有无滑动
+                                mLastMotionY -= mScrollOffset[1];
+                                vtev.offsetLocation(0, mScrollOffset[1]);
+                                mNestedYOffset += mScrollOffset[1];
+                                if (mScrollOffset[1]<0){//表明父滑动了
+                                    parentTopHasNested=true;
+                                    parentBottomHasNested=false;
+                                    parentTopHasEverNested=true;
+                                }else if (mScrollOffset[1]>0){
+                                    parentBottomHasNested=true;
+                                    parentTopHasNested=false;
+                                    parentBottomHasEverNested=true;
+                                } else {
+                                    parentTopHasNested=false;
+                                    parentBottomHasNested=false;
+                                    if (overScrollByCompat(0, nestedDy, true) && !hasNestedScrollingParent()) {
+                                        // Break our velocity if we hit a scroll barrier.
+                                        mVelocityTracker.clear();
+                                    }
+                                }
+                                mScrollOffset[0]=0;
+                                mScrollOffset[1]=0;
+                            }else {
+                                if (overScrollByCompat(0, nestedDy, true) && !hasNestedScrollingParent()) {
+                                    // Break our velocity if we hit a scroll barrier.
+                                    mVelocityTracker.clear();
+                                }
+                            }
+                        }else {
+                            if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                                // Break our velocity if we hit a scroll barrier.
+                                mVelocityTracker.clear();
+                            }
+                        }
+
+                        mScrollOffset[0]=0;
+                        mScrollOffset[1]=0;
                     }
-//                    else if (canOverscroll) {
-//                        ensureGlows();
-//                        final int pulledToY = oldY + deltaY;
-//                        if (pulledToY < 0) {
-//                            mEdgeGlowTop.onPull((float) deltaY / getHeight(),
-//                                    MotionEventCompat.getX(ev, activePointerIndex) / getWidth());
-//                            if (!mEdgeGlowBottom.isFinished()) {
-//                                mEdgeGlowBottom.onRelease();
-//                            }
-//                        } else if (pulledToY > range) {
-//                            mEdgeGlowBottom.onPull((float) deltaY / getHeight(),
-//                                    1.f - MotionEventCompat.getX(ev, activePointerIndex)
-//                                            / getWidth());
-//                            if (!mEdgeGlowTop.isFinished()) {
-//                                mEdgeGlowTop.onRelease();
-//                            }
-//                        }
-//                        if (mEdgeGlowTop != null
-//                                && (!mEdgeGlowTop.isFinished() || !mEdgeGlowBottom.isFinished())) {
-//                            ViewCompat.postInvalidateOnAnimation(this);
-//                        }
-//                    }
                 }
                 break;
             case MotionEvent.ACTION_UP:
-
-
                 if (mIsBeingDragged) {
                     final VelocityTracker velocityTracker = mVelocityTracker;
                     velocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
@@ -785,14 +823,11 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                             mActivePointerId);
 
                     if ((Math.abs(initialVelocity) > mMinimumVelocity)) {
-                        Logger.e("%s MotionEvent.ACTION_UP",TAG);
                         flingWithNestedDispatch(-initialVelocity);
                     }
 
                     mActivePointerId = INVALID_POINTER;
                     endDrag();
-                }else {
-                    Logger.e("%s 在up里出现了mIsBeingDragged,判断是否是单纯的一下点击",TAG);
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
@@ -887,11 +922,15 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
         super.scrollTo(scrollX, scrollY);
     }
 
-    boolean overScrollByCompat(int deltaX, int deltaY,
-                               int scrollX, int scrollY,
-                               int scrollRangeX, int scrollRangeY,
-                               int maxOverScrollX, int maxOverScrollY,
-                               boolean isTouchEvent) {
+    boolean overScrollByCompat(int deltaX, int deltaY, boolean isTouchEvent) {
+
+        int scrollX=getScrollX();
+        int scrollY=getScrollY();
+        int scrollRangeX=0;
+        int scrollRangeY=getScrollRange();
+        int maxOverScrollX=100;
+        int maxOverScrollY=100;
+
         final int overScrollMode = ViewCompat.getOverScrollMode(this);
         final boolean canScrollHorizontal =
                 computeHorizontalScrollRange() > computeHorizontalScrollExtent();
@@ -1249,9 +1288,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
             final int maxY = Math.max(0, bottom - height);
             final int scrollY = getScrollY();
             dy = Math.max(0, Math.min(scrollY + dy, maxY)) - scrollY;
-            if (TAG=="TCustomNestedScrollView"){
-                Logger.e("%s fling",TAG);
-            }
+
             mScroller.startScroll(getScrollX(), scrollY, 0, dy);
             ViewCompat.postInvalidateOnAnimation(this);
         } else {
@@ -1345,8 +1382,7 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
                 final boolean canOverscroll = overscrollMode == ViewCompat.OVER_SCROLL_ALWAYS ||
                         (overscrollMode == ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS && range > 0);
 
-                overScrollByCompat(x - oldX, y - oldY, oldX, oldY, 0, range,
-                        0, 0, false);
+                overScrollByCompat(x - oldX, y - oldY, false);
 
 //                if (canOverscroll) {
 //                    ensureGlows();
@@ -1609,9 +1645,6 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
             int height = getHeight() - getPaddingBottom() - getPaddingTop();
             int bottom = getChildAt(0).getHeight();
 
-            if (TAG=="TCustomNestedScrollView"){
-                Logger.e("%s fling",TAG);
-            }
             mScroller.fling(getScrollX(), getScrollY(), 0, velocityY, 0, 0, 0,
                     Math.max(0, bottom - height), 0, height/2);
 
@@ -1624,10 +1657,8 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
         final boolean canFling = (scrollY > 0 || velocityY > 0) &&
                 (scrollY < getScrollRange() || velocityY < 0);
         if (!dispatchNestedPreFling(0, velocityY)) {
-            Logger.e("%s flingWithNestedDispatch canFling:%s",TAG,canFling);
             dispatchNestedFling(0, velocityY, canFling);
             if (canFling) {
-
                 fling(velocityY);
             }
         }
@@ -1645,23 +1676,23 @@ public class CustomNestedScrollView extends FrameLayout implements NestedScrolli
 //        }
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * <p>This version also clamps the scrolling to the bounds of our child.
-     */
-    @Override
-    public void scrollTo(int x, int y) {
-        // we rely on the fact the View.scrollBy calls scrollTo.
-        if (getChildCount() > 0) {
-            View child = getChildAt(0);
-            x = clamp(x, getWidth() - getPaddingRight() - getPaddingLeft(), child.getWidth());
-            y = clamp(y, getHeight() - getPaddingBottom() - getPaddingTop(), child.getHeight());
-            if (x != getScrollX() || y != getScrollY()) {
-                super.scrollTo(x, y);
-            }
-        }
-    }
+//    /**
+//     * {@inheritDoc}
+//     *
+//     * <p>This version also clamps the scrolling to the bounds of our child.
+//     */
+//    @Override
+//    public void scrollTo(int x, int y) {
+//        // we rely on the fact the View.scrollBy calls scrollTo.
+//        if (getChildCount() > 0) {
+//            View child = getChildAt(0);
+//            x = clamp(x, getWidth() - getPaddingRight() - getPaddingLeft(), child.getWidth());
+//            y = clamp(y, getHeight() - getPaddingBottom() - getPaddingTop(), child.getHeight());
+//            if (x != getScrollX() || y != getScrollY()) {
+//                super.scrollTo(x, y);
+//            }
+//        }
+//    }
 
     private void ensureGlows() {
 //        if (ViewCompat.getOverScrollMode(this) != ViewCompat.OVER_SCROLL_NEVER) {

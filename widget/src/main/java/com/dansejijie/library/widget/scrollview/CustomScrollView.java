@@ -196,11 +196,6 @@ public class  CustomScrollView extends AbstractScrollView{
         }
     }
 
-    public boolean isFling(){
-
-        return mScroller.isFling();
-    }
-
 
 
     @Override
@@ -557,7 +552,7 @@ public class  CustomScrollView extends AbstractScrollView{
         }
 
         //由于leftReachBoaed等一开始就全部被设置true里，但是若快速拖动且方向为Y，则在判断isFling()为true时，必然topReachBoard和bottomReachBoard被设置为false,但是leftReachBoard还是true，所以用orientation加强过滤
-        if (isFling()&&(((leftReachBoard||rightReachBoard)&&orientation==HORIZONTAL)||((topReachBoard||bottomReachBoard)&&orientation==VERTICAL))){
+        if ((((leftReachBoard||rightReachBoard)&&orientation==HORIZONTAL)||((topReachBoard||bottomReachBoard)&&orientation==VERTICAL))){
 
             if (orientation==VERTICAL){
                 startNestedScroll(SCROLL_AXIS_VERTICAL);

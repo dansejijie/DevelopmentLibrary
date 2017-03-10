@@ -31,13 +31,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="150dp"
-                android:paddingBottom="150dp"
+                android:paddingTop="100dp"
+                android:paddingBottom="100dp"
                 android:background="#929292"
                 android:orientation="vertical">
                 <com.dansejijie.library.widget.scrollview.CustomNestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="600dp"
+                    android:layout_height="400dp"
                     android:background="@color/colorPrimary">
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -45,11 +45,11 @@
                         android:orientation="vertical">
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="500dp"
+                            android:layout_height="300dp"
                             android:background="#085824"/>
                         <ImageView
                             android:layout_width="match_parent"
-                            android:layout_height="500dp"
+                            android:layout_height="300dp"
                             android:background="#538254"/>
                     </LinearLayout>
                 </com.dansejijie.library.widget.scrollview.CustomNestedScrollView>
