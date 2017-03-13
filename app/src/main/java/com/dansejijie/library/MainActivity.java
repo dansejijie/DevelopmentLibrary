@@ -1,17 +1,13 @@
 package com.dansejijie.library;
 
-import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
-
+import com.dansejijie.library.bean.Cat;
+import com.dansejijie.library.bean.Dog;
 import com.dansejijie.library.test.TestInputEvent;
 import com.dansejijie.library.test.TestScrollView;
 import com.dansejijie.library.widget.TestScrollViewActivity;
@@ -27,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     MainAdapter mainAdapter;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        Cat cat=new Cat();
+        Dog dog=new Dog();
+
+        cat.setName("miao");
+        dog.setName("wang");
     }
 
     private void initDatas() {

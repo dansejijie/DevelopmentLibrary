@@ -16,10 +16,22 @@ android {
 
         multiDexEnabled true
     }
+
+    signingConfigs {
+        release{
+            storeFile file(project.RELEASE_STORE_FILE)
+            storePassword project.RELEASE_STORE_PASSWORD
+            keyAlias project.RELEASE_KEY_ALIAS
+            keyPassword project.RELEASE_KEY_PASSWORD
+        }
+    }
+
     buildTypes {
+
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
 
     }
@@ -33,6 +45,7 @@ android {
             ]
         }
     }
+
 
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
@@ -56,4 +69,5 @@ dependencies {
     compile project(':utils')
     compile project(':widget')
     compile ("com.android.support:recyclerview-v7:23.4.0")
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
