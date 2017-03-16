@@ -28,7 +28,7 @@ ext{
     repoOut=new File(project.rootDir,'Repository')
 
     COMPILE_SDK_VERSION = 23
-    MIN_SDK_VERSION = 16
+    MIN_SDK_VERSION = 21
     TARGET_SDK_VERSION = 22
     SUPPORT_VERSION = '21.0.0'
     BUILD_TOOLS_VERSION = '23.0.3'

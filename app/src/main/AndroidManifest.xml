@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dansejijie.library">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -19,6 +22,7 @@
         <activity android:name=".widget.TestScrollViewActivity"></activity>
         <activity android:name=".test.TestScrollView"></activity>
         <activity android:name=".test.TestInputEvent"></activity>
+        <activity android:name=".activity.CameraActivity"></activity>
     </application>
 
 </manifest>
