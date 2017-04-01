@@ -22,7 +22,11 @@
         <activity android:name=".widget.TestScrollViewActivity"></activity>
         <activity android:name=".test.TestScrollView"></activity>
         <activity android:name=".test.TestInputEvent"></activity>
-        <activity android:name=".activity.CameraActivity"></activity>
+        <activity android:name=".activity.CameraActivity"
+            android:theme="@style/Theme.Demo"></activity>
+        <activity android:name=".widget.PlatActivity"></activity>
+
+        <activity android:name=".activity.Camera2Demo"></activity>
     </application>
 
 </manifest>

@@ -3,26 +3,13 @@ package com.dansejijie.library.widget;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ViewSwitcher;
-
-import com.dansejijie.library.widget.scrollview.AbstractScrollView;
 import com.dansejijie.library.widget.scrollview.CustomNestedScrollView;
-import com.dansejijie.library.widget.scrollview.CustomScrollView;
 import com.dansejijie.library.R;
-import com.dansejijie.library.widget.scrollview.PtrIndicator;
-import com.dansejijie.library.widget.scrollview.PtrUIHandler;
-import com.dansejijie.library.widget.scrollview.TCustomNestedScrollView;
-import com.dansejijie.library.widget.scrollview.TCustomScrollView;
-
-import junit.framework.Test;
 
 /**
  * Created by tygzx on 17/2/28.
@@ -32,7 +19,7 @@ public class TestScrollViewActivity extends Activity {
 
     public String TAG=TestScrollViewActivity.class.getSimpleName();
 
-    CustomNestedScrollView customScrollView;
+    CustomNestedScrollView parentCustomScrollView,childCustomScrollView;
     LinearLayout linearLayout;
     Button previewBtn,lastBtn;
     ViewSwitcher viewSwitcher;
@@ -46,9 +33,12 @@ public class TestScrollViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_scroll_view);
-        customScrollView= (CustomNestedScrollView) findViewById(R.id.test_scroll_view_view);
-        customScrollView.TAG="TCustomNestedScrollView";
-//
+        parentCustomScrollView= (CustomNestedScrollView) findViewById(R.id.test_scroll_view_view_parent);
+        parentCustomScrollView.TAG="Parent CustomNestedScrollView";
+
+        childCustomScrollView= (CustomNestedScrollView) findViewById(R.id.test_scroll_view_view_child);
+        childCustomScrollView.TAG="Child CustomNestedScrollView";
+
         viewSwitcher= (ViewSwitcher) findViewById(R.id.test_scroll_view_switcher);
         previewBtn= (Button) findViewById(R.id.test_scroll_view_preview);
         lastBtn= (Button) findViewById(R.id.test_scroll_view_last);

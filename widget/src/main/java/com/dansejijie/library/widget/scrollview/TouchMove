@@ -1,0 +1,113 @@
+int nestedDy=deltaY;//专门用来发给父View嵌套滑动的
+                    //这里未考虑子View高小于父View高
+                    if (getScrollY()>0&&getScrollY()<getScrollRange()&&(getScrollY()+deltaY>=0&&getScrollY()+deltaY<=getScrollRange())){
+                        if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }
+
+                    else if (getScrollY()<0&&deltaY<0){//todo add dan du over scrolll
+                        if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }else if (getScrollY()<0&&deltaY>0&&getScrollY()+deltaY<=0){
+                        if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }else if (getScrollY()>getScrollRange()&&deltaY>0){
+                        if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }else if (getScrollY()>getScrollRange()&&deltaY<0&&getScrollY()+deltaY>=getScrollRange()){
+                        if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                            // Break our velocity if we hit a scroll barrier.
+                            mVelocityTracker.clear();
+                        }
+                    }
+                    else {
+                        if (deltaY<0){
+                            if (getScrollY()==0){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else if (getScrollY()==getScrollRange()){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else {
+                                if (getScrollY()>getScrollRange()&&getScrollY()+deltaY<getScrollRange()){
+                                    nestedDy=getScrollY()-getScrollRange()+deltaY;
+                                    deltaY=getScrollRange()-getScrollY();
+                                }
+                                if (getScrollY()+deltaY<=0&&getScrollY()>=0){
+                                    nestedDy=getScrollY()+deltaY;
+                                    deltaY=-getScrollY();
+                                }else {
+                                    Logger.e("%s scrollY:%s range:%s deltaY:%s",TAG,getScrollY(),getScrollRange(),deltaY);
+                                    nestedDy=0;
+                                }
+                            }
+                        }else {
+
+                            if (getScrollY()==0){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else if (getScrollY()==getScrollRange()){
+                                nestedDy=deltaY;
+                                deltaY=0;
+                            }else {
+                                if (getScrollY()<0&&getScrollY()+deltaY>0){
+                                    nestedDy=getScrollY()+deltaY;
+                                    deltaY=-getScrollY();
+                                }
+                                else if (getScrollY()+deltaY>=getScrollRange()&&getScrollY()>=0){
+                                    nestedDy=deltaY-(getScrollRange()-getScrollY());
+                                    deltaY=getScrollRange()-getScrollY();
+                                }else {
+                                    Logger.e("%s scrollY:%s range:%s deltaY:%s",TAG,getScrollY(),getScrollRange(),deltaY);
+                                    nestedDy=0;
+                                }
+                            }
+
+                        }
+
+                        if (deltaY!=0){
+                            if (overScrollByCompat(0, deltaY, true) && !hasNestedScrollingParent()) {
+                                // Break our velocity if we hit a scroll barrier.
+                                mVelocityTracker.clear();
+                            }
+                        }
+
+                        if (nestedDy!=0){
+                            if (dispatchNestedScroll(0,0,0,nestedDy,mScrollOffset)){//TODO return true 仅仅是表明父View收到通知，不能表明有无滑动
+                                mLastMotionY -= mScrollOffset[1];
+                                vtev.offsetLocation(0, mScrollOffset[1]);
+                                mNestedYOffset += mScrollOffset[1];
+                                if (mScrollOffset[1]>0){//表明父滑动了
+                                    parentTopHasEverNested=true;
+                                }else if (mScrollOffset[1]<0){
+                                    parentBottomHasEverNested=true;
+                                } else {
+                                    if (nestedDy>0&&getScrollY()==getScrollRange()){
+                                        int a=nestedDy;
+                                        a+=a;
+                                    }
+                                    if (overScrollByCompat(0, nestedDy, true) && !hasNestedScrollingParent()) {
+                                        // Break our velocity if we hit a scroll barrier.
+                                        mVelocityTracker.clear();
+                                    }
+                                }
+                            }else {
+                                if (nestedDy>0&&getScrollY()==getScrollRange()){
+                                    int a=nestedDy;
+                                    a+=nestedDy;
+                                }
+                                if (overScrollByCompat(0, nestedDy, true) && !hasNestedScrollingParent()) {
+                                    // Break our velocity if we hit a scroll barrier.
+                                    mVelocityTracker.clear();
+                                }
+                            }
+                        }
+                    }

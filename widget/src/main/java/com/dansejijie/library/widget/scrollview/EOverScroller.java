@@ -23,7 +23,10 @@ import android.view.ViewConfiguration;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
+import android.widget.OverScroller;
 import android.widget.Scroller;
+
+import com.orhanobut.logger.Logger;
 
 /**
  * This class encapsulates scrolling with the ability to overshoot the bounds
@@ -72,7 +75,7 @@ public class EOverScroller {
      */
     public EOverScroller(Context context, Interpolator interpolator, boolean flywheel) {
         if (interpolator == null) {
-            mInterpolator = new  DecelerateInterpolator();//TODO 插值器
+            mInterpolator = new EScroller.ViscousFluidInterpolator();
         } else {
             mInterpolator = interpolator;
         }
@@ -94,7 +97,7 @@ public class EOverScroller {
      * !deprecated Use {!link #OverScroller(Context, Interpolator, boolean)} instead.
      */
     public EOverScroller(Context context, Interpolator interpolator,
-                         float bounceCoefficientX, float bounceCoefficientY) {
+                        float bounceCoefficientX, float bounceCoefficientY) {
         this(context, interpolator, true);
     }
 
@@ -112,13 +115,13 @@ public class EOverScroller {
      * !deprecated Use {!link OverScroller(Context, Interpolator, boolean)} instead.
      */
     public EOverScroller(Context context, Interpolator interpolator,
-                         float bounceCoefficientX, float bounceCoefficientY, boolean flywheel) {
+                        float bounceCoefficientX, float bounceCoefficientY, boolean flywheel) {
         this(context, interpolator, flywheel);
     }
 
-    public void setInterpolator(Interpolator interpolator) {//TODO 修饰符 插值器
+    void setInterpolator(Interpolator interpolator) {
         if (interpolator == null) {
-            mInterpolator = new DecelerateInterpolator();
+            mInterpolator = new EScroller.ViscousFluidInterpolator();
         } else {
             mInterpolator = interpolator;
         }
@@ -683,6 +686,10 @@ public class EOverScroller {
             mCurrentPosition = mStart = start;
             mFinal = start + distance;
 
+            if (mFinal!=0){
+                Logger.e("TAG");
+            }
+
             mStartTime = AnimationUtils.currentAnimationTimeMillis();
             mDuration = duration;
 
@@ -701,6 +708,9 @@ public class EOverScroller {
 
         void setFinalPosition(int position) {
             mFinal = position;
+            if (mFinal!=0){
+                Logger.e("TAG");
+            }
             mFinished = false;
         }
 
@@ -735,6 +745,9 @@ public class EOverScroller {
             mState = CUBIC;
             mCurrentPosition = mStart = start;
             mFinal = end;
+            if (mFinal!=0){
+                Logger.e("TAG");
+            }
             final int delta = start - end;
             mDeceleration = getDeceleration(delta);
             // TODO take velocity into account
@@ -766,16 +779,25 @@ public class EOverScroller {
 
             mSplineDistance = (int) (totalDistance * Math.signum(velocity));
             mFinal = start + mSplineDistance;
+            if (mFinal!=0){
+                Logger.e("TAG");
+            }
 
             // Clamp to a valid final position
             if (mFinal < min) {
                 adjustDuration(mStart, mFinal, min);
                 mFinal = min;
+                if (mFinal!=0){
+                    Logger.e("TAG");
+                }
             }
 
             if (mFinal > max) {
                 adjustDuration(mStart, mFinal, max);
                 mFinal = max;
+                if (mFinal!=0){
+                    Logger.e("TAG");
+                }
             }
         }
 
@@ -866,6 +888,9 @@ public class EOverScroller {
             mOver = (int) distance;
             mState = BALLISTIC;
             mFinal = mStart + (int) (mVelocity > 0 ? distance : -distance);
+            if (mFinal!=0){
+                Logger.e("TAG");
+            }
             mDuration = - (int) (1000.0f * mVelocity / mDeceleration);
         }
 
@@ -906,7 +931,7 @@ public class EOverScroller {
         boolean update() {
             final long time = AnimationUtils.currentAnimationTimeMillis();
             final long currentTime = time - mStartTime;
-
+            Log.d("TAG","currentTime:"+currentTime+" duration:"+mDuration);
             if (currentTime == 0) {
                 // Skip work but report that we're still going if we have a nonzero duration.
                 return mDuration > 0;

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewConfiguration;
 
 import com.dansejijie.library.R;
 
@@ -23,5 +24,9 @@ public class TestScrollView extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_scroll_view_test);
+
+
+        ViewConfiguration configuration=ViewConfiguration.get(this);
+        configuration.getScaledOverflingDistance();
     }
 }

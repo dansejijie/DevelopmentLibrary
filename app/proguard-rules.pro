@@ -6,3 +6,6 @@
 -keep class com.race604.flyrefresh.**{*;}
 
 -dontwarn javax.annotation.**
+-dontwarn org.codehaus.**
+-dontwarn java.nio.**
+-dontwarn java.lang.invoke.**

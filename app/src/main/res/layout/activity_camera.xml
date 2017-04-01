@@ -3,9 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextureView
-        android:id="@+id/activity_camera_textureview"
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/activity_camera_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"></LinearLayout>
+    <include
+        layout="@layout/include_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

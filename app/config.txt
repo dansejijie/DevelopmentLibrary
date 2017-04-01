@@ -1,39 +1,22 @@
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.1.0/jars/classes.jar(**.class)
--injars /Users/tygzx/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.1.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.1.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.orhanobut/logger/1.15/jars/classes.jar(**.class)
--injars /Users/tygzx/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.1.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/jars/classes.jar(**.class)
--injars /Users/tygzx/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.1.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/com.race604.flyrefresh/library/2.0.0/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/MyApplication2/utils/unspecified/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/exploded-aar/MyApplication2/widget/unspecified/jars/classes.jar(**.class)
--injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/classes/debug(**.class)
--outjars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/transforms/proguard/debug/jars/3/1f/main.jar
+-injars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/transforms/robust/release/folders/1/1f/main(**.class)
+-outjars /Users/tygzx/Work/android/MyApplication2/app/build/intermediates/transforms/proguard/release/jars/3/1f/main.jar
 
 -libraryjars /Users/tygzx/Library/Android/sdk/platforms/android-23/android.jar
 -libraryjars /Users/tygzx/Library/Android/sdk/platforms/android-23/optional/org.apache.http.legacy.jar
 
 -forceprocessing
--printusage /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/debug/usage.txt
+-printusage /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/release/usage.txt
 -dontoptimize
--printmapping /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/debug/mapping.txt
+-printmapping /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/release/mapping.txt
 -dontusemixedcaseclassnames
 -keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod
 -dontpreverify
 -verbose
 -dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**,android.net.http.*,org.apache.commons.codec.**,org.apache.http.**
--dontwarn android.support.**,javax.annotation.**
+-dontwarn android.support.**,javax.annotation.**,org.codehaus.**,java.nio.**,java.lang.invoke.**
 -printconfiguration /Users/tygzx/Work/android/MyApplication2/app/config.txt
--dump /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/debug/dump.txt
--printseeds /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/debug/seeds.txt
+-dump /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/release/dump.txt
+-printseeds /Users/tygzx/Work/android/MyApplication2/app/build/outputs/mapping/release/seeds.txt
 
 
 -keep public class com.google.vending.licensing.ILicensingService
@@ -258,38 +241,59 @@
 }
 
 # view res/layout/abc_screen_toolbar.xml #generated:36
+# view res/layout/include_camera.xml #generated:25
 -keep class android.support.v7.widget.Toolbar {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:21
+# view AndroidManifest.xml #generated:26
 -keep class com.dansejijie.library.MainActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:14
+# view AndroidManifest.xml #generated:19
 -keep class com.dansejijie.library.MainApplication {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:30
+# view AndroidManifest.xml #generated:40
+-keep class com.dansejijie.library.activity.Camera2Demo {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:36
+-keep class com.dansejijie.library.activity.CameraActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:35
 -keep class com.dansejijie.library.test.TestInputEvent {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:29
+# view AndroidManifest.xml #generated:34
 -keep class com.dansejijie.library.test.TestScrollView {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:28
+# view AndroidManifest.xml #generated:39
+-keep class com.dansejijie.library.widget.PlatActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:33
 -keep class com.dansejijie.library.widget.TestScrollViewActivity {
+    <init>(...);
+}
+
+# view res/layout/activity_plat.xml #generated:16
+-keep class com.dansejijie.library.widget.plat.Library {
     <init>(...);
 }
 
 # view res/layout/test_scroll_view.xml #generated:24
 # view res/layout/test_scroll_view.xml #generated:38
-# view res/layout/test_scroll_view.xml #generated:60
+# view res/layout/test_scroll_view.xml #generated:61
 # view res/layout/test_scroll_view_test.xml #generated:9
 -keep class com.dansejijie.library.widget.scrollview.CustomNestedScrollView {
     <init>(...);
@@ -297,5 +301,10 @@
 
 # view res/layout/activity_main.xml #generated:15
 -keep class com.facebook.drawee.view.SimpleDraweeView {
+    <init>(...);
+}
+
+# view res/layout/include_camera.xml #generated:19
+-keep class com.google.android.cameraview.CameraView {
     <init>(...);
 }
