@@ -1,1 +1,1 @@
-include ':app', ':widget', ':utils', ':library', ':uikit', ':nimlib'
+include ':app', ':widget', ':library', ':mylibrary',':utils'

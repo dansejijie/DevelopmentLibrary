@@ -26,6 +26,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
+    compile 'com.orhanobut:logger:1.15'
 }
 
 if (android.publishNonDefault) {
@@ -37,23 +38,6 @@ if (android.publishNonDefault) {
                     classifier null
                     builtBy bundleTask
                 }
-            }
-        }
-    }
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: uri(rootProject.ext.repoOut))
-
-            pom.project {
-                name 'utils'
-                description "utils"
-
-                groupId 'com.dansejijie.library'
-                artifactId 'utils'
-                version '1.0.0'
             }
         }
     }
