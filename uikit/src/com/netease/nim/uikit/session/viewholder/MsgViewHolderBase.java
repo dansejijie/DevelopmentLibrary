@@ -10,10 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
-import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.ui.recyclerview.holder.BaseViewHolder;
@@ -320,8 +318,8 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
     public void setNameTextView() {
         if (message.getSessionType() == SessionTypeEnum.Team && isReceivedMessage() && !isMiddleItem()) {
             nameTextView.setVisibility(View.VISIBLE);
-            nameTextView.setText(TeamDataCache.getInstance().getTeamMemberDisplayName(message.getSessionId(), message
-                    .getFromAccount()));
+//            nameTextView.setText(TeamDataCache.getInstance().getTeamMemberDisplayName(message.getSessionId(), message
+//                    .getFromAccount()));
         } else {
             nameTextView.setVisibility(View.GONE);
         }

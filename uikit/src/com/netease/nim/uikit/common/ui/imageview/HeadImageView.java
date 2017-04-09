@@ -3,14 +3,15 @@ package com.netease.nim.uikit.common.ui.imageview;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.netease.nim.uikit.ImageLoaderKit;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
-import com.netease.nimlib.sdk.nos.model.NosThumbParam;
-import com.netease.nimlib.sdk.nos.util.NosThumbImageUtil;
-import com.netease.nimlib.sdk.team.model.Team;
+//import com.netease.nimlib.sdk.nos.model.NosThumbParam;
+//import com.netease.nimlib.sdk.nos.util.NosThumbImageUtil;
+//import com.netease.nimlib.sdk.team.model.Team;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -92,16 +93,16 @@ public class HeadImageView extends CircleImageView {
         setImageBitmap(bitmap);
     }
 
-    public void loadTeamIconByTeam(final Team team) {
-        // 先显示默认头像
-        setImageResource(R.drawable.nim_avatar_group);
-
-        // 判断是否需要ImageLoader加载
-        boolean needLoad = team != null && ImageLoaderKit.isImageUriValid(team.getIcon());
-        String tag = team != null ? team.getId() : null;
-        String url = team != null ? team.getIcon() : null;
-        doLoadImage(needLoad, tag, url, DEFAULT_AVATAR_THUMB_SIZE);
-    }
+//    public void loadTeamIconByTeam(final Team team) {
+//        // 先显示默认头像
+//        setImageResource(R.drawable.nim_avatar_group);
+//
+//        // 判断是否需要ImageLoader加载
+//        boolean needLoad = team != null && ImageLoaderKit.isImageUriValid(team.getIcon());
+//        String tag = team != null ? team.getId() : null;
+//        String url = team != null ? team.getIcon() : null;
+//        doLoadImage(needLoad, tag, url, DEFAULT_AVATAR_THUMB_SIZE);
+//    }
 
     /**
      * ImageLoader异步加载
@@ -141,7 +142,9 @@ public class HeadImageView extends CircleImageView {
      * 生成头像缩略图NOS URL地址（用作ImageLoader缓存的key）
      */
     private static String makeAvatarThumbNosUrl(final String url, final int thumbSize) {
-        return thumbSize > 0 ? NosThumbImageUtil.makeImageThumbUrl(url, NosThumbParam.ThumbType.Crop, thumbSize, thumbSize) : url;
+        Log.e("TAG","unhandler");
+        return url;
+        //return thumbSize > 0 ? NosThumbImageUtil.makeImageThumbUrl(url, NosThumbParam.ThumbType.Crop, thumbSize, thumbSize) : url;
     }
 
     public static String getAvatarCacheKey(final String url) {

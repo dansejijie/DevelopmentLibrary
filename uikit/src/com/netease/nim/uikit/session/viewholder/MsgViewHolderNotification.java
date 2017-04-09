@@ -2,6 +2,7 @@ package com.netease.nim.uikit.session.viewholder;
 
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.netease.nim.uikit.R;
@@ -33,7 +34,10 @@ public class MsgViewHolderNotification extends MsgViewHolderBase {
     }
 
     protected String getDisplayText() {
-        return TeamNotificationHelper.getTeamNotificationText(message, message.getSessionId());
+
+        Log.e("TAG","unhandler");
+        return "xx";
+//        return TeamNotificationHelper.getTeamNotificationText(message, message.getSessionId());
     }
 
     private void handleTextNotification(String text) {

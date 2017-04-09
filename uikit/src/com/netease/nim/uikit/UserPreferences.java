@@ -31,4 +31,6 @@ public class UserPreferences {
     static SharedPreferences getSharedPreferences() {
         return NimUIKit.getContext().getSharedPreferences("UIKit." + NimUIKit.getAccount(), Context.MODE_PRIVATE);
     }
+
+
 }

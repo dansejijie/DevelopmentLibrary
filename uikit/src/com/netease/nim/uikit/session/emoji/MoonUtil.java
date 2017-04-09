@@ -1,6 +1,7 @@
 package com.netease.nim.uikit.session.emoji;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,11 +15,12 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.ClickableSpan;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.netease.nim.uikit.recent.AitHelper;
+//import com.netease.nim.uikit.recent.AitHelper;
 
 public class MoonUtil {
 	private static final float DEF_SCALE = 0.6f;
@@ -56,9 +58,10 @@ public class MoonUtil {
 
 	public static void identifyRecentVHFaceExpressionAndTags(Context context, View textView,
 			String value, int align, float scale) {
-		SpannableString mSpannableString = makeSpannableStringTags(context, value, scale, align, false);
-		AitHelper.replaceAitForeground(value, mSpannableString);
-		viewSetText(textView, mSpannableString);
+		Log.e("TAG","unhandler");
+//		SpannableString mSpannableString = makeSpannableStringTags(context, value, scale, align, false);
+//		AitHelper.replaceAitForeground(value, mSpannableString);
+//		viewSetText(textView, mSpannableString);
 	}
 
 	/**

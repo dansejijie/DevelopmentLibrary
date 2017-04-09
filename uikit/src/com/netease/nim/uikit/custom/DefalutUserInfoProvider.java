@@ -8,10 +8,10 @@ import android.text.TextUtils;
 
 import com.netease.nim.uikit.ImageLoaderKit;
 import com.netease.nim.uikit.R;
-import com.netease.nim.uikit.cache.NimUserInfoCache;
-import com.netease.nim.uikit.cache.TeamDataCache;
+//import com.netease.nim.uikit.cache.NimUserInfoCache;
+//import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
-import com.netease.nimlib.sdk.team.model.Team;
+//import com.netease.nimlib.sdk.team.model.Team;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
 
 /**
@@ -30,10 +30,28 @@ public class DefalutUserInfoProvider implements UserInfoProvider {
 
     @Override
     public UserInfo getUserInfo(String account) {
-        UserInfo user = NimUserInfoCache.getInstance().getUserInfo(account);
-        if (user == null) {
-            NimUserInfoCache.getInstance().getUserInfoFromRemote(account, null);
-        }
+//        UserInfo user = NimUserInfoCache.getInstance().getUserInfo(account);
+//        if (user == null) {
+//            NimUserInfoCache.getInstance().getUserInfoFromRemote(account, null);
+//        }
+
+
+        UserInfo user=new UserInfo() {
+            @Override
+            public String getAccount() {
+                return null;
+            }
+
+            @Override
+            public String getName() {
+                return null;
+            }
+
+            @Override
+            public String getAvatar() {
+                return null;
+            }
+        };
 
         return user;
     }
@@ -54,21 +72,21 @@ public class DefalutUserInfoProvider implements UserInfoProvider {
 
     @Override
     public String getDisplayNameForMessageNotifier(String account, String sessionId, SessionTypeEnum sessionType) {
-        String nick = null;
-        if (sessionType == SessionTypeEnum.P2P) {
-            nick = NimUserInfoCache.getInstance().getAlias(account);
-        } else if (sessionType == SessionTypeEnum.Team) {
-            nick = TeamDataCache.getInstance().getTeamNick(sessionId, account);
-            if (TextUtils.isEmpty(nick)) {
-                nick = NimUserInfoCache.getInstance().getAlias(account);
-            }
-        }
-        // 返回null，交给sdk处理。如果对方有设置nick，sdk会显示nick
-        if (TextUtils.isEmpty(nick)) {
-            return null;
-        }
+//        String nick = null;
+//        if (sessionType == SessionTypeEnum.P2P) {
+//            nick = NimUserInfoCache.getInstance().getAlias(account);
+//        } else if (sessionType == SessionTypeEnum.Team) {
+//            nick = TeamDataCache.getInstance().getTeamNick(sessionId, account);
+//            if (TextUtils.isEmpty(nick)) {
+//                nick = NimUserInfoCache.getInstance().getAlias(account);
+//            }
+//        }
+//        // 返回null，交给sdk处理。如果对方有设置nick，sdk会显示nick
+//        if (TextUtils.isEmpty(nick)) {
+//            return null;
+//        }
 
-        return nick;
+        return account;
     }
 
     @Override
@@ -77,13 +95,13 @@ public class DefalutUserInfoProvider implements UserInfoProvider {
          * 注意：这里最好从缓存里拿，如果读取本地头像可能导致UI进程阻塞，导致通知栏提醒延时弹出。
          */
         // 从内存缓存中查找群头像
-        Team team = TeamDataCache.getInstance().getTeamById(teamId);
-        if (team != null) {
-            Bitmap bm = ImageLoaderKit.getNotificationBitmapFromCache(team.getIcon());
-            if (bm != null) {
-                return bm;
-            }
-        }
+//        Team team = TeamDataCache.getInstance().getTeamById(teamId);
+//        if (team != null) {
+//            Bitmap bm = ImageLoaderKit.getNotificationBitmapFromCache(team.getIcon());
+//            if (bm != null) {
+//                return bm;
+//            }
+//        }
 
         // 默认图
         Drawable drawable = context.getResources().getDrawable(R.drawable.nim_avatar_group);

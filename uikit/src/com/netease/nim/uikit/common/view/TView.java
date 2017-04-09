@@ -146,16 +146,16 @@ public abstract class TView extends View {
         return (T) (findViewById(resId));
     }
 
-    protected void setToolBar(int toolbarId, int titleId, int logoId) {
-        if (getActivity() != null && getActivity() instanceof UI) {
-            ((UI)getActivity()).setToolBar(toolbarId, titleId, logoId);
-        }
-    }
-    protected void setTitle(int titleId) {
-        if (getActivity() != null && getActivity() instanceof UI) {
-            getActivity().setTitle(titleId);
-        }
-    }
+//    protected void setToolBar(int toolbarId, int titleId, int logoId) {
+//        if (getActivity() != null && getActivity() instanceof UI) {
+//            ((UI)getActivity()).setToolBar(toolbarId, titleId, logoId);
+//        }
+//    }
+//    protected void setTitle(int titleId) {
+//        if (getActivity() != null && getActivity() instanceof UI) {
+//            getActivity().setTitle(titleId);
+//        }
+//    }
 
 
     public Activity getActivity(){

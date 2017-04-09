@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.hyphenate.chatuidemo"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.GET_TASKS" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.USE_CREDENTIALS" />
+<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+<uses-permission android:name="android.permission.BROADCAST_STICKY" />
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+<uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+<!-- GCM required, remember replace "com.hyphenate.chatuidemo" to your own package -->
+<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+<permission
+    android:name="com.hyphenate.chatuidemo.permission.C2D_MESSAGE"
+    android:protectionLevel="signature" />
+
+<uses-permission android:name="com.hyphenate.chatuidemo.permission.C2D_MESSAGE" />
+
+<permission
+    android:name="com.hyphenate.chatuidemo.permission.MIPUSH_RECEIVE"
+    android:protectionLevel="signatureOrSystem" />
+
+<uses-permission android:name="com.hyphenate.chatuidemo.permission.MIPUSH_RECEIVE" />
+
+<application
+    android:name=".DemoApplication"
+    android:allowBackup="true"
+    android:icon="@drawable/nim_music_icon_play"
+    android:label="@string/app_name">
+
+    <activity android:name="com.netease.nim.uikit.session.activity.P2PMessageActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <!-- 聊天页面 -->
+    <!--<activity-->
+    <!--android:name=".ui.ChatActivity"-->
+    <!--android:launchMode="singleTask"-->
+    <!--android:screenOrientation="portrait"-->
+    <!--android:theme="@style/horizontal_slide"-->
+    <!--android:windowSoftInputMode="adjustResize" />-->
+
+    <!-- 设置环信应用的appkey -->
+    <meta-data
+        android:name="EASEMOB_APPKEY"
+        android:value="easemob-demo#chatdemoui" />
+    <!-- 声明sdk所需的service -->
+    <service
+        android:name="com.hyphenate.chat.EMChatService"
+        android:exported="true"
+        tools:ignore="ExportedService" />
+    <service
+        android:name="com.hyphenate.chat.EMJobService"
+        android:exported="true"
+        android:permission="android.permission.BIND_JOB_SERVICE" />
+
+    <!-- 声明sdk所需的receiver -->
+    <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+        <intent-filter>
+            <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+            <data android:scheme="package" />
+        </intent-filter>
+        <!-- 可选filter -->
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <action android:name="android.intent.action.USER_PRESENT" />
+        </intent-filter>
+    </receiver>
+
+
+
+    <!-- umeng appkey，可忽略 -->
+    <meta-data
+        android:name="UMENG_APPKEY"
+        android:value="56aefe07e0f55a250d001a7c" />
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="hyphenate" />
+    <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="3ecea51f560650b1ed8a4b99808f52e8" />
+
+</application>
+
+</manifest>

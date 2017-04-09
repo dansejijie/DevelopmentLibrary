@@ -152,9 +152,9 @@ public class MessageFragment extends TFragment implements ModuleProxy {
      */
 
     private void registerObservers(boolean register) {
-        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
-        service.observeReceiveMessage(incomingMessageObserver, register);
-        service.observeMessageReceipt(messageReceiptObserver, register);
+//        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
+//        service.observeReceiveMessage(incomingMessageObserver, register);
+//        service.observeMessageReceipt(messageReceiptObserver, register);
     }
 
     /**

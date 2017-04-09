@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
-import com.netease.nim.uikit.cache.TeamDataCache;
+//import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nimlib.sdk.msg.attachment.NotificationAttachment;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
@@ -25,6 +25,7 @@ import java.util.Map;
  * Created by huangjun on 2015/3/11.
  */
 public class TeamNotificationHelper {
+//
 //    private static ThreadLocal<String> teamId = new ThreadLocal<>();
 //
 //    public static String getMsgShowText(final IMMessage message) {
@@ -42,7 +43,7 @@ public class TeamNotificationHelper {
 //
 //        return content;
 //    }
-//
+////
 //    public static String getTeamNotificationText(IMMessage message, String tid) {
 //        return getTeamNotificationText(message.getSessionId(), message.getFromAccount(), (NotificationAttachment) message.getAttachment());
 //    }

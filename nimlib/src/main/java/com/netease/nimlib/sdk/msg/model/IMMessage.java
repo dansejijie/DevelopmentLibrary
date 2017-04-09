@@ -180,9 +180,9 @@ public class IMMessage implements Serializable {
 //
 //    }
 //
-//    public boolean isRemoteRead(){
-//
-//    }
+    public boolean isRemoteRead(){
+        return !emMessage.isUnread();
+    }
 //
 //    public int getFromClientType(){
 //

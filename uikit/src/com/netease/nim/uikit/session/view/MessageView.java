@@ -8,6 +8,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.hyphenate.EMMessageListener;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMMessage;
 import com.netease.nim.uikit.CustomPushContentProvider;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
@@ -87,7 +90,7 @@ public class MessageView extends TView implements ModuleProxy {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        parseIntent();
+
     }
 
 //    @Override
@@ -105,14 +108,23 @@ public class MessageView extends TView implements ModuleProxy {
 
         NIMClient.getService(MsgService.class).setChattingAccount(MsgService.MSG_CHATTING_ACCOUNT_NONE,
                 SessionTypeEnum.None);
-        inputPanel.onPause();
-        messageListPanel.onPause();
+        if (messageListPanel!=null){
+            messageListPanel.onPause();
+        }
+        if (inputPanel!=null){
+            inputPanel.onPause();
+        }
+
+
     }
 
 
     public void onResume() {
 
-        messageListPanel.onResume();
+
+        if (messageListPanel!=null){
+            messageListPanel.onResume();
+        }
         NIMClient.getService(MsgService.class).setChattingAccount(sessionId, sessionType);
         getActivity().setVolumeControlStream(AudioManager.STREAM_VOICE_CALL); // 默认使用听筒播放
     }
@@ -120,7 +132,12 @@ public class MessageView extends TView implements ModuleProxy {
 
     public void onDestroy() {
 
-        messageListPanel.onDestroy();
+        if (messageListPanel!=null){
+            messageListPanel.onPause();
+        }
+        if (inputPanel!=null){
+            inputPanel.onPause();
+        }
         registerObservers(false);
     }
 
@@ -179,10 +196,56 @@ public class MessageView extends TView implements ModuleProxy {
      * ****************** 观察者 **********************
      */
 
+    EMMessageListener msgListener = new EMMessageListener() {
+
+        @Override
+        public void onMessageReceived(List<EMMessage> messages) {
+            //收到消息
+            if (messages == null || messages.isEmpty()) {
+                return;
+            }
+
+            List<IMMessage>imMessages=new ArrayList<>();
+            for (EMMessage emMessage:messages){
+                imMessages.add(new IMMessage(emMessage));
+            }
+            messageListPanel.onIncomingMessage(imMessages);
+            sendMsgReceipt(); // 发送已读回执
+        }
+
+        @Override
+        public void onCmdMessageReceived(List<EMMessage> messages) {
+            //收到透传消息
+        }
+
+        @Override
+        public void onMessageRead(List<EMMessage> messages) {
+            //收到已读回执
+            receiveReceipt();
+
+        }
+
+        @Override
+        public void onMessageDelivered(List<EMMessage> message) {
+            //收到已送达回执
+        }
+
+        @Override
+        public void onMessageChanged(EMMessage message, Object change) {
+            //消息状态变动
+        }
+    };
+
     private void registerObservers(boolean register) {
-        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
-        service.observeReceiveMessage(incomingMessageObserver, register);
-        service.observeMessageReceipt(messageReceiptObserver, register);
+//        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
+//        service.observeReceiveMessage(incomingMessageObserver, register);
+//        service.observeMessageReceipt(messageReceiptObserver, register);
+
+        if (register){
+            EMClient.getInstance().chatManager().addMessageListener(msgListener);
+        }else {
+            EMClient.getInstance().chatManager().removeMessageListener(msgListener);
+        }
     }
 
     /**
@@ -216,7 +279,7 @@ public class MessageView extends TView implements ModuleProxy {
         if (!isAllowSendMessage(message)) {
             return false;
         }
-        appendPushConfig(message);
+//        appendPushConfig(message);
         // send message to server and save to db
         NIMClient.getService(MsgService.class).sendMessage(message, false);
 
@@ -225,15 +288,15 @@ public class MessageView extends TView implements ModuleProxy {
         return true;
     }
 
-    private void appendPushConfig(IMMessage message) {
-        CustomPushContentProvider customConfig = NimUIKit.getCustomPushContentProvider();
-        if (customConfig != null) {
-            String content = customConfig.getPushContent(message);
-            Map<String, Object> payload = customConfig.getPushPayload(message);
-            message.setPushContent(content);
-            message.setPushPayload(payload);
-        }
-    }
+//    private void appendPushConfig(IMMessage message) {
+//        CustomPushContentProvider customConfig = NimUIKit.getCustomPushContentProvider();
+//        if (customConfig != null) {
+//            String content = customConfig.getPushContent(message);
+//            Map<String, Object> payload = customConfig.getPushPayload(message);
+//            message.setPushContent(content);
+//            message.setPushPayload(payload);
+//        }
+//    }
 
     @Override
     public void onInputPanelExpand() {
@@ -288,5 +351,10 @@ public class MessageView extends TView implements ModuleProxy {
 
     public void setArguments(Bundle bundle){
         mArguments=bundle;
+        parseIntent();
+    }
+
+    public View getView(){
+        return rootView;
     }
 }

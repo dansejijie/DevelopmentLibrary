@@ -14,6 +14,10 @@ android {
         manifestPlaceholders=[xxx:"xxx",yyy:"yyy"]
 
         multiDexEnabled true
+
+
+
+        useLibrary 'org.apache.http.legacy'
     }
     buildTypes {
         release {
@@ -26,4 +30,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
+    compile 'com.google.android.gms:play-services-gcm:9.4.0'
+    compile 'com.hyphenate:hyphenate-sdk:3.3.0'
 }

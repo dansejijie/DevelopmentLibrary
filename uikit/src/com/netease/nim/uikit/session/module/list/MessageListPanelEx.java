@@ -27,7 +27,7 @@ import com.netease.nim.uikit.common.util.media.BitmapDecoder;
 import com.netease.nim.uikit.common.util.sys.ClipboardUtil;
 import com.netease.nim.uikit.common.util.sys.NetworkUtil;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
-import com.netease.nim.uikit.contact_selector.activity.ContactSelectActivity;
+//import com.netease.nim.uikit.contact_selector.activity.ContactSelectActivity;
 import com.netease.nim.uikit.session.activity.VoiceTrans;
 import com.netease.nim.uikit.session.audio.MessageAudioControl;
 import com.netease.nim.uikit.session.helper.MessageHelper;
@@ -40,7 +40,7 @@ import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.RequestCallback;
 import com.netease.nimlib.sdk.RequestCallbackWrapper;
 import com.netease.nimlib.sdk.ResponseCode;
-import com.netease.nimlib.sdk.avchat.model.AVChatAttachment;
+//import com.netease.nimlib.sdk.avchat.model.AVChatAttachment;
 import com.netease.nimlib.sdk.msg.MessageBuilder;
 import com.netease.nimlib.sdk.msg.MsgService;
 import com.netease.nimlib.sdk.msg.MsgServiceObserve;
@@ -291,17 +291,18 @@ public class MessageListPanelEx {
      */
 
     private void registerObservers(boolean register) {
-        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
-        service.observeMsgStatus(messageStatusObserver, register);
-        service.observeAttachmentProgress(attachmentProgressObserver, register);
-        service.observeRevokeMessage(revokeMessageObserver, register);
-        if (register) {
-            registerUserInfoObserver();
-        } else {
-            unregisterUserInfoObserver();
-        }
+//        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
+//        service.observeMsgStatus(messageStatusObserver, register);
+//        service.observeAttachmentProgress(attachmentProgressObserver, register);
+//        service.observeRevokeMessage(revokeMessageObserver, register);
+//        if (register) {
+//            registerUserInfoObserver();
+//        } else {
+//            unregisterUserInfoObserver();
+//        }
+//
+//        MessageListPanelHelper.getInstance().registerObserver(incomingLocalMessageObserver, register);
 
-        MessageListPanelHelper.getInstance().registerObserver(incomingLocalMessageObserver, register);
     }
 
     /**
@@ -366,8 +367,12 @@ public class MessageListPanelEx {
             IMMessage item = items.get(index);
             item.setStatus(message.getStatus());
             item.setAttachStatus(message.getAttachStatus());
-            if (item.getAttachment() instanceof AVChatAttachment
-                    || item.getAttachment() instanceof AudioAttachment) {
+//            if (item.getAttachment() instanceof AVChatAttachment
+//                    || item.getAttachment() instanceof AudioAttachment) {
+//                item.setAttachment(message.getAttachment());
+//            }
+
+            if (item.getAttachment() instanceof AudioAttachment) {
                 item.setAttachment(message.getAttachment());
             }
 
@@ -886,36 +891,36 @@ public class MessageListPanelEx {
 
         // 长按菜单项 -- 转发到个人
         private void longClickItemForwardToPerson(final IMMessage item, CustomAlertDialog alertDialog) {
-            alertDialog.addItem(container.activity.getString(R.string.forward_to_person), new CustomAlertDialog.onSeparateItemClickListener() {
-
-                @Override
-                public void onClick() {
-                    forwardMessage = item;
-                    ContactSelectActivity.Option option = new ContactSelectActivity.Option();
-                    option.title = "选择转发的人";
-                    option.type = ContactSelectActivity.ContactSelectType.BUDDY;
-                    option.multi = false;
-                    option.maxSelectNum = 1;
-                    NimUIKit.startContactSelect(container.activity, option, REQUEST_CODE_FORWARD_PERSON);
-                }
-            });
+//            alertDialog.addItem(container.activity.getString(R.string.forward_to_person), new CustomAlertDialog.onSeparateItemClickListener() {
+//
+//                @Override
+//                public void onClick() {
+//                    forwardMessage = item;
+//                    ContactSelectActivity.Option option = new ContactSelectActivity.Option();
+//                    option.title = "选择转发的人";
+//                    option.type = ContactSelectActivity.ContactSelectType.BUDDY;
+//                    option.multi = false;
+//                    option.maxSelectNum = 1;
+//                    NimUIKit.startContactSelect(container.activity, option, REQUEST_CODE_FORWARD_PERSON);
+//                }
+//            });
         }
 
         // 长按菜单项 -- 转发到群组
         private void longClickItemForwardToTeam(final IMMessage item, CustomAlertDialog alertDialog) {
-            alertDialog.addItem(container.activity.getString(R.string.forward_to_team), new CustomAlertDialog.onSeparateItemClickListener() {
-
-                @Override
-                public void onClick() {
-                    forwardMessage = item;
-                    ContactSelectActivity.Option option = new ContactSelectActivity.Option();
-                    option.title = "选择转发的群";
-                    option.type = ContactSelectActivity.ContactSelectType.TEAM;
-                    option.multi = false;
-                    option.maxSelectNum = 1;
-                    NimUIKit.startContactSelect(container.activity, option, REQUEST_CODE_FORWARD_TEAM);
-                }
-            });
+//            alertDialog.addItem(container.activity.getString(R.string.forward_to_team), new CustomAlertDialog.onSeparateItemClickListener() {
+//
+//                @Override
+//                public void onClick() {
+//                    forwardMessage = item;
+//                    ContactSelectActivity.Option option = new ContactSelectActivity.Option();
+//                    option.title = "选择转发的群";
+//                    option.type = ContactSelectActivity.ContactSelectType.TEAM;
+//                    option.multi = false;
+//                    option.maxSelectNum = 1;
+//                    NimUIKit.startContactSelect(container.activity, option, REQUEST_CODE_FORWARD_TEAM);
+//                }
+//            });
         }
 
         // 长按菜单项 -- 撤回消息
@@ -1099,17 +1104,17 @@ public class MessageListPanelEx {
         if (resultCode != Activity.RESULT_OK) {
             return;
         }
-        final ArrayList<String> selected = data.getStringArrayListExtra(ContactSelectActivity.RESULT_DATA);
-        if (selected != null && !selected.isEmpty()) {
-            switch (requestCode) {
-                case REQUEST_CODE_FORWARD_TEAM:
-                    doForwardMessage(selected.get(0), SessionTypeEnum.Team);
-                    break;
-                case REQUEST_CODE_FORWARD_PERSON:
-                    doForwardMessage(selected.get(0), SessionTypeEnum.P2P);
-                    break;
-            }
-        }
+//        final ArrayList<String> selected = data.getStringArrayListExtra(ContactSelectActivity.RESULT_DATA);
+//        if (selected != null && !selected.isEmpty()) {
+//            switch (requestCode) {
+//                case REQUEST_CODE_FORWARD_TEAM:
+//                    doForwardMessage(selected.get(0), SessionTypeEnum.Team);
+//                    break;
+//                case REQUEST_CODE_FORWARD_PERSON:
+//                    doForwardMessage(selected.get(0), SessionTypeEnum.P2P);
+//                    break;
+//            }
+//        }
     }
 
     // 转发消息

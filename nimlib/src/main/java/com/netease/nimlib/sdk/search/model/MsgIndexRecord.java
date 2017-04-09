@@ -6,9 +6,11 @@ package com.netease.nimlib.sdk.search.model;
 
 
 //import com.netease.nimlib.n.h;
+import android.util.Log;
+
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
-import com.netease.nimlib.search.a.a;
+//import com.netease.nimlib.search.a.a;
 //import com.netease.nimlib.search.b.b;
 import com.netease.nimlib.search.model.NIMIndexRecord;
 
@@ -32,11 +34,15 @@ public class MsgIndexRecord implements Comparable<MsgIndexRecord> {
     }
 
     public SessionTypeEnum getSessionType() {
-        return a.a(this.record.id);
+        Log.e("TAG","unhandler");
+        return SessionTypeEnum.P2P;
+        //return a.a(this.record.id);
     }
 
     public String getSessionId() {
-        return a.b(this.record.id);
+        Log.e("TAG","unhandler");
+        return "123";
+        //return a.b(this.record.id);
     }
 
     public long getTime() {

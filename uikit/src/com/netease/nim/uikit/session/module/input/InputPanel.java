@@ -31,7 +31,6 @@ import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.dialog.EasyAlertDialogHelper;
 import com.netease.nim.uikit.common.util.log.LogUtil;
 import com.netease.nim.uikit.common.util.string.StringUtil;
-import com.netease.nim.uikit.recent.AitHelper;
 import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.actions.BaseAction;
 import com.netease.nim.uikit.session.emoji.EmoticonPickerView;
@@ -792,13 +791,14 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
             messageEditText.getEditableText().insert(start, account);// 光标所在位置插入文字
         }
 
+        Log.e("TAG","unhandler");
         // 替换成昵称
-        String aitName = AitHelper.getAitName(member) + " ";
-        Editable editable = messageEditText.getText();
-        aitName = "@" + aitName;
-        start--;
-        editable.setSpan(AitHelper.getInputAitSpan(aitName, messageEditText.getTextSize()),
-                start, start + account.length() + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        String aitName = AitHelper.getAitName(member) + " ";
+//        Editable editable = messageEditText.getText();
+//        aitName = "@" + aitName;
+//        start--;
+//        editable.setSpan(AitHelper.getInputAitSpan(aitName, messageEditText.getTextSize()),
+//                start, start + account.length() + 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         // 显示键盘
         uiHandler.postDelayed(showTextRunnable, SHOW_LAYOUT_DELAY);

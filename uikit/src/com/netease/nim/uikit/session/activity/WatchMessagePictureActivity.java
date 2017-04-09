@@ -104,6 +104,7 @@ public class WatchMessagePictureActivity extends UI {
     }
 
     private void queryImageMessages() {
+
         IMMessage anchor = MessageBuilder.createEmptyMessage(message.getSessionId(), message.getSessionType(), 0);
 
         NIMClient.getService(MsgService.class).queryMessageListByType(MsgTypeEnum.image, anchor, Integer.MAX_VALUE).setCallback(new RequestCallback<List<IMMessage>>() {
