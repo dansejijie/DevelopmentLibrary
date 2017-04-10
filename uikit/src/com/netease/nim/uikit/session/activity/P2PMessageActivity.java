@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -66,39 +67,45 @@ public class P2PMessageActivity extends Activity{
         registerObservers(true);
 
 
-
         messageView=new MessageView(this);
-
-
+        Bundle bundle=new Bundle();
+        bundle.putString(Extras.EXTRA_ACCOUNT,"dansejijie2");
+        bundle.putSerializable(Extras.EXTRA_TYPE, SessionTypeEnum.P2P);
+        messageView.setArguments(bundle);
 
         ViewGroup.LayoutParams lp=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         setContentView(messageView.getView(),lp);
 
 
-        EMClient.getInstance().login("dansejijie","xhzxzq15",new EMCallBack() {//回调
-            @Override
-            public void onSuccess() {
-                EMClient.getInstance().groupManager().loadAllGroups();
-                EMClient.getInstance().chatManager().loadAllConversations();
-
-                Bundle bundle=new Bundle();
-                bundle.putString(Extras.EXTRA_ACCOUNT,"dansejijie2");
-                bundle.putSerializable(Extras.EXTRA_TYPE,SessionTypeEnum.P2P);
-                messageView.setArguments(bundle);
-
-                Log.d("main", "登录聊天服务器成功！");
-            }
-
-            @Override
-            public void onProgress(int progress, String status) {
-
-            }
-
-            @Override
-            public void onError(int code, String message) {
-                Log.d("main", "登录聊天服务器失败！");
-            }
-        });
+//        EMClient.getInstance().login("dansejijie","xhzxzq15",new EMCallBack() {//回调
+//            @Override
+//            public void onSuccess() {
+//                EMClient.getInstance().groupManager().loadAllGroups();
+//                EMClient.getInstance().chatManager().loadAllConversations();
+//
+//                Toast.makeText(P2PMessageActivity.this,"登录聊天服务器成功！",Toast.LENGTH_LONG).show();
+//
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Bundle bundle=new Bundle();
+//                        bundle.putString(Extras.EXTRA_ACCOUNT,"dansejijie2");
+//                        bundle.putSerializable(Extras.EXTRA_TYPE,SessionTypeEnum.P2P);
+//                        messageView.setArguments(bundle);
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onProgress(int progress, String status) {
+//
+//            }
+//
+//            @Override
+//            public void onError(int code, String message) {
+//                Log.d("main", "登录聊天服务器失败！");
+//            }
+//        });
     }
 
     @Override

@@ -23,7 +23,7 @@ import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.SessionEventListener;
 import com.netease.nim.uikit.session.activity.P2PMessageActivity;
 //import com.netease.nim.uikit.session.activity.TeamMessageActivity;
-import com.netease.nim.uikit.session.emoji.StickerManager;
+//import com.netease.nim.uikit.session.emoji.StickerManager;
 import com.netease.nim.uikit.session.viewholder.MsgViewHolderBase;
 import com.netease.nim.uikit.session.viewholder.MsgViewHolderFactory;
 import com.netease.nim.uikit.session.module.MsgForwardFilter;
@@ -126,7 +126,7 @@ public final class NimUIKit {
         // init tools
         StorageUtil.init(context, null);
         ScreenUtil.init(context);
-        StickerManager.getInstance().init();
+        //StickerManager.getInstance().init();
 
         // init log
         String path = StorageUtil.getDirectoryByDirType(StorageType.TYPE_LOG);
@@ -356,42 +356,42 @@ public final class NimUIKit {
         NimUIKit.locationProvider = locationProvider;
     }
 
-    /**
-     * 设置单聊界面定制 SessionCustomization
-     *
-     * @param commonP2PSessionCustomization 聊天界面定制化
-     */
-    public static void setCommonP2PSessionCustomization(SessionCustomization commonP2PSessionCustomization) {
-        NimUIKit.commonP2PSessionCustomization = commonP2PSessionCustomization;
-    }
+//    /**
+//     * 设置单聊界面定制 SessionCustomization
+//     *
+//     * @param commonP2PSessionCustomization 聊天界面定制化
+//     */
+//    public static void setCommonP2PSessionCustomization(SessionCustomization commonP2PSessionCustomization) {
+//        NimUIKit.commonP2PSessionCustomization = commonP2PSessionCustomization;
+//    }
+//
+//    /**
+//     * 设置群聊界面定制 SessionCustomization
+//     *
+//     * @param commonTeamSessionCustomization 聊天界面定制化
+//     */
+//    public static void setCommonTeamSessionCustomization(SessionCustomization commonTeamSessionCustomization) {
+//        NimUIKit.commonTeamSessionCustomization = commonTeamSessionCustomization;
+//    }
 
-    /**
-     * 设置群聊界面定制 SessionCustomization
-     *
-     * @param commonTeamSessionCustomization 聊天界面定制化
-     */
-    public static void setCommonTeamSessionCustomization(SessionCustomization commonTeamSessionCustomization) {
-        NimUIKit.commonTeamSessionCustomization = commonTeamSessionCustomization;
-    }
-
-    /**
-     * 根据消息附件类型注册对应的消息项展示ViewHolder
-     *
-     * @param attach     附件类型
-     * @param viewHolder 消息ViewHolder
-     */
-    public static void registerMsgItemViewHolder(Class<? extends MsgAttachment> attach, Class<? extends MsgViewHolderBase> viewHolder) {
-        MsgViewHolderFactory.register(attach, viewHolder);
-    }
-
-    /**
-     * 注册Tip类型消息项展示ViewHolder
-     *
-     * @param viewHolder Tip消息ViewHolder
-     */
-    public static void registerTipMsgViewHolder(Class<? extends MsgViewHolderBase> viewHolder) {
-        MsgViewHolderFactory.registerTipMsgViewHolder(viewHolder);
-    }
+//    /**
+//     * 根据消息附件类型注册对应的消息项展示ViewHolder
+//     *
+//     * @param attach     附件类型
+//     * @param viewHolder 消息ViewHolder
+//     */
+//    public static void registerMsgItemViewHolder(Class<? extends MsgAttachment> attach, Class<? extends MsgViewHolderBase> viewHolder) {
+//        MsgViewHolderFactory.register(attach, viewHolder);
+//    }
+//
+//    /**
+//     * 注册Tip类型消息项展示ViewHolder
+//     *
+//     * @param viewHolder Tip消息ViewHolder
+//     */
+//    public static void registerTipMsgViewHolder(Class<? extends MsgViewHolderBase> viewHolder) {
+//        MsgViewHolderFactory.registerTipMsgViewHolder(viewHolder);
+//    }
 
     /**
      * 设置当前登录用户的帐号

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/release/xml/provider_paths.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/lablibrary/build/intermediates/bundles/release/res/xml/provider_paths.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/release/xml/preferences.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/xml/preferences.xml"
+    }
+]

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/tygzx/Work/react-native/lab4/android/imuikit/assets"/><source path="/Users/tygzx/Work/react-native/lab4/android/imuikit/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/tygzx/Work/react-native/lab4/android/imuikit/src/debug/assets"/></dataSet></merger>

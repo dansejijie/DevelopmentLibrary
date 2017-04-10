@@ -2,8 +2,17 @@ package com.netease.nimlib.sdk.msg.model;
 
 import android.util.Log;
 
+import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMFileMessageBody;
+import com.hyphenate.chat.EMImageMessageBody;
+import com.hyphenate.chat.EMLocationMessageBody;
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMTextMessageBody;
+import com.hyphenate.chat.EMVoiceMessageBody;
+import com.netease.nimlib.sdk.msg.attachment.AudioAttachment;
+import com.netease.nimlib.sdk.msg.attachment.FileAttachment;
+import com.netease.nimlib.sdk.msg.attachment.ImageAttachment;
+import com.netease.nimlib.sdk.msg.attachment.LocationAttachment;
 import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.netease.nimlib.sdk.msg.constant.AttachStatusEnum;
 import com.netease.nimlib.sdk.msg.constant.MsgDirectionEnum;
@@ -20,6 +29,8 @@ import java.util.Map;
  */
 
 public class IMMessage implements Serializable {
+
+    private static final String TAG=IMMessage.class.getSimpleName();
 
     public EMMessage emMessage;
 
@@ -66,7 +77,10 @@ public class IMMessage implements Serializable {
     }
 
     public MsgStatusEnum getStatus(){
-        return MsgStatusEnum.EMMessageMsgStatusEnumConvertToIMMessageMsgStatusEnum(emMessage);
+
+        MsgStatusEnum msgStatusEnum=MsgStatusEnum.EMMessageMsgStatusEnumConvertToIMMessageMsgStatusEnum(emMessage);
+        Log.e(TAG,msgStatusEnum.toString());
+        return msgStatusEnum;
     }
 
     public void setStatus(MsgStatusEnum var1){
@@ -94,8 +108,8 @@ public class IMMessage implements Serializable {
     }
 
     public String getContent(){
-        Log.e("TAG","unhandle");
-        return "";
+        //Log.e("TAG","unhandle");
+        return ((EMTextMessageBody) emMessage.getBody()).getMessage();
     }
 
     public long getTime(){
@@ -115,7 +129,20 @@ public class IMMessage implements Serializable {
     }
 
     public MsgAttachment getAttachment(){
-        return new MsgAttachment(emMessage.getBody());
+
+
+        Class clz=emMessage.getBody().getClass();
+        if (clz.isAssignableFrom(EMImageMessageBody.class)){
+            return new ImageAttachment(emMessage.getBody());
+        }else if (clz.isAssignableFrom(EMVoiceMessageBody.class)){
+            return new AudioAttachment(emMessage.getBody());
+        }else if (clz.isAssignableFrom(EMLocationMessageBody.class)){
+            return new LocationAttachment(emMessage.getBody());
+        }else if (clz.isAssignableFrom(EMFileMessageBody.class)){
+            return new FileAttachment(emMessage.getBody());
+        }else {
+            return new MsgAttachment(emMessage.getBody());
+        }
     }
 
     public AttachStatusEnum getAttachStatus(){
@@ -195,4 +222,32 @@ public class IMMessage implements Serializable {
 //    public void setNIMAntiSpamOption(NIMAntiSpamOption var1){
 //
 //    }
+
+    public void setMessageStatusCallback(EMCallBack callback){
+        emMessage.setMessageStatusCallback(callback);
+    }
+
+    public String getAccount(){
+        return emMessage.getFrom();
+    }
+
+    public void setUuid(String uuid){
+        emMessage.setMsgId(uuid);
+    }
+
+    public void setDirection(MsgDirectionEnum direction){
+        emMessage.setDirection(MsgDirectionEnum.IMMessageMsgStatusEnumConvertToEMMessageMsgStatusEnum(direction));
+    }
+
+    public String getFrom(){
+        return emMessage.getFrom();
+    }
+
+    public String getTo(){
+        return emMessage.getTo();
+    }
+
+    public String getUserName(){
+        return emMessage.getUserName();
+    }
 }

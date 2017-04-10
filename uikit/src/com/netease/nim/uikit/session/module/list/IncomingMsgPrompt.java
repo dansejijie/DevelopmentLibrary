@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseFetchLoadAdapter;
-import com.netease.nim.uikit.session.emoji.MoonUtil;
-import com.netease.nim.uikit.session.helper.TeamNotificationHelper;
+//import com.netease.nim.uikit.session.emoji.MoonUtil;
+//import com.netease.nim.uikit.session.helper.TeamNotificationHelper;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 /**

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.text.Editable;
 import android.text.InputType;
@@ -33,9 +34,16 @@ import com.netease.nim.uikit.common.util.log.LogUtil;
 import com.netease.nim.uikit.common.util.string.StringUtil;
 import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.actions.BaseAction;
-import com.netease.nim.uikit.session.emoji.EmoticonPickerView;
-import com.netease.nim.uikit.session.emoji.IEmoticonSelectedListener;
-import com.netease.nim.uikit.session.emoji.MoonUtil;
+//import com.netease.nim.uikit.session.emoji.EmoticonPickerView;
+//import com.netease.nim.uikit.session.emoji.IEmoticonSelectedListener;
+//import com.netease.nim.uikit.session.emoji.MoonUtil;
+import com.netease.nim.uikit.session.audio.ease.EaseVoiceRecorder;
+import com.netease.nim.uikit.session.emoji.ease.EaseDefaultEmojiconDatas;
+import com.netease.nim.uikit.session.emoji.ease.EaseEmojicon;
+import com.netease.nim.uikit.session.emoji.ease.EaseEmojiconGroupEntity;
+import com.netease.nim.uikit.session.emoji.ease.EaseEmojiconMenu;
+import com.netease.nim.uikit.session.emoji.ease.EaseEmojiconMenuBase;
+import com.netease.nim.uikit.session.emoji.ease.EaseSmileUtils;
 import com.netease.nim.uikit.session.module.Container;
 import com.netease.nim.uikit.team.model.TeamExtras;
 import com.netease.nim.uikit.team.model.TeamRequestCode;
@@ -53,13 +61,15 @@ import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.team.model.TeamMember;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * 底部文本编辑，语音等模块
  * Created by hzxuwen on 2015/6/16.
  */
-public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallback {
+public class InputPanel {
 
     private static final String TAG = "MsgSendLayout";
 
@@ -85,10 +95,14 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
     private SessionCustomization customization;
 
     // 表情
-    protected EmoticonPickerView emoticonPickerView;  // 贴图表情控件
+    //protected EmoticonPickerView emoticonPickerView;  // 贴图表情控件
+    // 表情
+    protected EaseEmojiconMenu emoticonPickerView;  // 贴图表情控件
+    List<EaseEmojiconGroupEntity> emojiconGroupList;
 
     // 语音
-    protected AudioRecorder audioMessageHelper;
+    protected EaseVoiceRecorder voiceRecorder;
+    private String filePath = null;
     private Chronometer time;
     private TextView timerTip;
     private LinearLayout timerTipContainer;
@@ -126,9 +140,9 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
 
     public void onPause() {
         // 停止录音
-        if (audioMessageHelper != null) {
-            onEndAudioRecord(true);
-        }
+//        if (audioMessageHelper != null) {
+//            onEndAudioRecord(true);
+//        }
     }
 
     public boolean collapse(boolean immediately) {
@@ -160,13 +174,18 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
     public void setCustomization(SessionCustomization customization) {
         this.customization = customization;
         if (customization != null) {
-            emoticonPickerView.setWithSticker(customization.withSticker);
+            //emoticonPickerView.setWithSticker(customization.withSticker);
         }
     }
 
     public void reload(Container container, SessionCustomization customization) {
         this.container = container;
         setCustomization(customization);
+
+        for (int i = 0; i < actions.size(); ++i) {
+            actions.get(i).setIndex(i);
+            actions.get(i).setContainer(container);
+        }
     }
 
     private void initViews() {
@@ -188,7 +207,12 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         timerTipContainer = (LinearLayout) view.findViewById(R.id.timer_tip_container);
 
         // 表情
-        emoticonPickerView = (EmoticonPickerView) view.findViewById(R.id.emoticon_picker_view);
+        emoticonPickerView = (EaseEmojiconMenu) view.findViewById(R.id.emoticon_picker_view);
+        if(emojiconGroupList == null){
+            emojiconGroupList = new ArrayList<EaseEmojiconGroupEntity>();
+            emojiconGroupList.add(new EaseEmojiconGroupEntity(R.drawable.ee_1,  Arrays.asList(EaseDefaultEmojiconDatas.getData())));
+        }
+        emoticonPickerView.init(emojiconGroupList);
 
         // 显示录音按钮
         switchToTextButtonInInputBar.setVisibility(View.GONE);
@@ -249,7 +273,7 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
             @Override
             public void afterTextChanged(Editable s) {
                 checkSendButtonEnable(messageEditText);
-                MoonUtil.replaceEmoticons(container.activity, s, start, count);
+                //MoonUtil.replaceEmoticons(container.activity, s, start, count);
 
                 if (watcher != null) {
                     watcher.afterTextChanged(s, start, count);
@@ -427,7 +451,20 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         messageEditText.requestFocus();
         uiHandler.postDelayed(showEmojiRunnable, 200);
         emoticonPickerView.setVisibility(View.VISIBLE);
-        emoticonPickerView.show(this);
+        //emoticonPickerView.show(this);
+        emoticonPickerView.setEmojiconMenuListener(new EaseEmojiconMenuBase.EaseEmojiconMenuListener() {
+            @Override
+            public void onExpressionClicked(EaseEmojicon emojicon) {
+                CharSequence charSequence= EaseSmileUtils.getSmiledText(container.activity,emojicon.getEmojiText());
+                messageEditText.append(charSequence);
+            }
+
+            @Override
+            public void onDeleteImageClicked() {
+                messageEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+
+            }
+        });
         container.proxy.onInputPanelExpand();
     }
 
@@ -521,35 +558,37 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         }
     }
 
-    /**
-     * *************** IEmojiSelectedListener ***************
-     */
-    @Override
-    public void onEmojiSelected(String key) {
-        Editable mEditable = messageEditText.getText();
-        if (key.equals("/DEL")) {
-            messageEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
-        } else {
-            int start = messageEditText.getSelectionStart();
-            int end = messageEditText.getSelectionEnd();
-            start = (start < 0 ? 0 : start);
-            end = (start < 0 ? 0 : end);
-            mEditable.replace(start, end, key);
-        }
-    }
+//    /**
+//     * *************** IEmojiSelectedListener ***************
+//     */
+//    @Override
+//    public void onEmojiSelected(String key) {
+//        Editable mEditable = messageEditText.getText();
+//        if (key.equals("/DEL")) {
+//            messageEditText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+//        } else {
+//            int start = messageEditText.getSelectionStart();
+//            int end = messageEditText.getSelectionEnd();
+//            start = (start < 0 ? 0 : start);
+//            end = (start < 0 ? 0 : end);
+//            mEditable.replace(start, end, key);
+//        }
+//    }
+//
+
+//
+//    @Override
+//    public void onStickerSelected(String category, String item) {
+//        Log.i("InputPanel", "onStickerSelected, category =" + category + ", sticker =" + item);
+//
+//        if (customization != null) {
+//            MsgAttachment attachment = customization.createStickerAttachment(category, item);
+//            IMMessage stickerMessage = MessageBuilder.createCustomMessage(container.account, container.sessionType, "贴图消息", attachment);
+//            container.proxy.sendMessage(stickerMessage);
+//        }
+//    }
 
     private Runnable hideAllInputLayoutRunnable;
-
-    @Override
-    public void onStickerSelected(String category, String item) {
-        Log.i("InputPanel", "onStickerSelected, category =" + category + ", sticker =" + item);
-
-        if (customization != null) {
-            MsgAttachment attachment = customization.createStickerAttachment(category, item);
-            IMMessage stickerMessage = MessageBuilder.createCustomMessage(container.account, container.sessionType, "贴图消息", attachment);
-            container.proxy.sendMessage(stickerMessage);
-        }
-    }
 
     /**
      * 隐藏所有输入布局
@@ -613,8 +652,11 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
      * 初始化AudioRecord
      */
     private void initAudioRecord() {
-        if (audioMessageHelper == null) {
-            audioMessageHelper = new AudioRecorder(container.activity, RecordType.AAC, AudioRecorder.DEFAULT_MAX_AUDIO_RECORD_TIME_SECOND, this);
+//        if (audioMessageHelper == null) {
+//            audioMessageHelper = new AudioRecorder(container.activity, RecordType.AAC, AudioRecorder.DEFAULT_MAX_AUDIO_RECORD_TIME_SECOND, this);
+//        }
+        if (voiceRecorder == null) {
+            voiceRecorder = new EaseVoiceRecorder (new Handler(Looper.getMainLooper()));
         }
     }
 
@@ -622,10 +664,29 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
      * 开始语音录制
      */
     private void onStartAudioRecord() {
+//        container.activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+//                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+//        audioMessageHelper.startRecord();
+//        cancelled = false;
         container.activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        audioMessageHelper.startRecord();
+
+        filePath = voiceRecorder.startRecording(container.activity);
         cancelled = false;
+        if (filePath == null) {
+            Toast.makeText(container.activity, R.string.recording_init_failed, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!touched) {
+            return;
+        }
+
+        audioRecordBtn.setText(R.string.record_audio_end);
+        audioRecordBtn.setBackgroundResource(R.drawable.nim_message_input_edittext_box_pressed);
+
+        updateTimerTip(false); // 初始化语音动画状态
+        playAudioRecordAnim();
     }
 
     /**
@@ -634,10 +695,27 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
      * @param cancel
      */
     private void onEndAudioRecord(boolean cancel) {
-        started = false;
+//        started = false;
+//        container.activity.getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+//
+//        audioMessageHelper.completeRecord(cancel);
+//        audioRecordBtn.setText(R.string.record_audio);
+//        audioRecordBtn.setBackgroundResource(R.drawable.nim_message_input_edittext_box);
+//        stopAudioRecordAnim();
         container.activity.getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        audioMessageHelper.completeRecord(cancel);
+        //audioMessageHelper.completeRecord(cancel);
+        if (cancel){
+            voiceRecorder.discardRecording();
+        }else {
+            int duration= voiceRecorder.stopRecoding();
+            if (duration<1){
+                Toast.makeText(container.activity,"录音时间过短", Toast.LENGTH_SHORT).show();
+            }else {
+                IMMessage audioMessage = MessageBuilder.createAudioMessage(container.account, container.sessionType, new File(filePath),duration);
+                container.proxy.sendMessage(audioMessage);
+            }
+        }
         audioRecordBtn.setText(R.string.record_audio);
         audioRecordBtn.setBackgroundResource(R.drawable.nim_message_input_edittext_box);
         stopAudioRecordAnim();
@@ -695,61 +773,62 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         time.setBase(SystemClock.elapsedRealtime());
     }
 
-    // 录音状态回调
-    @Override
-    public void onRecordReady() {
-
-    }
-
-    @Override
-    public void onRecordStart(File audioFile, RecordType recordType) {
-        started = true;
-        if (!touched) {
-            return;
-        }
-
-        audioRecordBtn.setText(R.string.record_audio_end);
-        audioRecordBtn.setBackgroundResource(R.drawable.nim_message_input_edittext_box_pressed);
-
-        updateTimerTip(false); // 初始化语音动画状态
-        playAudioRecordAnim();
-    }
-
-    @Override
-    public void onRecordSuccess(File audioFile, long audioLength, RecordType recordType) {
-        IMMessage audioMessage = MessageBuilder.createAudioMessage(container.account, container.sessionType, audioFile, audioLength);
-        container.proxy.sendMessage(audioMessage);
-    }
-
-    @Override
-    public void onRecordFail() {
-        if (started) {
-            Toast.makeText(container.activity, R.string.recording_error, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void onRecordCancel() {
-
-    }
-
-    @Override
-    public void onRecordReachedMaxTime(final int maxTime) {
-        stopAudioRecordAnim();
-        EasyAlertDialogHelper.createOkCancelDiolag(container.activity, "", container.activity.getString(R.string.recording_max_time), false, new EasyAlertDialogHelper.OnDialogActionListener() {
-            @Override
-            public void doCancelAction() {
-            }
-
-            @Override
-            public void doOkAction() {
-                audioMessageHelper.handleEndRecord(true, maxTime);
-            }
-        }).show();
-    }
+//    // 录音状态回调
+//    @Override
+//    public void onRecordReady() {
+//
+//    }
+//
+//    @Override
+//    public void onRecordStart(File audioFile, RecordType recordType) {
+//        started = true;
+//        if (!touched) {
+//            return;
+//        }
+//
+//        audioRecordBtn.setText(R.string.record_audio_end);
+//        audioRecordBtn.setBackgroundResource(R.drawable.nim_message_input_edittext_box_pressed);
+//
+//        updateTimerTip(false); // 初始化语音动画状态
+//        playAudioRecordAnim();
+//    }
+//
+//    @Override
+//    public void onRecordSuccess(File audioFile, long audioLength, RecordType recordType) {
+//        IMMessage audioMessage = MessageBuilder.createAudioMessage(container.account, container.sessionType, audioFile, audioLength);
+//        container.proxy.sendMessage(audioMessage);
+//    }
+//
+//    @Override
+//    public void onRecordFail() {
+//        if (started) {
+//            Toast.makeText(container.activity, R.string.recording_error, Toast.LENGTH_SHORT).show();
+//        }
+//    }
+//
+//    @Override
+//    public void onRecordCancel() {
+//
+//    }
+//
+//    @Override
+//    public void onRecordReachedMaxTime(final int maxTime) {
+//        stopAudioRecordAnim();
+//        EasyAlertDialogHelper.createOkCancelDiolag(container.activity, "", container.activity.getString(R.string.recording_max_time), false, new EasyAlertDialogHelper.OnDialogActionListener() {
+//            @Override
+//            public void doCancelAction() {
+//            }
+//
+//            @Override
+//            public void doOkAction() {
+//                audioMessageHelper.handleEndRecord(true, maxTime);
+//            }
+//        }).show();
+//    }
 
     public boolean isRecording() {
-        return audioMessageHelper != null && audioMessageHelper.isRecording();
+        //return audioMessageHelper != null && audioMessageHelper.isRecording();
+        return voiceRecorder != null && voiceRecorder.isRecording();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -762,17 +841,22 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
             return;
         }
 
-        int index = (requestCode << 16) >> 24;
-        if (index != 0) {
-            index--;
-            if (index < 0 | index >= actions.size()) {
-                LogUtil.d(TAG, "request code out of actions' range");
-                return;
-            }
-            BaseAction action = actions.get(index);
-            if (action != null) {
-                action.onActivityResult(requestCode & 0xff, resultCode, data);
-            }
+//        int index = (requestCode << 16) >> 24;
+//        if (index != 0) {
+//            index--;
+//            if (index < 0 | index >= actions.size()) {
+//                Log.d(TAG, "request code out of actions' range");
+//                return;
+//            }
+//            BaseAction action = actions.get(index);
+//            if (action != null) {
+//                action.onActivityResult(requestCode & 0xff, resultCode, data);
+//            }
+//        }
+
+        BaseAction action = actions.get(0);
+        if (action != null) {
+            action.onActivityResult(requestCode & 0xff, resultCode, data);
         }
     }
 

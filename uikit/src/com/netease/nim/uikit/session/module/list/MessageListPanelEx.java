@@ -6,15 +6,18 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.hyphenate.EMCallBack;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.UserPreferences;
@@ -109,6 +112,7 @@ public class MessageListPanelEx {
         this.recordOnly = recordOnly;
         this.remote = remote;
 
+
         init(anchor);
     }
 
@@ -185,6 +189,7 @@ public class MessageListPanelEx {
     }
 
     private void initFetchLoadListener(IMMessage anchor) {
+
         MessageLoader loader = new MessageLoader(anchor, remote);
 
         if (recordOnly && !remote) {
@@ -227,6 +232,22 @@ public class MessageListPanelEx {
         List<IMMessage> addedListItems = new ArrayList<>(messages.size());
         for (IMMessage message : messages) {
             if (isMyMessage(message)) {
+                message.setMessageStatusCallback(new EMCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        refreshMessageList();
+                    }
+
+                    @Override
+                    public void onError(int code, String error) {
+                        refreshMessageList();
+                    }
+
+                    @Override
+                    public void onProgress(int progress, String status) {
+                        refreshMessageList();
+                    }
+                });
                 items.add(message);
                 addedListItems.add(message);
                 needRefresh = true;
@@ -234,6 +255,23 @@ public class MessageListPanelEx {
         }
         if (needRefresh) {
             sortMessages(items);
+//            int a= adapter.getDataSize();
+            //refreshMessageList();
+            //refreshMessageList();
+//            Handler handler=new Handler(Looper.getMainLooper());
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    adapter.notifyDataSetChanged();
+//                }
+//            },1000);
+//            container.activity.runOnUiThread(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//                    adapter.notifyDataSetChanged();
+//                }
+//            });
             adapter.notifyDataSetChanged();
         }
 
@@ -258,11 +296,30 @@ public class MessageListPanelEx {
 
     // 发送消息后，更新本地消息列表
     public void onMsgSend(IMMessage message) {
+
+        message.setMessageStatusCallback(new EMCallBack() {
+            @Override
+            public void onSuccess() {
+                refreshMessageList();
+            }
+
+            @Override
+            public void onError(int code, String error) {
+                refreshMessageList();
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+                refreshMessageList();
+            }
+        });
         List<IMMessage> addedListItems = new ArrayList<>(1);
         addedListItems.add(message);
         adapter.updateShowTimeItem(addedListItems, false, true);
 
         adapter.appendData(message);
+
+
 
         doScrollToBottom();
     }
@@ -397,8 +454,8 @@ public class MessageListPanelEx {
 
     public boolean isMyMessage(IMMessage message) {
         return message.getSessionType() == container.sessionType
-                && message.getSessionId() != null
-                && message.getSessionId().equals(container.account);
+                && message.getAccount() != null
+                && message.getAccount().equals(container.account);
     }
 
     /**
@@ -485,6 +542,7 @@ public class MessageListPanelEx {
             @Override
             public void onResult(int code, List<IMMessage> messages, Throwable exception) {
                 if (code != ResponseCode.RES_SUCCESS || exception != null) {
+
                     if (direction == QueryDirectionEnum.QUERY_OLD) {
                         adapter.fetchMoreFailed();
                     } else if (direction == QueryDirectionEnum.QUERY_NEW) {
@@ -530,7 +588,10 @@ public class MessageListPanelEx {
 
         private IMMessage anchor() {
             if (items.size() == 0) {
-                return anchor == null ? MessageBuilder.createEmptyMessage(container.account, container.sessionType, 0) : anchor;
+                anchor = (anchor == null ? MessageBuilder.createEmptyMessage(container.account, container.sessionType, 0) : anchor);
+                anchor.setDirection(MsgDirectionEnum.Out);
+                anchor.setUuid(null);
+                return anchor;
             } else {
                 int index = (direction == QueryDirectionEnum.QUERY_NEW ? items.size() - 1 : 0);
                 return items.get(index);
@@ -561,9 +622,9 @@ public class MessageListPanelEx {
             }
 
             // 加入anchor
-            if (firstLoad && anchor != null) {
-                messages.add(anchor);
-            }
+//            if (firstLoad && anchor != null) {
+//                messages.add(anchor);
+//            }
 
             // 在更新前，先确定一些标记
             List<IMMessage> total = new ArrayList<>();

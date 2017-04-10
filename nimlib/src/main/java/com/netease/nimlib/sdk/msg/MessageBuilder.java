@@ -42,7 +42,7 @@ public class MessageBuilder {
     }
 
     public static IMMessage createAudioMessage(String var0, SessionTypeEnum var1, File var2, long var3) {
-        EMMessage emMessage=EMMessage.createVoiceSendMessage(var2.getAbsolutePath(),(int)(var3/1000),var0);
+        EMMessage emMessage=EMMessage.createVoiceSendMessage(var2.getAbsolutePath(),(int)(var3),var0);
         emMessage.setChatType(SessionTypeEnum.IMMessageSessionTypeEnumConvertToEMMessageSessionTypeEnum(var1));
         return new IMMessage(emMessage);
     }
@@ -90,7 +90,7 @@ public class MessageBuilder {
 //
     public static IMMessage createEmptyMessage(String var0, SessionTypeEnum var1, long var2) {
         Log.e("TAG","unhandler");
-        EMMessage emMessage= EMMessage.createTxtSendMessage(" ",var0);
+        EMMessage emMessage= EMMessage.createTxtSendMessage("xx",var0);
         emMessage.setChatType(SessionTypeEnum.IMMessageSessionTypeEnumConvertToEMMessageSessionTypeEnum(var1));
         return new IMMessage(emMessage);
     }

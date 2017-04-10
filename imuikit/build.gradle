@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION
+    buildToolsVersion rootProject.ext.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.MIN_SDK_VERSION
+        targetSdkVersion 22
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res', 'res-ptr']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+configurations.all{
+    resolutionStrategy{
+        force "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
+    }
+}
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile 'cn.finalteam.rxgalleryfinal:library:0.0.3'
+    compile "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
+    compile "com.android.support:design:${rootProject.ext.SUPPORT_VERSION}"
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'me.relex:photodraweeview:1.1.2'
+    compile project(':lablibrary')
+    compile files('libs/hyphenatechat_3.2.3.jar')
+    compile files('libs/org.apache.http.legacy.jar')
+}

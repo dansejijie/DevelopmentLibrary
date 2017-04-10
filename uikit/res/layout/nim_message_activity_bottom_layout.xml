@@ -8,9 +8,14 @@
 
     <include layout="@layout/nim_message_activity_text_layout"/>
 
-    <com.netease.nim.uikit.session.emoji.EmoticonPickerView
-        android:id="@+id/emoticon_picker_view"
+    <FrameLayout
+        android:id="@+id/emoji_and_action_layout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:layout_height="wrap_content">
+        <com.netease.nim.uikit.session.emoji.ease.EaseEmojiconMenu
+            android:id="@+id/emoticon_picker_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </FrameLayout>
 </LinearLayout>

@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.hyphenate.EMCallBack;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
@@ -48,6 +51,7 @@ public class MessageView extends TView implements ModuleProxy {
         super(context);
         LayoutInflater inflater=LayoutInflater.from(context);
         rootView = inflater.inflate(R.layout.nim_message_fragment, null, false);
+        parseIntent();
 
     }
 
@@ -55,12 +59,14 @@ public class MessageView extends TView implements ModuleProxy {
         super(context, attrs, defStyleAttr);
         LayoutInflater inflater=LayoutInflater.from(context);
         rootView = inflater.inflate(R.layout.nim_message_fragment, null, false);
+        parseIntent();
     }
 
     public MessageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater inflater=LayoutInflater.from(context);
         rootView = inflater.inflate(R.layout.nim_message_fragment, null, false);
+        parseIntent();
     }
 
     private View rootView;
@@ -78,7 +84,7 @@ public class MessageView extends TView implements ModuleProxy {
     protected InputPanel inputPanel;
     protected MessageListPanelEx messageListPanel;
 
-    private Bundle mArguments;
+    private Bundle mArguments=new Bundle();
 
 //    @Override
 //    public void onActivityCreated(Bundle savedInstanceState) {
@@ -157,6 +163,7 @@ public class MessageView extends TView implements ModuleProxy {
     }
 
     private void parseIntent() {
+
         sessionId = getArguments().getString(Extras.EXTRA_ACCOUNT);
         sessionType = (SessionTypeEnum) getArguments().getSerializable(Extras.EXTRA_TYPE);
         IMMessage anchor = (IMMessage) getArguments().getSerializable(Extras.EXTRA_ANCHOR);
@@ -166,6 +173,7 @@ public class MessageView extends TView implements ModuleProxy {
 
         if (messageListPanel == null) {
             messageListPanel = new MessageListPanelEx(container, rootView, anchor, false, false);
+
         } else {
             messageListPanel.reload(container, anchor);
         }
@@ -281,9 +289,8 @@ public class MessageView extends TView implements ModuleProxy {
         }
 //        appendPushConfig(message);
         // send message to server and save to db
-        NIMClient.getService(MsgService.class).sendMessage(message, false);
-
         messageListPanel.onMsgSend(message);
+        NIMClient.getService(MsgService.class).sendMessage(message, false);
 
         return true;
     }
@@ -322,8 +329,8 @@ public class MessageView extends TView implements ModuleProxy {
     protected List<BaseAction> getActionList() {
         List<BaseAction> actions = new ArrayList<>();
         actions.add(new ImageAction());
-        actions.add(new VideoAction());
-        actions.add(new LocationAction());
+//        actions.add(new VideoAction());
+//        actions.add(new LocationAction());
 
         if (customization != null && customization.actions != null) {
             actions.addAll(customization.actions);
