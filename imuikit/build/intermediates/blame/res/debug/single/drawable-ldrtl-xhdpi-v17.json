@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -8,7 +12,19 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-ldrtl-xhdpi-v17/abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-ldrtl-xhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi-v17/abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-ldrtl-xhdpi-v17/abc_ic_ab_back_mtrl_am_alpha.png"
     }
 ]

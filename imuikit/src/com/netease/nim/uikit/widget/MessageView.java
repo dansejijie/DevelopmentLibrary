@@ -147,9 +147,9 @@ public class MessageView extends TView implements ModuleProxy, EMMessageListener
         myNickName = getArguments().getString(Extras.EXTRA_MYNICKNAME, null);
         myAvator = getArguments().getString(Extras.EXTRA_MYAVATOR, null);
 
-        UserInfoProvider userInfoProvider = NimUIKit.getUserInfoProvider();
-        userInfoProvider.todo(Arrays.asList((UserInfoProvider.UserInfo) (new LABUserInfo(EMClient.getInstance().getCurrentUser(), myNickName, myAvator)),
-                                            (UserInfoProvider.UserInfo) (new LABUserInfo(sessionId, toNickName, toAvator))));
+//        UserInfoProvider userInfoProvider = NimUIKit.getUserInfoProvider();
+//        userInfoProvider.todo(Arrays.asList((UserInfoProvider.UserInfo) (new LABUserInfo(EMClient.getInstance().getCurrentUser(), myNickName, myAvator)),
+//                                            (UserInfoProvider.UserInfo) (new LABUserInfo(sessionId, toNickName, toAvator))));
         sessionType = SessionTypeEnum.P2P;
         IMMessage anchor = (IMMessage) getArguments().getSerializable(Extras.EXTRA_ANCHOR);
         customization = (SessionCustomization) getArguments().getSerializable(Extras.EXTRA_CUSTOMIZATION);

@@ -67,4 +67,36 @@ public enum MsgTypeEnum {
             return MsgTypeEnum.text;
         }
     }
+
+    public static EMMessage.Type IMMessageMsgTypeEnumConvertToEMMessageMsgTypeEnum(MsgTypeEnum var2){
+        if(var2 == MsgTypeEnum.text) {
+            return EMMessage.Type.TXT;
+        }
+
+        if(var2 == MsgTypeEnum.image) {
+            return EMMessage.Type.IMAGE;
+        }
+
+        if(var2 == MsgTypeEnum.custom) {
+            return EMMessage.Type.CMD;
+        }
+
+        if(var2 == MsgTypeEnum.file) {
+            return EMMessage.Type.FILE;
+        }
+
+        if(var2 == MsgTypeEnum.video) {
+            return EMMessage.Type.VIDEO;
+        }
+
+        if(var2 == MsgTypeEnum.audio) {
+            return EMMessage.Type.VOICE;
+        }
+
+        if(var2 == MsgTypeEnum.location) {
+            return EMMessage.Type.LOCATION;
+        }else {
+            return EMMessage.Type.TXT;
+        }
+    }
 }

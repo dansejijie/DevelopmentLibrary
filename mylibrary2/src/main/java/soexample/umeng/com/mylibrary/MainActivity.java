@@ -13,13 +13,10 @@ import android.view.ViewGroup;
 public class MainActivity extends Activity{
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
 
-        CustomView customView=new CustomView(this);
-        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        customView.setLayoutParams(layoutParams);
-        setContentView(customView);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
     }
 }

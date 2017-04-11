@@ -37,13 +37,13 @@ public class NIMClient {
 
     public static NIMClient getService(Class var0) {
 
-        if (instanece==null){
-            instanece=new NIMClient();
+        if (instanece == null) {
+            instanece = new NIMClient();
         }
         return instanece;
     }
 
-    public AbortableFuture downloadAttachment(IMMessage imMessage,boolean b){
+    public AbortableFuture downloadAttachment(IMMessage imMessage, boolean b) {
 
         return new AbortableFuture() {
             @Override
@@ -58,25 +58,48 @@ public class NIMClient {
         };
     }
 
-    public InvocationFuture queryMessageListByType(MsgTypeEnum msgTypeEnum,IMMessage imMessage,int max){
+    public InvocationFuture queryMessageListByType(final MsgTypeEnum msgTypeEnum, final String account) {
 
         return new InvocationFuture() {
             @Override
             public void setCallback(RequestCallback var1) {
+                try {
+                    EMConversation conversation = EMClient.getInstance().chatManager().getConversation(account);
+                    List<EMMessage> msgs = new ArrayList<>();
+                    if (conversation != null) {
+                        List<EMMessage> temp = conversation.getAllMessages();
+                        if (temp != null && temp.size() > 0) {
+                            for (int i = 0; i < temp.size(); i++) {
+                                if (temp.get(i).getType() == MsgTypeEnum.IMMessageMsgTypeEnumConvertToEMMessageMsgTypeEnum(msgTypeEnum)) {
+                                    if (temp.get(i).status() == EMMessage.Status.SUCCESS) {
+                                        msgs.add(temp.get(i));
+                                    }
 
+                                }
+                            }
+                            var1.onSuccess(msgs);
+                        } else {
+                            var1.onFailed(0);
+                        }
+                    } else {
+                        var1.onFailed(0);
+                    }
+                } catch (Exception e) {
+                    var1.onException(e);
+                }
             }
         };
     }
 
-    public void observeMsgStatus(Observer<IMMessage>imMessageObserver,boolean b){
+    public void observeMsgStatus(Observer<IMMessage> imMessageObserver, boolean b) {
 
     }
 
-    public void sendCustomNotification(CustomNotification config){
+    public void sendCustomNotification(CustomNotification config) {
 
     }
 
-    public AbortableFuture transVoiceToText(String url,String path,long duration){
+    public AbortableFuture transVoiceToText(String url, String path, long duration) {
 
         return new AbortableFuture() {
             @Override
@@ -92,92 +115,67 @@ public class NIMClient {
 
     }
 
-    public void observeCustomNotification(Observer<CustomNotification> customNotification,boolean b){}
+    public void observeCustomNotification(Observer<CustomNotification> customNotification, boolean b) {
+    }
 
 
-    public void sendMessage(IMMessage imMessage,boolean b){
+    public void sendMessage(IMMessage imMessage, boolean b) {
 
         EMClient.getInstance().chatManager().sendMessage(imMessage.getEMMessage());
     }
 
-    public void setChattingAccount(String sessionId, SessionTypeEnum sessionTypeEnum){
+    public void setChattingAccount(String sessionId, SessionTypeEnum sessionTypeEnum) {
 
     }
 
-    public void deleteChattingHistory(IMMessage imMessage){
+    public void deleteChattingHistory(IMMessage imMessage) {
         //// TODO: 17/4/10
         EMClient.getInstance().chatManager().getConversation(imMessage.getEMMessage().getUserName()).removeMessage(imMessage.getUuid());
     }
 
-    public void sendMessageReceipt(String account, IMMessage imMessage){
+    public void sendMessageReceipt(String account, IMMessage imMessage) {
 
     }
 
-    public void updateIMMessageStatus(IMMessage imMessage){
+    public void updateIMMessageStatus(IMMessage imMessage) {
         EMClient.getInstance().chatManager().updateMessage(imMessage.getEMMessage());
     }
 
     private InvocationFuture queryMessageListExInvocationFuture;
     private RequestCallback queryRequestCallback;
 
-    public InvocationFuture queryMessageListEx(final IMMessage anchor, QueryDirectionEnum direction, final int count, boolean b){
+    public InvocationFuture queryMessageListEx(final IMMessage anchor, QueryDirectionEnum direction, final int count, boolean b) {
 
         return new InvocationFuture() {
             @Override
             public void setCallback(RequestCallback var1) {
-                //queryRequestCallback=var1;
 
-//                try {
-//                    EMConversation conversation = EMClient.getInstance().chatManager().getConversation(anchor.getSessionId());
-//                    //获取此会话的所有消息
-//                    //List<EMMessage> messages = conversation.getAllMessages();
-//                    //SDK初始化加载的聊天记录为20条，到顶时需要去DB里获取更多
-//                    //获取startMsgId之前的pagesize条消息，此方法获取的messages SDK会自动存入到此会话中，APP中无需再次把获取到的messages添加到会话中
-//                    List<EMMessage> messages = conversation.loadMoreMsgFromDB(anchor.getUuid(), count);
-//
-//                    if (messages!=null){
-//                        List<IMMessage>imMessages=new ArrayList<>();
-//                        for (EMMessage emMessage:messages){
-//                            imMessages.add(new IMMessage(emMessage));
-//                        }
-//                        var1.onSuccess(imMessages);
-//                    }else {
-//                        var1.onFailed(0);
-//                    }
-//
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                    var1.onFailed(0);
-//                }
-//                String userName = null;
-//                if (anchor.getDirect() == MsgDirectionEnum.In) {
-//                    userName = anchor.getFrom();
-//                } else {
-//                    userName = anchor.getTo();
-//                }
 
-                String userName=anchor.getUserName();
+                String userName = anchor.getUserName();
                 EMConversation conversation = EMClient.getInstance().chatManager().getConversation(userName);
 
-                List<IMMessage> messages1 = new ArrayList<>();
-                if (conversation != null) {
+                if (conversation == null) {
+                    var1.onFailed(0);
+                } else {
+
                     conversation.markAllMessagesAsRead();
                     List<EMMessage> messages = conversation.loadMoreMsgFromDB(anchor.getUuid(), count);
 
                     if (messages != null && messages.size() > 0) {
+                        List<IMMessage> messages1 = new ArrayList<>();
                         for (int i = 0; i < messages.size(); i++) {
                             messages1.add(new IMMessage(messages.get(i)));
                         }
+                        var1.onSuccess(messages1);
+                    } else {
+                        var1.onFailed(0);
                     }
                 }
-                var1.onSuccess(messages1);
-
-
             }
         };
     }
 
-    public InvocationFuture pullMessageHistory(IMMessage anchor,int count ,boolean b){
+    public InvocationFuture pullMessageHistory(IMMessage anchor, int count, boolean b) {
 
         return new InvocationFuture() {
             @Override
@@ -187,7 +185,7 @@ public class NIMClient {
         };
     }
 
-    public InvocationFuture revokeMessage(IMMessage imMessage){
+    public InvocationFuture revokeMessage(IMMessage imMessage) {
         return new InvocationFuture() {
             @Override
             public void setCallback(RequestCallback var1) {
@@ -195,8 +193,6 @@ public class NIMClient {
             }
         };
     }
-
-
 
 
 //    private EMMessageListener msgListener = new EMMessageListener() {
@@ -243,7 +239,6 @@ public class NIMClient {
     }
 
 
-
 //    public static StatusCode getStatus() {
 //        return d.e();
 //    }
@@ -264,7 +259,7 @@ public class NIMClient {
         return " ";
     }
 
-    class a implements AbortableFuture<String>{
+    class a implements AbortableFuture<String> {
         @Override
         public boolean abort() {
             return false;

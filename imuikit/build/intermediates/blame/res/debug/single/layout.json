@@ -4,10 +4,6 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_bar_up_container.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/ease_widget_emojicon_tab_bar.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_widget_emojicon_tab_bar.xml"
     },
@@ -16,80 +12,84 @@
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_expression_gridview.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_adapter_bucket_item.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_adapter_bucket_item.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_controls.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_ucrop_controls.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_thumb_progress_bar_text.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_thumb_progress_bar_text.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_default_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_easy_alert_dialog_default_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_adapter_bucket_item.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_adapter_bucket_item.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_watch_media_download_progress_layout.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_watch_media_download_progress_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_custom_dialog_list_item.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_custom_dialog_list_item.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/fps_view.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/fps_view.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_icon_group.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_snackbar.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_dialog_title_material.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_action_tombstone.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_fragment_media_preview.xml",
         "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_fragment_media_preview.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_menu_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_title.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_easy_alert_dialog_title.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item_header.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_menu_dialog.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_menu_dialog.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_media_action.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_list_menu_item_checkbox.xml"
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_tab_icon.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_unknown.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_unknown.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/redbox_item_title.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/redbox_item_title.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_mode_bar.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_picture.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_picture.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_subheader.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
@@ -100,14 +100,6 @@
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_video.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_text_layout.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_activity_text_layout.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_media_cancel_action.xml"
     },
@@ -116,12 +108,8 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_tab_text.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/fragment_lab_splash.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/lablibrary/build/intermediates/bundles/release/res/layout/fragment_lab_splash.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_listview_refresh.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_listview_refresh.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_with_listview.xml",
@@ -132,16 +120,12 @@
         "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_fragment_media_page.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media_custom.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item_subheader.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_actions_layout.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_activity_actions_layout.xml"
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media_custom.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_view.xml",
@@ -152,14 +136,6 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_search_view.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_bar_title_item.xml"
     },
@@ -168,84 +144,88 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/ease_scroll_tab_item.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_scroll_tab_item.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_bottom_navigation_item.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_activity_photobox.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_ucrop_activity_photobox.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/fragment_lab_guide.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/lablibrary/build/intermediates/bundles/release/res/layout/fragment_lab_guide.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_media.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_part_time.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/ease_widget_emojicon_tab_bar.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/ease_widget_emojicon_tab_bar.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/redbox_item_frame.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/layout/redbox_item_frame.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_text.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_text.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item_separator.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_progress_dialog.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_easy_progress_dialog.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_bottom_button.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_easy_alert_dialog_bottom_button.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/ease_row_expression.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_row_expression.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_alert_dialog_material.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_audio.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_audio.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_read_recipt_layout.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_read_recipt_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_multichoice_material.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_action_bar_right_picker_preview.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_action_bar_right_picker_preview.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_name_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_name_layout.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_notification.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_notification.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/ease_row_big_expression.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/ease_row_big_expression.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/redbox_item_frame.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/redbox_item_frame.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_bottom_layout.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_activity_bottom_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_alert_dialog_material.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_location.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_location.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_controls.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_ucrop_controls.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media_narrow.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_menu_item.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_text_input_password_icon.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_adapter_media_grid_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_adapter_media_grid_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_content_include.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_aspect_ratio.xml",
@@ -260,6 +240,10 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_action.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_activity_media.xml",
         "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_activity_media.xml"
     },
@@ -268,16 +252,12 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_view.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_view.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/ease_widget_emojicon.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_widget_emojicon.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_popup_menu_header_item_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_watch_media_download_progress_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_watch_media_download_progress_layout.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
@@ -288,68 +268,64 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/redbox_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/layout/redbox_view.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_custom_dialog_list_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_custom_dialog_list_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_fragment_media_preview.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_fragment_media_preview.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/ease_row_expression.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/ease_row_expression.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_tab_icon.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_popup_menu_item_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_menu_dialog.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_menu_dialog.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_progress_dialog.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_progress_dialog.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/fragment_lab_guide.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/DevelopmentLibrary/lablibrary/unspecified/release/res/layout/fragment_lab_guide.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_mode_bar.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_default_layout.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_alert_dialog_default_layout.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_watch_picture_activity.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_watch_picture_activity.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_menu_dialog_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_menu_dialog_item.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow_custom.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media_narrow_custom.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_snackbar_include.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/select_dialog_item_material.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media_narrow.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_snackbar_include.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_chat_activity.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_chat_activity.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_activity_photobox.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_ucrop_activity_photobox.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_name_layout.xml",
@@ -364,80 +340,72 @@
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_alert_dialog_title.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_bottom_sheet_dialog.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_adapter_media_grid_item.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_adapter_media_grid_item.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_vertical.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/pull_to_refresh_header_vertical.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_horizontal.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/pull_to_refresh_header_horizontal.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_menu_dialog_item.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_menu_dialog_item.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_media_image_preview_item.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_media_image_preview_item.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_media_custom.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_loading_view_final_footer_default.xml",
         "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_loading_view_final_footer_default.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_horizontal.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/pull_to_refresh_header_horizontal.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_picture.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_picture.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_bottom_button.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_alert_dialog_bottom_button.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_chat_activity.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_chat_activity.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_content_include.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_search_view.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/select_dialog_multichoice_material.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_snackbar.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/redbox_view.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/redbox_view.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_actions_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_activity_actions_layout.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_expanded_menu_layout.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_read_recipt_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_read_recipt_layout.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_simple.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/redbox_item_title.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/layout/redbox_item_title.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_toolbar.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_item_material.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_layout_scale_wheel.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_ucrop_layout_scale_wheel.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_with_edit_text.xml",
-        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_alert_dialog_with_edit_text.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_layout_rotate_wheel.xml",
@@ -448,6 +416,466 @@
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_row_big_expression.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_activity_media.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_activity_media.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_fragment_media_grid.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_fragment_media_grid.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_thumb_progress_bar_text.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_thumb_progress_bar_text.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_watch_media_download_progress_layout.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_watch_media_download_progress_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_custom_dialog_list_item.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_custom_dialog_list_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/fps_view.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/fps_view.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/fragment_lab_splash.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/DevelopmentLibrary/lablibrary/unspecified/release/res/layout/fragment_lab_splash.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_aspect_ratio.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_ucrop_aspect_ratio.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_watch_picture_activity.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_watch_picture_activity.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_media_image_preview_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_media_image_preview_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_layout_rotate_wheel.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_ucrop_layout_rotate_wheel.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/redbox_item_title.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/redbox_item_title.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_fragment_media_grid.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_fragment_media_grid.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_text_layout.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_activity_text_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/fragment_lab_splash.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/lablibrary/build/intermediates/bundles/release/res/layout/fragment_lab_splash.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_vertical.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/pull_to_refresh_header_vertical.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_actions_layout.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_activity_actions_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_unknown.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_unknown.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/ease_scroll_tab_item.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_scroll_tab_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_text_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_activity_text_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_location.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_location.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_read_recipt_layout.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_read_recipt_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_actions_item_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_actions_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_action_bar_right_picker_preview.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_action_bar_right_picker_preview.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_ucrop_view.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_notification.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_notification.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_menu.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/redbox_item_frame.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/redbox_item_frame.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_fragment_media_page.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_fragment_media_page.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_bottom_layout.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_activity_bottom_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_notification.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_notification.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_adapter_bucket_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_adapter_bucket_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_controls.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_ucrop_controls.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_text_input_password_icon.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_view.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_view.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/ease_widget_emojicon.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/ease_widget_emojicon.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_lines.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_thumb_progress_bar_text.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_thumb_progress_bar_text.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_layout_scale_wheel.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_ucrop_layout_scale_wheel.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_menu_dialog.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_menu_dialog.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_progress_dialog.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_progress_dialog.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/fps_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/layout/fps_view.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_video.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_video.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_default_layout.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_alert_dialog_default_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_view.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_watch_picture_activity.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_watch_picture_activity.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_activity_photobox.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_ucrop_activity_photobox.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/ease_expression_gridview.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/ease_expression_gridview.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_text.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_item_text.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_action_bar_right_picker_preview.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_action_bar_right_picker_preview.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_adapter_media_grid_item.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_adapter_media_grid_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_vertical.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/pull_to_refresh_header_vertical.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_media_image_preview_item.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_media_image_preview_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/gallery_loading_view_final_footer_default.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/layout/gallery_loading_view_final_footer_default.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_tab_text.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/ease_scroll_tab_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/ease_scroll_tab_item.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/pull_to_refresh_header_horizontal.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/pull_to_refresh_header_horizontal.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_message_activity_bottom_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_message_activity_bottom_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_with_listview.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_easy_alert_dialog_with_listview.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_with_edit_text.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/nim_easy_alert_dialog_with_edit_text.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/redbox_view.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/layout/redbox_view.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_ucrop_layout_scale_wheel.xml",
+        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_ucrop_layout_scale_wheel.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_with_edit_text.xml",
+        "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_easy_alert_dialog_with_edit_text.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/nim_message_item_audio.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/layout/nim_message_item_audio.xml"
     },
@@ -456,11 +884,11 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/layout/notification_template_lines_media.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_menu.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/layout/ease_widget_emojicon.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/layout/ease_widget_emojicon.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/gallery_fragment_media_grid.xml",
-        "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/layout/gallery_fragment_media_grid.xml"
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/layout/design_navigation_menu.xml"
     }
 ]

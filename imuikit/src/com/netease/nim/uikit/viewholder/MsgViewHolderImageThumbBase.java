@@ -19,7 +19,7 @@ import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.util.media.BitmapDecoder;
 import com.netease.nim.uikit.common.util.media.ImageUtil;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
-import com.netease.nim.uikit.common.http.EMImageLoadHelper;
+//import com.netease.nim.uikit.common.http.EMImageLoadHelper;
 import com.netease.nim.uikit.system.MsgDirectionEnum;
 import com.netease.nim.uikit.system.MsgStatusEnum;
 import com.netease.nim.uikit.system.MsgTypeEnum;
@@ -131,18 +131,18 @@ public abstract class MsgViewHolderImageThumbBase extends MsgViewHolderBase {
             setImageSize(msgAttachment.getLocalUrl());
             uri=Uri.fromFile(new File(msgAttachment.getLocalUrl()));
         } else {
-            Map<String,String>authHeaders=new HashMap<>();
-            authHeaders.put("share-secret", ((EMImageMessageBody)message.getAttachment()).getSecret());
-            authHeaders.put("Authorization", "Bearer " + EMClient.getInstance().getAccessToken());
-            authHeaders.put("thumbnail", "true");
-            authHeaders.put("Accept","application/octet-stream");
-            DraweeController controller= EMImageLoadHelper.newDraweeControllerBuilder()
-                    .setCallerContext(authHeaders)
-                    .setImageRequest(ImageRequestBuilder.newBuilderWithSource(Uri.parse(((EMImageMessageBody)message.getAttachment()).getRemoteUrl()))
-                        .setResizeOptions(new ResizeOptions((int)(metrics.widthPixels*1.5f),(int)(metrics.heightPixels*1.5f)))
-                        .build())
-                    .build();
-            thumbnail.setController(controller);
+//            Map<String,String>authHeaders=new HashMap<>();
+//            authHeaders.put("share-secret", ((EMImageMessageBody)message.getAttachment()).getSecret());
+//            authHeaders.put("Authorization", "Bearer " + EMClient.getInstance().getAccessToken());
+//            authHeaders.put("thumbnail", "true");
+//            authHeaders.put("Accept","application/octet-stream");
+//            DraweeController controller= EMImageLoadHelper.newDraweeControllerBuilder()
+//                    .setCallerContext(authHeaders)
+//                    .setImageRequest(ImageRequestBuilder.newBuilderWithSource(Uri.parse(((EMImageMessageBody)message.getAttachment()).getRemoteUrl()))
+//                        .setResizeOptions(new ResizeOptions((int)(metrics.widthPixels*1.5f),(int)(metrics.heightPixels*1.5f)))
+//                        .build())
+//                    .build();
+//            thumbnail.setController(controller);
             return;
         }
 

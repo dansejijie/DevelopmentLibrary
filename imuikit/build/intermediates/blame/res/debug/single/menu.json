@@ -2,5 +2,9 @@
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/menu/gallery_ucrop_menu_activity.xml",
         "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/menu/gallery_ucrop_menu_activity.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/menu/gallery_ucrop_menu_activity.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/menu/gallery_ucrop_menu_activity.xml"
     }
 ]

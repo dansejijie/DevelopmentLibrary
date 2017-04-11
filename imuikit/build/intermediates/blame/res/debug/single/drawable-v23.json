@@ -2,5 +2,9 @@
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-v23/abc_control_background_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/drawable-v23/abc_control_background_material.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-v23/abc_control_background_material.xml"
     }
 ]

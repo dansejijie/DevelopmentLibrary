@@ -34,7 +34,6 @@ dependencies {
     compile "com.android.support:design:${rootProject.ext.SUPPORT_VERSION}"
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'me.relex:photodraweeview:1.1.2'
-    compile project(':lablibrary')
     compile files('libs/hyphenatechat_3.2.3.jar')
     compile files('libs/org.apache.http.legacy.jar')
 }

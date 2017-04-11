@@ -2,17 +2,12 @@ package com.netease.nim.uikit.common.util;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-
-import com.facebook.react.common.network.OkHttpCallUtil;
-import com.facebook.react.modules.network.OkHttpClientProvider;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMImageMessageBody;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.chat.EMTextMessageBody;
 import com.hyphenate.chat.EMVoiceMessageBody;
 import com.hyphenate.util.PathUtil;
-import com.lightappbuilder.lab4.lablibrary.utils.L;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,10 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
 
 /**
  * Created by tygzx on 17/2/20.
@@ -43,55 +34,55 @@ public class MessageUtil {
      * @param context
      */
     public static void importMessage(final String me, final String toUser,final Context context){
-        if (!TextUtils.isEmpty(IMConfig.chatRecordUrl)) {
-            final Request request = new Request.Builder().url(IMConfig.chatRecordUrl + "&chat_uid=" + toUser).tag(context).build();
-            OkHttpClientProvider.getOkHttpClient().newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    Log.e(TAG, "onFailure: 获取聊天记录失败", e);
-                }
-
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    String result = response.body().string();
-                    try {
-                        onLoadRecords(result,me,toUser);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-        }
+//        if (!TextUtils.isEmpty(IMConfig.chatRecordUrl)) {
+//            final Request request = new Request.Builder().url(IMConfig.chatRecordUrl + "&chat_uid=" + toUser).tag(context).build();
+//            OkHttpClientProvider.getOkHttpClient().newCall(request).enqueue(new Callback() {
+//                @Override
+//                public void onFailure(Call call, IOException e) {
+//                    Log.e(TAG, "onFailure: 获取聊天记录失败", e);
+//                }
+//
+//                @Override
+//                public void onResponse(Call call, Response response) throws IOException {
+//                    String result = response.body().string();
+//                    try {
+//                        onLoadRecords(result,me,toUser);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+//
+//        }
     }
 
     private static void onLoadRecords(String json,String me, String toUser) throws Exception {
-        L.i(TAG, "onLoadRecords json:", json);
-
-        JSONObject jsonObject = new JSONObject(json);
-
-        if (!"ok".equals(jsonObject.getString("CODE"))) {
-            return;
-        }
-
-        JSONObject data = jsonObject.getJSONObject("DATA");
-        //int page_size = data.optInt("page_size");
-        JSONArray list = data.getJSONArray("list");
-
-        List<EMMessage> messages = new ArrayList<>();
-
-        for (int i = 0; i < list.length(); ++i) {
-            JSONObject messageJson = list.getJSONObject(i);
-            EMMessage emMessage = createMessage(messageJson,me,toUser);
-            if (emMessage == null) {
-                continue;
-            }
-            messages.add(emMessage);
-        }
-
-        if (!messages.isEmpty()) {
-            EMClient.getInstance().chatManager().importMessages(messages);
-        }
+//        L.i(TAG, "onLoadRecords json:", json);
+//
+//        JSONObject jsonObject = new JSONObject(json);
+//
+//        if (!"ok".equals(jsonObject.getString("CODE"))) {
+//            return;
+//        }
+//
+//        JSONObject data = jsonObject.getJSONObject("DATA");
+//        //int page_size = data.optInt("page_size");
+//        JSONArray list = data.getJSONArray("list");
+//
+//        List<EMMessage> messages = new ArrayList<>();
+//
+//        for (int i = 0; i < list.length(); ++i) {
+//            JSONObject messageJson = list.getJSONObject(i);
+//            EMMessage emMessage = createMessage(messageJson,me,toUser);
+//            if (emMessage == null) {
+//                continue;
+//            }
+//            messages.add(emMessage);
+//        }
+//
+//        if (!messages.isEmpty()) {
+//            EMClient.getInstance().chatManager().importMessages(messages);
+//        }
     }
 
     private static EMMessage createMessage(JSONObject messageJson,String me, String toUser) throws JSONException {
@@ -199,7 +190,7 @@ public class MessageUtil {
     }
 
     public static void cancelImportMessage(Context context){
-        OkHttpCallUtil.cancelTag(OkHttpClientProvider.getOkHttpClient(), context);
+        //OkHttpCallUtil.cancelTag(OkHttpClientProvider.getOkHttpClient(), context);
     }
 
 }

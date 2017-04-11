@@ -4,11 +4,19 @@
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim-v21/design_appbar_state_list_animator.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim-v21/design_bottom_sheet_slide_out.xml"
     }
 ]

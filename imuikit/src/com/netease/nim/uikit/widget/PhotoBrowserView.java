@@ -16,7 +16,6 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMImageMessageBody;
 import com.hyphenate.chat.EMMessage;
-import com.netease.nim.uikit.common.http.EMImageLoadHelper;
 
 import java.util.HashMap;
 import java.util.List;
@@ -105,25 +104,25 @@ public class PhotoBrowserView extends FrameLayout {
             authHeaders.put("Authorization", "Bearer " + EMClient.getInstance().getAccessToken());
             authHeaders.put("thumbnail", "false");
             authHeaders.put("Accept","application/octet-stream");
-            DraweeController controller = EMImageLoadHelper.newDraweeControllerBuilder()
-                    .setCallerContext(authHeaders)
-                    .setControllerListener(new BaseControllerListener<ImageInfo>() {
-
-                        @Override
-                        public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
-                            super.onFinalImageSet(id, imageInfo, animatable);
-                            if (imageInfo == null) {
-                                return;
-                            }
-                            photoDraweeView.update(imageInfo.getWidth(), imageInfo.getHeight());
-                        }
-                    })
-                    .setImageRequest(ImageRequestBuilder.newBuilderWithSource(Uri.parse(((EMImageMessageBody) emMessage.getBody()).getRemoteUrl()))
-                            .setResizeOptions(new ResizeOptions(MAX_SIZE, MAX_SIZE))
-                            .build())
-                    .build();
-
-            photoDraweeView.setController(controller);
+//            DraweeController controller = EMImageLoadHelper.newDraweeControllerBuilder()
+//                    .setCallerContext(authHeaders)
+//                    .setControllerListener(new BaseControllerListener<ImageInfo>() {
+//
+//                        @Override
+//                        public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
+//                            super.onFinalImageSet(id, imageInfo, animatable);
+//                            if (imageInfo == null) {
+//                                return;
+//                            }
+//                            photoDraweeView.update(imageInfo.getWidth(), imageInfo.getHeight());
+//                        }
+//                    })
+//                    .setImageRequest(ImageRequestBuilder.newBuilderWithSource(Uri.parse(((EMImageMessageBody) emMessage.getBody()).getRemoteUrl()))
+//                            .setResizeOptions(new ResizeOptions(MAX_SIZE, MAX_SIZE))
+//                            .build())
+//                    .build();
+//
+//            photoDraweeView.setController(controller);
 
             try {
                 viewGroup.addView(photoDraweeView, ViewGroup.LayoutParams.MATCH_PARENT,

@@ -1,5 +1,13 @@
 [
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/DevelopmentLibrary/lablibrary/unspecified/release/res/xml/provider_paths.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/xml/provider_paths.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/lablibrary/build/intermediates/bundles/release/res/xml/provider_paths.xml"
     },

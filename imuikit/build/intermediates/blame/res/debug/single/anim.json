@@ -1,23 +1,27 @@
 [
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/fade_in.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/fade_in.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/slide_out_to_top.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/anim/slide_out_to_top.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim/design_fab_in.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_out_to_top.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/anim/slide_out_to_top.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_fab_out.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_snackbar_out.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/catalyst_push_up_out.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim/design_fab_out.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
@@ -28,20 +32,28 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_fade_in.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_snackbar_in.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_slide_in_bottom.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_out_to_bottom.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/anim/slide_out_to_bottom.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_in_from_bottom.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/imuikit/res/anim/slide_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/fade_out.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/fade_out.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_slide_out_top.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/gallery_ucrop_loader_circle_scale.xml",
@@ -52,20 +64,16 @@
         "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_slide_out_bottom.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_up.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/slide_up.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_down.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/slide_down.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim/design_snackbar_out.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
@@ -74,10 +82,6 @@
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/anim_splash_fragment_hide.xml",
         "source": "/Users/tygzx/Work/react-native/lab4/android/lablibrary/build/intermediates/bundles/release/res/anim/anim_splash_fragment_hide.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
     },
     {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
@@ -96,10 +100,6 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
-        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/catalyst_push_up_in.xml"
-    },
-    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_fade_out.xml"
     },
@@ -108,11 +108,111 @@
         "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_slide_in_bottom.xml"
     },
     {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/slide_in_from_bottom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/anim/slide_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/fade_in.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/fade_in.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_fab_out.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/anim_splash_fragment_hide.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/DevelopmentLibrary/lablibrary/unspecified/release/res/anim/anim_splash_fragment_hide.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/anim/catalyst_push_up_in.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
+        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/fade_out.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/fade_out.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/gallery_ucrop_loader_circle_scale.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/anim/gallery_ucrop_loader_circle_scale.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim/design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.facebook.react/react-native/0.20.1/res/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_up.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/slide_up.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/slide_down.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/slide_down.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/slide_in_from_top.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/anim/slide_in_from_top.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/gallery_ucrop_loader_circle_path.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/cn.finalteam.rxgalleryfinal/library/0.0.3/res/anim/gallery_ucrop_loader_circle_path.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/slide_out_to_bottom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/res/anim/slide_out_to_bottom.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
+        "source": "/Users/tygzx/.android/build-cache/9808e1fcc64ebc20f40897144eaf7bd0ec89da38/output/res/anim/catalyst_push_up_in.xml"
+    },
+    {
         "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/gallery_ucrop_loader_circle_path.xml",
         "source": "/Users/tygzx/.android/build-cache/9c2221323bbddcff6a6754ffe6ef9d99b65f0150/output/res/anim/gallery_ucrop_loader_circle_path.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/anim/design_bottom_sheet_slide_out.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/anim/design_bottom_sheet_slide_out.xml"
     }
 ]

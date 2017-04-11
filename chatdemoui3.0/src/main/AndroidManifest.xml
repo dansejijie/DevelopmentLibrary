@@ -45,6 +45,7 @@ package="com.hyphenate.chatuidemo"
     android:label="@string/app_name"
     tools:replace="android:label">
 
+    <activity android:name=".P2PMessageActivity"></activity>
     <activity android:name="com.netease.nim.uikit.session.activity.P2PMessageActivity">
 
     </activity>

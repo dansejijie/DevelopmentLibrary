@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SideIndexView"><attr format="color|reference" name="sidebarTextColor"/><attr format="color|reference" name="sidebarBackgroundColor"/><attr format="color|reference" name="sidebarChooseTextColor"/><attr format="dimension" name="sidebarTextSize"/><attr format="dimension" name="sidebarLargeTextSize"/><attr format="dimension" name="sidebarRadius"/><attr format="dimension" name="sidebarBallRadius"/></declare-styleable>
+    <dimen name="sideindexview_ball_radius_sidebar">24dp</dimen>
+    <dimen name="sideindexview_large_textSize_sidebar">32sp</dimen>
+    <dimen name="sideindexview_radius_sidebar">20dp</dimen>
+    <dimen name="sideindexview_textSize_sidebar">10sp</dimen>
+    <dimen name="sideindexview_textSize_sidebar_choose">12sp</dimen>
+    <dimen name="sideindexview_textSize_sidebar_padding">20sp</dimen>
+    <drawable name="lab_splash">#ddd</drawable>
+    <style name="LABActivityTheme" parent="LABAppTheme">
+
+    </style>
+    <style name="LABAppTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+    <style name="LABSplashActivityTheme" parent="LABActivityTheme">
+        <item name="android:windowBackground">@drawable/lab_splash</item>
+    </style>
+    <style name="LABStartActivityTheme" parent="LABAppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>

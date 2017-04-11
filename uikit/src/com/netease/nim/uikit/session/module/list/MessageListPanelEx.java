@@ -599,7 +599,7 @@ public class MessageListPanelEx {
         }
 
         private void onMessageLoaded(final List<IMMessage> messages) {
-            if (messages == null) {
+            if (messages == null||messages.size()==0) {
                 return;
             }
 

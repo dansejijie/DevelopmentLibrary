@@ -2,6 +2,7 @@ package soexample.umeng.com.mylibrary;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -30,8 +31,11 @@ public class CustomView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        canvas.drawColor(Color.WHITE);
+
         fontPaint.setTextSize(20);
         fontPaint.setAntiAlias(true);
+        fontPaint.setColor(Color.BLACK);
 
         fontPaint.setTypeface(Typeface.DEFAULT);
         canvas.drawText("默认",0,20,fontPaint);
@@ -45,9 +49,26 @@ public class CustomView extends View {
         fontPaint.setTypeface(Typeface.SANS_SERIF);
         canvas.drawText("sans serif",0,80,fontPaint);
 
-        Typeface typeface1=Typeface.createFromAsset(getContext().getAssets(),"fonts/fzltchjt");
+        Typeface typeface1=Typeface.createFromAsset(getContext().getAssets(),"fonts/fzltchjt.TTF");
         fontPaint.setTypeface(typeface1);
-        canvas.drawText("方正兰亭超黑简体",0,20,fontPaint);
+        canvas.drawText("方正兰亭超黑简体",0,100,fontPaint);
+
+
+        fontPaint.setTypeface(Typeface.DEFAULT);
+        canvas.drawText("35",0,100,fontPaint);
+
+        fontPaint.setTypeface(Typeface.DEFAULT_BOLD);
+        canvas.drawText("35",0,120,fontPaint);
+
+        fontPaint.setTypeface(Typeface.MONOSPACE);
+        canvas.drawText("35",0,140,fontPaint);
+
+        fontPaint.setTypeface(Typeface.SANS_SERIF);
+        canvas.drawText("35",0,160,fontPaint);
+
+        Typeface typeface2=Typeface.createFromAsset(getContext().getAssets(),"fonts/fzltchjt.TTF");
+        fontPaint.setTypeface(typeface1);
+        canvas.drawText("35",0,180,fontPaint);
 
     }
 }
