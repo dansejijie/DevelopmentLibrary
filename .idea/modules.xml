@@ -5,12 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/DevelopmentLibrary.iml" filepath="$PROJECT_DIR$/DevelopmentLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/chatdemoui3.0/chatdemoui3.0.iml" filepath="$PROJECT_DIR$/chatdemoui3.0/chatdemoui3.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/imuikit/imuikit.iml" filepath="$PROJECT_DIR$/imuikit/imuikit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lablibrary/lablibrary.iml" filepath="$PROJECT_DIR$/lablibrary/lablibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylibrary2/mylibrary2.iml" filepath="$PROJECT_DIR$/mylibrary2/mylibrary2.iml" />
       <module fileurl="file://$PROJECT_DIR$/nimlib/nimlib.iml" filepath="$PROJECT_DIR$/nimlib/nimlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/uikit/uikit.iml" filepath="$PROJECT_DIR$/uikit/uikit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uikit-old/uikit-old.iml" filepath="$PROJECT_DIR$/uikit-old/uikit-old.iml" />
       <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/widget/widget.iml" filepath="$PROJECT_DIR$/widget/widget.iml" />
     </modules>

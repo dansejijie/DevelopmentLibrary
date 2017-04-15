@@ -1,34 +1,14 @@
 [
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/notification_action_background.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-v21/notification_action_background.xml"
-    },
-    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_btn_colored_material.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-v21/abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_edit_text_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_edit_text_material.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-v21/abc_edit_text_material.xml"
     },
     {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_action_bar_item_background_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-v21/abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_btn_colored_material.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/drawable-v21/abc_btn_colored_material.xml"
-    },
-    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/abc_action_bar_item_background_material.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/drawable-v21/abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/drawable-v21/design_bottom_navigation_item_background.xml",
-        "source": "/Users/tygzx/.android/build-cache/1a17ea876b465cddf1c8694e27fa96b4fd9d0ebc/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
     }
 ]

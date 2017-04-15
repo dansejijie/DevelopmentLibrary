@@ -2,7 +2,6 @@ package com.netease.nim.uikit.session.viewholder;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.hyphenate.EMCallBack;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
+import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.ui.recyclerview.holder.BaseViewHolder;
@@ -40,8 +39,6 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
         this.adapter = adapter;
     }
 
-    private static final String TAG=MsgViewHolderBase.class.getSimpleName();
-
     // basic
     protected View view;
     protected Context context;
@@ -63,7 +60,6 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
     private HeadImageView avatarRight;
 
     public ImageView nameIconView;
-
 
     // contentContainerView的默认长按事件。如果子类需要不同的处理，可覆盖onItemLongClick方法
     // 但如果某些子控件会拦截触摸消息，导致contentContainer收不到长按事件，子控件也可在inflate时重新设置
@@ -90,12 +86,12 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
 
     // 当是接收到的消息时，内容区域背景的drawable id
     protected int leftBackground() {
-        return R.drawable.ease_chatfrom_bg;
+        return R.drawable.nim_message_item_left_selector;
     }
 
     // 当是发送出去的消息时，内容区域背景的drawable id
     protected int rightBackground() {
-        return R.drawable.ease_chatto_bg;
+        return R.drawable.nim_message_item_right_selector;
     }
 
     // 返回该消息是不是居中显示
@@ -182,63 +178,6 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
         inflateContentView();
     }
 
-//    /**
-//     * set callback for sending message
-//     */
-//    protected void setMessageSendCallback() {
-//        if (messageSendCallback == null) {
-//            messageSendCallback = new EMCallBack() {
-//
-//                @Override
-//                public void onSuccess() {
-//                    Log.i(TAG,"setMessageSendCallback:onSuccess");
-//                    refreshCurrentItem();
-//                }
-//                @Override
-//                public void onProgress(final int progress, String status) {
-//                    Log.i(TAG,"setMessageSendCallback:onProgress");
-//                    refreshCurrentItem();
-//                }
-//
-//                @Override
-//                public void onError(int code, String error) {
-//                    Log.i(TAG,"setMessageSendCallback:onError");
-//                    refreshCurrentItem();
-//                }
-//            };
-//        }
-//        message.setMessageStatusCallback(messageSendCallback);
-//    }
-//
-//    /**
-//     * set callback for receiving message
-//     */
-//    protected void setMessageReceiveCallback() {
-//        if (messageReceiveCallback == null) {
-//            messageReceiveCallback = new EMCallBack() {
-//
-//                @Override
-//                public void onSuccess() {
-//                    Log.i(TAG,"setMessageReceiveCallback:onSuccess");
-//                    refreshCurrentItem();
-//                }
-//
-//                @Override
-//                public void onProgress(final int progress, String status) {
-//                    Log.i(TAG,"setMessageReceiveCallback:onProgress");
-//                    refreshCurrentItem();
-//                }
-//
-//                @Override
-//                public void onError(int code, String error) {
-//                    Log.i(TAG,"setMessageReceiveCallback:onError");
-//                    refreshCurrentItem();
-//                }
-//            };
-//        }
-//        message.setMessageStatusCallback(messageReceiveCallback);
-//    }
-
     protected final void refresh() {
         setHeadImageView();
         setNameTextView();
@@ -255,8 +194,6 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
     public void refreshCurrentItem() {
         if (message != null) {
             refresh();
-        }else {
-            Log.e(TAG,"not have message");
         }
     }
 
@@ -383,8 +320,8 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
     public void setNameTextView() {
         if (message.getSessionType() == SessionTypeEnum.Team && isReceivedMessage() && !isMiddleItem()) {
             nameTextView.setVisibility(View.VISIBLE);
-//            nameTextView.setText(TeamDataCache.getInstance().getTeamMemberDisplayName(message.getSessionId(), message
-//                    .getFromAccount()));
+            nameTextView.setText(TeamDataCache.getInstance().getTeamMemberDisplayName(message.getSessionId(), message
+                    .getFromAccount()));
         } else {
             nameTextView.setVisibility(View.GONE);
         }

@@ -1,7 +1,6 @@
 package com.netease.nim.uikit.session.viewholder;
 
 import android.graphics.Color;
-import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.view.View;
@@ -11,9 +10,7 @@ import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
-//import com.netease.nim.uikit.session.emoji.MoonUtil;
-import com.netease.nim.uikit.session.emoji.ease.EaseSmileUtils;
-import com.netease.nimlib.sdk.msg.constant.MsgDirectionEnum;
+import com.netease.nim.uikit.session.emoji.MoonUtil;
 
 /**
  * Created by zhoujianghua on 2015/8/4.
@@ -45,21 +42,9 @@ public class MsgViewHolderText extends MsgViewHolderBase {
                 onItemClick();
             }
         });
-
-        Spannable span = EaseSmileUtils.getSmiledText(context, getDisplayText());
-        bodyTextView.setText(span, TextView.BufferType.SPANNABLE);
-
-
-        //MoonUtil.identifyFaceExpression(NimUIKit.getContext(), bodyTextView, getDisplayText(), ImageSpan.ALIGN_BOTTOM);
-
+        MoonUtil.identifyFaceExpression(NimUIKit.getContext(), bodyTextView, getDisplayText(), ImageSpan.ALIGN_BOTTOM);
         bodyTextView.setMovementMethod(LinkMovementMethod.getInstance());
         bodyTextView.setOnLongClickListener(longClickListener);
-
-//        if (message.getDirect()== MsgDirectionEnum.In){
-//            setMessageReceiveCallback();
-//        }else {
-//            setMessageSendCallback();
-//        }
     }
 
     private void layoutDirection() {

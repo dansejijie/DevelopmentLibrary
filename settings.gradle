@@ -1,1 +1,1 @@
-include ':widget', ':library', ':mylibrary', ':utils', ':chatdemoui3.0', ':mylibrary2', 'uikit', 'nimlib', ':imuikit', ':lablibrary'
+include ':widget', ':utils', ':chatdemoui3.0', 'uikit-old', 'nimlib', 'library', 'imuikit', 'uikit', ':uikit'

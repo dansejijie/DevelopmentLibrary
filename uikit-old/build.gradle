@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+
+    compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION
+    buildToolsVersion rootProject.ext.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.MIN_SDK_VERSION
+        targetSdkVersion rootProject.ext.TARGET_SDK_VERSION
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res', 'res-ptr2']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
+    compile 'me.relex:photodraweeview:1.1.2'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+    compile project(':nimlib')
+    compile "com.android.support:recyclerview-v7:${rootProject.ext.SUPPORT_VERSION}"
+    compile 'com.bilibili:boxing-impl:0.5.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+}

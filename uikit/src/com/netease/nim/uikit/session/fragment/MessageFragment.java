@@ -3,10 +3,15 @@ package com.netease.nim.uikit.session.fragment;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hyphenate.EMMessageListener;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMMessage;
 import com.netease.nim.uikit.CustomPushContentProvider;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
@@ -155,6 +160,55 @@ public class MessageFragment extends TFragment implements ModuleProxy {
 //        MsgServiceObserve service = NIMClient.getService(MsgServiceObserve.class);
 //        service.observeReceiveMessage(incomingMessageObserver, register);
 //        service.observeMessageReceipt(messageReceiptObserver, register);
+
+        EMClient.getInstance().chatManager().addMessageListener(new EMMessageListener() {
+            @Override
+            public void onMessageReceived(final List<EMMessage> messages) {
+                //收到消息
+
+                if (Looper.getMainLooper()==Looper.myLooper()){
+                    Log.d("TAG","s");
+                }
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (messages == null || messages.isEmpty()) {
+                            return;
+                        }
+
+                        List<IMMessage>imMessages=new ArrayList<>();
+                        for (EMMessage emMessage:messages){
+                            imMessages.add(new IMMessage(emMessage));
+                        }
+                        messageListPanel.onIncomingMessage(imMessages);
+                        sendMsgReceipt(); // 发送已读回执
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCmdMessageReceived(List<EMMessage> messages) {
+
+            }
+
+            @Override
+            public void onMessageRead(List<EMMessage> messages) {
+
+            }
+
+            @Override
+            public void onMessageDelivered(List<EMMessage> messages) {
+
+            }
+
+            @Override
+            public void onMessageChanged(EMMessage message, Object change) {
+
+            }
+        });
+
     }
 
     /**

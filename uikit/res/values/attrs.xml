@@ -10,9 +10,4 @@
     <declare-styleable name="ImageViewEx">
         <attr name="exiv_default_image_res" format="reference"/>
     </declare-styleable>
-
-    <declare-styleable name="EaseEmojiconMenu">
-        <attr name="bigEmojiconRows" format="integer"/>
-        <attr name="emojiconColumns" format="integer"/>
-    </declare-styleable>
 </resources>

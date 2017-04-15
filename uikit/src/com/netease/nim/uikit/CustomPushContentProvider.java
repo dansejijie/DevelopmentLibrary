@@ -1,6 +1,5 @@
 package com.netease.nim.uikit;
 
-
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 import java.util.Map;
@@ -17,7 +16,6 @@ public interface CustomPushContentProvider {
      * @param message
      */
     String getPushContent(IMMessage message);
-
 
     /**
      * 在消息发出去之前，回调此方法，用户需实现自定义的推送payload，它可以被消息接受者在通知栏点击之后得到

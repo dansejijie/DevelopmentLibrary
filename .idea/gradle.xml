@@ -10,12 +10,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/chatdemoui3.0" />
             <option value="$PROJECT_DIR$/imuikit" />
-            <option value="$PROJECT_DIR$/lablibrary" />
             <option value="$PROJECT_DIR$/library" />
-            <option value="$PROJECT_DIR$/mylibrary" />
-            <option value="$PROJECT_DIR$/mylibrary2" />
             <option value="$PROJECT_DIR$/nimlib" />
             <option value="$PROJECT_DIR$/uikit" />
+            <option value="$PROJECT_DIR$/uikit-old" />
             <option value="$PROJECT_DIR$/utils" />
             <option value="$PROJECT_DIR$/widget" />
           </set>

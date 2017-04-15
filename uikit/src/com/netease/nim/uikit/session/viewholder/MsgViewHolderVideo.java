@@ -1,11 +1,9 @@
 package com.netease.nim.uikit.session.viewholder;
 
-import android.util.Log;
-
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.media.BitmapDecoder;
-//import com.netease.nim.uikit.session.activity.WatchVideoActivity;
+import com.netease.nim.uikit.session.activity.WatchVideoActivity;
 import com.netease.nimlib.sdk.msg.attachment.VideoAttachment;
 
 /**
@@ -24,9 +22,7 @@ public class MsgViewHolderVideo extends MsgViewHolderThumbBase {
 
     @Override
     protected void onItemClick() {
-
-        Log.e("TAG","unhandler");
-//        WatchVideoActivity.start(context, message);
+        WatchVideoActivity.start(context, message);
     }
 
     @Override

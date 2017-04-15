@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,8 +12,8 @@ import android.widget.TextView;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseFetchLoadAdapter;
-//import com.netease.nim.uikit.session.emoji.MoonUtil;
-//import com.netease.nim.uikit.session.helper.TeamNotificationHelper;
+import com.netease.nim.uikit.session.emoji.MoonUtil;
+import com.netease.nim.uikit.session.helper.TeamNotificationHelper;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 /**
@@ -44,23 +43,21 @@ public class IncomingMsgPrompt {
 
     // 显示底部新信息提示条
     public void show(IMMessage newMessage) {
+        if (newMessageTipLayout == null) {
+            init();
+        }
 
-        Log.e("TAG","unhandler");
-//        if (newMessageTipLayout == null) {
-//            init();
-//        }
-//
-//        if (!TextUtils.isEmpty(newMessage.getFromAccount())) {
-//            newMessageTipHeadImageView.loadBuddyAvatar(newMessage.getFromAccount());
-//        } else {
-//            newMessageTipHeadImageView.resetImageView();
-//        }
-//
-//        MoonUtil.identifyFaceExpression(context, newMessageTipTextView, TeamNotificationHelper.getMsgShowText(newMessage),
-//                ImageSpan.ALIGN_BOTTOM);
-//        newMessageTipLayout.setVisibility(View.VISIBLE);
-//        uiHandler.removeCallbacks(showNewMessageTipLayoutRunnable);
-//        uiHandler.postDelayed(showNewMessageTipLayoutRunnable, 5 * 1000);
+        if (!TextUtils.isEmpty(newMessage.getFromAccount())) {
+            newMessageTipHeadImageView.loadBuddyAvatar(newMessage.getFromAccount());
+        } else {
+            newMessageTipHeadImageView.resetImageView();
+        }
+
+        MoonUtil.identifyFaceExpression(context, newMessageTipTextView, TeamNotificationHelper.getMsgShowText(newMessage),
+                ImageSpan.ALIGN_BOTTOM);
+        newMessageTipLayout.setVisibility(View.VISIBLE);
+        uiHandler.removeCallbacks(showNewMessageTipLayoutRunnable);
+        uiHandler.postDelayed(showNewMessageTipLayoutRunnable, 5 * 1000);
     }
 
     public void onBackPressed() {

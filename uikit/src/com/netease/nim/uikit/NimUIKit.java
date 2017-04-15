@@ -5,42 +5,42 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-//import com.netease.nim.uikit.cache.DataCacheManager;
-//import com.netease.nim.uikit.cache.TeamDataCache;
+import com.netease.nim.uikit.cache.DataCacheManager;
+import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nim.uikit.common.util.log.LogUtil;
 import com.netease.nim.uikit.common.util.storage.StorageType;
 import com.netease.nim.uikit.common.util.storage.StorageUtil;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
 import com.netease.nim.uikit.contact.ContactEventListener;
 import com.netease.nim.uikit.contact.ContactProvider;
-//import com.netease.nim.uikit.contact_selector.activity.ContactSelectActivity;
+import com.netease.nim.uikit.contact_selector.activity.ContactSelectActivity;
 import com.netease.nim.uikit.custom.DefalutContactEventListener;
 import com.netease.nim.uikit.custom.DefalutP2PSessionCustomization;
-//import com.netease.nim.uikit.custom.DefalutTeamSessionCustomization;
+import com.netease.nim.uikit.custom.DefalutTeamSessionCustomization;
 import com.netease.nim.uikit.custom.DefalutUserInfoProvider;
-//import com.netease.nim.uikit.custom.DefaultContactProvider;
+import com.netease.nim.uikit.custom.DefaultContactProvider;
 import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.SessionEventListener;
 import com.netease.nim.uikit.session.activity.P2PMessageActivity;
-//import com.netease.nim.uikit.session.activity.TeamMessageActivity;
-//import com.netease.nim.uikit.session.emoji.StickerManager;
+import com.netease.nim.uikit.session.activity.TeamMessageActivity;
+import com.netease.nim.uikit.session.emoji.StickerManager;
 import com.netease.nim.uikit.session.viewholder.MsgViewHolderBase;
 import com.netease.nim.uikit.session.viewholder.MsgViewHolderFactory;
 import com.netease.nim.uikit.session.module.MsgForwardFilter;
 import com.netease.nim.uikit.session.module.MsgRevokeFilter;
-//import com.netease.nim.uikit.team.activity.AdvancedTeamInfoActivity;
-//import com.netease.nim.uikit.team.activity.NormalTeamInfoActivity;
+import com.netease.nim.uikit.team.activity.AdvancedTeamInfoActivity;
+import com.netease.nim.uikit.team.activity.NormalTeamInfoActivity;
 import com.netease.nim.uikit.uinfo.UserInfoHelper;
 import com.netease.nimlib.sdk.AbortableFuture;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.RequestCallback;
-//import com.netease.nimlib.sdk.auth.AuthService;
+import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.msg.attachment.MsgAttachment;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
-//import com.netease.nimlib.sdk.team.constant.TeamTypeEnum;
-//import com.netease.nimlib.sdk.team.model.Team;
+import com.netease.nimlib.sdk.team.constant.TeamTypeEnum;
+import com.netease.nimlib.sdk.team.model.Team;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
 
 import java.util.List;
@@ -90,7 +90,7 @@ public final class NimUIKit {
     private static SessionCustomization commonTeamSessionCustomization;
 
     /**
-     * 初始化UIKit, 用户信息、联系人信息使用 {@link DefalutUserInfoProvider}，{@link }
+     * 初始化UIKit, 用户信息、联系人信息使用 {@link DefalutUserInfoProvider}，{@link DefaultContactProvider}
      * 若用户自行提供 userInfoProvider，contactProvider，请使用 {@link NimUIKit#init(Context, UserInfoProvider, ContactProvider)}
      *
      * @param context
@@ -117,16 +117,16 @@ public final class NimUIKit {
         NimUIKit.imageLoaderKit = new ImageLoaderKit(context, null);
 
         // init data cache
-        //LoginSyncDataStatusObserver.getInstance().registerLoginSyncDataStatus(true);  // 监听登录同步数据完成通知
-//        DataCacheManager.observeSDKDataChanged(true);
-//        if (!TextUtils.isEmpty(getAccount())) {
-//            DataCacheManager.buildDataCache(); // build data cache on auto login
-//        }
+        LoginSyncDataStatusObserver.getInstance().registerLoginSyncDataStatus(true);  // 监听登录同步数据完成通知
+        DataCacheManager.observeSDKDataChanged(true);
+        if (!TextUtils.isEmpty(getAccount())) {
+            DataCacheManager.buildDataCache(); // build data cache on auto login
+        }
 
         // init tools
         StorageUtil.init(context, null);
         ScreenUtil.init(context);
-        //StickerManager.getInstance().init();
+        StickerManager.getInstance().init();
 
         // init log
         String path = StorageUtil.getDirectoryByDirType(StorageType.TYPE_LOG);
@@ -146,11 +146,11 @@ public final class NimUIKit {
     // 初始化联系人信息提供者
     private static void initContactProvider(ContactProvider contactProvider) {
 
-//        if (contactProvider == null) {
-//            contactProvider = new DefaultContactProvider();
-//        }
-//
-//        NimUIKit.contactProvider = contactProvider;
+        if (contactProvider == null) {
+            contactProvider = new DefaultContactProvider();
+        }
+
+        NimUIKit.contactProvider = contactProvider;
     }
 
     // 初始化会话定制，群、P2P
@@ -158,9 +158,9 @@ public final class NimUIKit {
         if (commonP2PSessionCustomization == null) {
             commonP2PSessionCustomization = new DefalutP2PSessionCustomization();
         }
-//        if (commonTeamSessionCustomization == null) {
-//            commonTeamSessionCustomization = new DefalutTeamSessionCustomization();
-//        }
+        if (commonTeamSessionCustomization == null) {
+            commonTeamSessionCustomization = new DefalutTeamSessionCustomization();
+        }
     }
 
     // 初始化联系人点击事件
@@ -196,7 +196,7 @@ public final class NimUIKit {
 
     /**
      * 打开群聊界面，若开发者未设置 {@link NimUIKit#setCommonTeamSessionCustomization(SessionCustomization)},
-     * 则定制化信息 SessionCustomization 为{@link }
+     * 则定制化信息 SessionCustomization 为{@link DefalutTeamSessionCustomization}
      * <p>
      * 若需要为目标会话提供单独定义的SessionCustomization，请使用{@link NimUIKit#startChatting(Context, String, SessionTypeEnum, SessionCustomization, IMMessage)}
      *
@@ -224,35 +224,35 @@ public final class NimUIKit {
      * @param loginInfo 登陆账号信息
      * @param callback  登陆结果回调
      */
-//    public static AbortableFuture<LoginInfo> doLogin(LoginInfo loginInfo, final RequestCallback<LoginInfo> callback) {
-//
-//        AbortableFuture<LoginInfo> loginRequest = NIMClient.getService(AuthService.class).login(loginInfo);
-//        loginRequest.setCallback(new RequestCallback<LoginInfo>() {
-//            @Override
-//            public void onSuccess(LoginInfo loginInfo) {
-//                NimUIKit.setAccount(loginInfo.getAccount());
-//                DataCacheManager.buildDataCacheAsync();
-//                callback.onSuccess(loginInfo);
-//            }
-//
-//            @Override
-//            public void onFailed(int code) {
-//                callback.onFailed(code);
-//            }
-//
-//            @Override
-//            public void onException(Throwable exception) {
-//                callback.onException(exception);
-//            }
-//        });
-//        return loginRequest;
-//    }
+    public static AbortableFuture<LoginInfo> doLogin(LoginInfo loginInfo, final RequestCallback<LoginInfo> callback) {
+
+        AbortableFuture<LoginInfo> loginRequest = NIMClient.getService(AuthService.class).login(loginInfo);
+        loginRequest.setCallback(new RequestCallback<LoginInfo>() {
+            @Override
+            public void onSuccess(LoginInfo loginInfo) {
+                NimUIKit.setAccount(loginInfo.getAccount());
+                DataCacheManager.buildDataCacheAsync();
+                callback.onSuccess(loginInfo);
+            }
+
+            @Override
+            public void onFailed(int code) {
+                callback.onFailed(code);
+            }
+
+            @Override
+            public void onException(Throwable exception) {
+                callback.onException(exception);
+            }
+        });
+        return loginRequest;
+    }
 
     /**
      * 释放缓存，一般在注销时调用
      */
     public static void clearCache() {
-        //DataCacheManager.clearDataCache();
+        DataCacheManager.clearDataCache();
     }
 
     /**
@@ -269,8 +269,7 @@ public final class NimUIKit {
         if (sessionType == SessionTypeEnum.P2P) {
             P2PMessageActivity.start(context, id, customization, anchor);
         } else if (sessionType == SessionTypeEnum.Team) {
-            Log.e("TAG","unhandler");
-            //TeamMessageActivity.start(context, id, customization, null, anchor);
+            TeamMessageActivity.start(context, id, customization, null, anchor);
         }
     }
 
@@ -287,40 +286,39 @@ public final class NimUIKit {
     public static void startChatting(Context context, String id, SessionTypeEnum sessionType, SessionCustomization customization,
                                      Class<? extends Activity> backToClass, IMMessage anchor) {
         if (sessionType == SessionTypeEnum.Team) {
-            Log.e("TAG","unhandler");
-            //TeamMessageActivity.start(context, id, customization, backToClass, anchor);
+            TeamMessageActivity.start(context, id, customization, backToClass, anchor);
         }
     }
 
-//    /**
-//     * 打开联系人选择器
-//     *
-//     * @param context     上下文（Activity）
-//     * @param option      联系人选择器可选配置项
-//     * @param requestCode startActivityForResult使用的请求码
-//     */
-//    public static void startContactSelect(Context context, ContactSelectActivity.Option option, int requestCode) {
-//        ContactSelectActivity.startActivityForResult(context, option, requestCode);
-//    }
+    /**
+     * 打开联系人选择器
+     *
+     * @param context     上下文（Activity）
+     * @param option      联系人选择器可选配置项
+     * @param requestCode startActivityForResult使用的请求码
+     */
+    public static void startContactSelect(Context context, ContactSelectActivity.Option option, int requestCode) {
+        ContactSelectActivity.startActivityForResult(context, option, requestCode);
+    }
 
-//    /**
-//     * 打开讨论组或高级群资料页
-//     *
-//     * @param context 上下文
-//     * @param teamId  群id
-//     */
-//    public static void startTeamInfo(Context context, String teamId) {
-//        Team team = TeamDataCache.getInstance().getTeamById(teamId);
-//        if (team == null) {
-//            return;
-//        }
-//        if (team.getType() == TeamTypeEnum.Advanced) {
-//            AdvancedTeamInfoActivity.start(context, teamId); // 启动固定群资料页
-//        } else if (team.getType() == TeamTypeEnum.Normal) {
-//            NormalTeamInfoActivity.start(context, teamId); // 启动讨论组资料页
-//        }
-//
-//    }
+    /**
+     * 打开讨论组或高级群资料页
+     *
+     * @param context 上下文
+     * @param teamId  群id
+     */
+    public static void startTeamInfo(Context context, String teamId) {
+        Team team = TeamDataCache.getInstance().getTeamById(teamId);
+        if (team == null) {
+            return;
+        }
+        if (team.getType() == TeamTypeEnum.Advanced) {
+            AdvancedTeamInfoActivity.start(context, teamId); // 启动固定群资料页
+        } else if (team.getType() == TeamTypeEnum.Normal) {
+            NormalTeamInfoActivity.start(context, teamId); // 启动讨论组资料页
+        }
+
+    }
 
     public static Context getContext() {
         return context;
@@ -356,42 +354,42 @@ public final class NimUIKit {
         NimUIKit.locationProvider = locationProvider;
     }
 
-//    /**
-//     * 设置单聊界面定制 SessionCustomization
-//     *
-//     * @param commonP2PSessionCustomization 聊天界面定制化
-//     */
-//    public static void setCommonP2PSessionCustomization(SessionCustomization commonP2PSessionCustomization) {
-//        NimUIKit.commonP2PSessionCustomization = commonP2PSessionCustomization;
-//    }
-//
-//    /**
-//     * 设置群聊界面定制 SessionCustomization
-//     *
-//     * @param commonTeamSessionCustomization 聊天界面定制化
-//     */
-//    public static void setCommonTeamSessionCustomization(SessionCustomization commonTeamSessionCustomization) {
-//        NimUIKit.commonTeamSessionCustomization = commonTeamSessionCustomization;
-//    }
+    /**
+     * 设置单聊界面定制 SessionCustomization
+     *
+     * @param commonP2PSessionCustomization 聊天界面定制化
+     */
+    public static void setCommonP2PSessionCustomization(SessionCustomization commonP2PSessionCustomization) {
+        NimUIKit.commonP2PSessionCustomization = commonP2PSessionCustomization;
+    }
 
-//    /**
-//     * 根据消息附件类型注册对应的消息项展示ViewHolder
-//     *
-//     * @param attach     附件类型
-//     * @param viewHolder 消息ViewHolder
-//     */
-//    public static void registerMsgItemViewHolder(Class<? extends MsgAttachment> attach, Class<? extends MsgViewHolderBase> viewHolder) {
-//        MsgViewHolderFactory.register(attach, viewHolder);
-//    }
-//
-//    /**
-//     * 注册Tip类型消息项展示ViewHolder
-//     *
-//     * @param viewHolder Tip消息ViewHolder
-//     */
-//    public static void registerTipMsgViewHolder(Class<? extends MsgViewHolderBase> viewHolder) {
-//        MsgViewHolderFactory.registerTipMsgViewHolder(viewHolder);
-//    }
+    /**
+     * 设置群聊界面定制 SessionCustomization
+     *
+     * @param commonTeamSessionCustomization 聊天界面定制化
+     */
+    public static void setCommonTeamSessionCustomization(SessionCustomization commonTeamSessionCustomization) {
+        NimUIKit.commonTeamSessionCustomization = commonTeamSessionCustomization;
+    }
+
+    /**
+     * 根据消息附件类型注册对应的消息项展示ViewHolder
+     *
+     * @param attach     附件类型
+     * @param viewHolder 消息ViewHolder
+     */
+    public static void registerMsgItemViewHolder(Class<? extends MsgAttachment> attach, Class<? extends MsgViewHolderBase> viewHolder) {
+        MsgViewHolderFactory.register(attach, viewHolder);
+    }
+
+    /**
+     * 注册Tip类型消息项展示ViewHolder
+     *
+     * @param viewHolder Tip消息ViewHolder
+     */
+    public static void registerTipMsgViewHolder(Class<? extends MsgViewHolderBase> viewHolder) {
+        MsgViewHolderFactory.registerTipMsgViewHolder(viewHolder);
+    }
 
     /**
      * 设置当前登录用户的帐号

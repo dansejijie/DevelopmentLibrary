@@ -3,6 +3,7 @@ package com.netease.nim.uikit;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+
 import com.netease.nim.uikit.common.media.picker.util.BitmapUtil;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.util.log.LogUtil;

@@ -1,10 +1,8 @@
 package com.netease.nim.uikit.session.helper;
 
-import android.util.Log;
-
 import com.netease.nim.uikit.NimUIKit;
-//import com.netease.nim.uikit.cache.NimUserInfoCache;
-//import com.netease.nim.uikit.cache.TeamDataCache;
+import com.netease.nim.uikit.cache.NimUserInfoCache;
+import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.msg.MessageBuilder;
 import com.netease.nimlib.sdk.msg.MsgService;
@@ -32,19 +30,18 @@ public class MessageHelper {
             return;
         }
 
-        Log.e("TAG","unhandler");
-//        IMMessage message = MessageBuilder.createTipMessage(item.getSessionId(), item.getSessionType());
-//        String nick = "";
-//        if (item.getSessionType() == SessionTypeEnum.Team) {
-//            nick = TeamDataCache.getInstance().getTeamMemberDisplayNameYou(item.getSessionId(), item.getFromAccount());
-//        } else if (item.getSessionType() == SessionTypeEnum.P2P) {
-//            nick = item.getFromAccount().equals(NimUIKit.getAccount()) ? "你" : "对方";
-//        }
-//        message.setContent(nick + "撤回了一条消息");
-//        message.setStatus(MsgStatusEnum.success);
-//        CustomMessageConfig config = new CustomMessageConfig();
-//        config.enableUnreadCount = false;
-//        message.setConfig(config);
-//        NIMClient.getService(MsgService.class).saveMessageToLocalEx(message, true, item.getTime());
+        IMMessage message = MessageBuilder.createTipMessage(item.getSessionId(), item.getSessionType());
+        String nick = "";
+        if (item.getSessionType() == SessionTypeEnum.Team) {
+            nick = TeamDataCache.getInstance().getTeamMemberDisplayNameYou(item.getSessionId(), item.getFromAccount());
+        } else if (item.getSessionType() == SessionTypeEnum.P2P) {
+            nick = item.getFromAccount().equals(NimUIKit.getAccount()) ? "你" : "对方";
+        }
+        message.setContent(nick + "撤回了一条消息");
+        message.setStatus(MsgStatusEnum.success);
+        CustomMessageConfig config = new CustomMessageConfig();
+        config.enableUnreadCount = false;
+        message.setConfig(config);
+        NIMClient.getService(MsgService.class).saveMessageToLocalEx(message, true, item.getTime());
     }
 }

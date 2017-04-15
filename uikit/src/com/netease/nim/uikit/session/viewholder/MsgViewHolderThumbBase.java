@@ -1,21 +1,9 @@
 package com.netease.nim.uikit.session.viewholder;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.interfaces.DraweeController;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.hyphenate.chat.EMClient;
-import com.hyphenate.chat.EMFileMessageBody;
-import com.hyphenate.chat.EMImageMessageBody;
-import com.hyphenate.util.PathUtil;
-import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.imageview.MsgThumbImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
@@ -27,13 +15,10 @@ import com.netease.nimlib.sdk.msg.attachment.FileAttachment;
 import com.netease.nimlib.sdk.msg.attachment.ImageAttachment;
 import com.netease.nimlib.sdk.msg.attachment.VideoAttachment;
 import com.netease.nimlib.sdk.msg.constant.AttachStatusEnum;
-import com.netease.nimlib.sdk.msg.constant.MsgDirectionEnum;
 import com.netease.nimlib.sdk.msg.constant.MsgStatusEnum;
 import com.netease.nimlib.sdk.msg.constant.MsgTypeEnum;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by zhoujianghua on 2015/8/4.
@@ -144,5 +129,3 @@ public abstract class MsgViewHolderThumbBase extends MsgViewHolderBase {
 
     protected abstract String thumbFromSourceFile(String path);
 }
-
-

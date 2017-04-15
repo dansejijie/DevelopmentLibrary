@@ -2,13 +2,12 @@ package com.netease.nim.uikit.session.viewholder;
 
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
-//import com.netease.nim.uikit.session.emoji.MoonUtil;
-//import com.netease.nim.uikit.session.helper.TeamNotificationHelper;
+import com.netease.nim.uikit.session.emoji.MoonUtil;
+import com.netease.nim.uikit.session.helper.TeamNotificationHelper;
 
 public class MsgViewHolderNotification extends MsgViewHolderBase {
 
@@ -34,15 +33,12 @@ public class MsgViewHolderNotification extends MsgViewHolderBase {
     }
 
     protected String getDisplayText() {
-
-        Log.e("TAG","unhandler");
-        return "xx";
-//        return TeamNotificationHelper.getTeamNotificationText(message, message.getSessionId());
+        return TeamNotificationHelper.getTeamNotificationText(message, message.getSessionId());
     }
 
     private void handleTextNotification(String text) {
-//        MoonUtil.identifyFaceExpressionAndATags(context, notificationTextView, text, ImageSpan.ALIGN_BOTTOM);
-//        notificationTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        MoonUtil.identifyFaceExpressionAndATags(context, notificationTextView, text, ImageSpan.ALIGN_BOTTOM);
+        notificationTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override

@@ -60,7 +60,7 @@ public class IMMessage implements Serializable {
     };
 
     public String getSessionId(){
-        return emMessage.getMsgId();
+        return emMessage.getUserName();
     }
 
     public SessionTypeEnum getSessionType(){
@@ -198,14 +198,14 @@ public class IMMessage implements Serializable {
         Log.e("TAG","unhandler");
 
     }
-//
-//    public MemberPushOption getMemberPushOption(){
-//
-//    }
-//
-//    public void setMemberPushOption(MemberPushOption var1){
-//
-//    }
+
+    public MemberPushOption getMemberPushOption(){
+        return new MemberPushOption();
+    }
+
+    public void setMemberPushOption(MemberPushOption var1){
+        Log.e("TAG","unhandler");
+    }
 //
     public boolean isRemoteRead(){
         return !emMessage.isUnread();

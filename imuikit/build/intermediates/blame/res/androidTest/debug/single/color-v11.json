@@ -6,13 +6,5 @@
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/imuikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
-        "merged": "/Users/tygzx/Work/react-native/lab4/android/imuikit/build/intermediates/res/merged/androidTest/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/Users/tygzx/.android/build-cache/237367933c9236c0a479f671559ee13e3c596cd2/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
     }
 ]

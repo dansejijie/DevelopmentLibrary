@@ -90,7 +90,8 @@ public class MessageBuilder {
 //
     public static IMMessage createEmptyMessage(String var0, SessionTypeEnum var1, long var2) {
         Log.e("TAG","unhandler");
-        EMMessage emMessage= EMMessage.createTxtSendMessage("xx",var0);
+        EMMessage emMessage= EMMessage.createTxtSendMessage("anchor de info",var0);
+        emMessage.setFrom(var0);
         emMessage.setChatType(SessionTypeEnum.IMMessageSessionTypeEnumConvertToEMMessageSessionTypeEnum(var1));
         return new IMMessage(emMessage);
     }

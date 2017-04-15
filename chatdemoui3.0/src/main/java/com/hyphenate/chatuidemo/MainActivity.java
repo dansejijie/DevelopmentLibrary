@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.netease.nim.uikit.session.activity.P2PMessageActivity;
+import com.netease.nim.uikit.session.constant.Extras;
+import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 
 
 /**
@@ -23,10 +25,16 @@ public class MainActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,P2PMessageActivity.class);
+                Intent intent=new Intent(MainActivity.this, P2PMessageActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable(Extras.EXTRA_TYPE, SessionTypeEnum.P2P);
+                bundle.putString(Extras.EXTRA_ACCOUNT,"dansejijie2");
+                intent.putExtras(bundle);
+
                 startActivity(intent);
             }
         });
@@ -51,4 +59,5 @@ public class MainActivity extends Activity {
             }
         });
     }
+
 }

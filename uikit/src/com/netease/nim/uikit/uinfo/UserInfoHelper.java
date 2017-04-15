@@ -1,10 +1,8 @@
 package com.netease.nim.uikit.uinfo;
 
-import android.util.Log;
-
 import com.netease.nim.uikit.NimUIKit;
-//import com.netease.nim.uikit.cache.NimUserInfoCache;
-//import com.netease.nim.uikit.cache.TeamDataCache;
+import com.netease.nim.uikit.cache.NimUserInfoCache;
+import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 
 import java.util.List;
@@ -15,19 +13,16 @@ public class UserInfoHelper {
 
     // 获取用户显示在标题栏和最近联系人中的名字
     public static String getUserTitleName(String id, SessionTypeEnum sessionType) {
-
-        Log.e("TAG","unhandler");
+        if (sessionType == SessionTypeEnum.P2P) {
+            if (NimUIKit.getAccount().equals(id)) {
+                return "我的电脑";
+            } else {
+                return NimUserInfoCache.getInstance().getUserDisplayName(id);
+            }
+        }  else if (sessionType == SessionTypeEnum.Team) {
+            return TeamDataCache.getInstance().getTeamName(id);
+        }
         return id;
-//        if (sessionType == SessionTypeEnum.P2P) {
-//            if (NimUIKit.getAccount().equals(id)) {
-//                return "我的电脑";
-//            } else {
-//                return NimUserInfoCache.getInstance().getUserDisplayName(id);
-//            }
-//        }  else if (sessionType == SessionTypeEnum.Team) {
-//            return TeamDataCache.getInstance().getTeamName(id);
-//        }
-//        return id;
     }
 
     /**
