@@ -138,6 +138,7 @@
             android:name="com.netease.nim.uikit.team.activity.TeamMemberListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.bilibili.boxing_impl.ui.BoxingActivity" />
     </application>
 
 </manifest>

@@ -46,8 +46,6 @@ public abstract class MsgViewHolderImageThumbBase extends MsgViewHolderBase {
         thumbnail = findViewById(R.id.message_item_thumb_thumbnail);
         progressBar = findViewById(R.id.message_item_thumb_progress_bar);
         progressCover = findViewById(R.id.message_item_thumb_progress_cover);
-
-
     }
 
     @Override

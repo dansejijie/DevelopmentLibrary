@@ -1,6 +1,7 @@
 package com.netease.nim.uikit.session.viewholder;
 
 import android.graphics.Color;
+import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ImageSpan;
 import android.view.View;
@@ -10,6 +11,7 @@ import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
+import com.netease.nim.uikit.extra.session.emoji.EaseSmileUtils;
 import com.netease.nim.uikit.session.emoji.MoonUtil;
 
 /**
@@ -42,7 +44,12 @@ public class MsgViewHolderText extends MsgViewHolderBase {
                 onItemClick();
             }
         });
-        MoonUtil.identifyFaceExpression(NimUIKit.getContext(), bodyTextView, getDisplayText(), ImageSpan.ALIGN_BOTTOM);
+
+        Spannable span = EaseSmileUtils.getSmiledText(context, getDisplayText());
+        bodyTextView.setText(span, TextView.BufferType.SPANNABLE);
+
+        //MoonUtil.identifyFaceExpression(NimUIKit.getContext(), bodyTextView, getDisplayText(), ImageSpan.ALIGN_BOTTOM);
+
         bodyTextView.setMovementMethod(LinkMovementMethod.getInstance());
         bodyTextView.setOnLongClickListener(longClickListener);
     }
@@ -50,10 +57,10 @@ public class MsgViewHolderText extends MsgViewHolderBase {
     private void layoutDirection() {
         TextView bodyTextView = findViewById(R.id.nim_message_item_text_body);
         if (isReceivedMessage()) {
-            bodyTextView.setBackgroundResource(R.drawable.nim_message_item_left_selector);
+            bodyTextView.setBackgroundResource(R.drawable.ease_chatfrom_bg);
             bodyTextView.setPadding(ScreenUtil.dip2px(15), ScreenUtil.dip2px(8), ScreenUtil.dip2px(10), ScreenUtil.dip2px(8));
         } else {
-            bodyTextView.setBackgroundResource(R.drawable.nim_message_item_right_selector);
+            bodyTextView.setBackgroundResource(R.drawable.ease_chatto_bg);
             bodyTextView.setPadding(ScreenUtil.dip2px(10), ScreenUtil.dip2px(8), ScreenUtil.dip2px(15), ScreenUtil.dip2px(8));
         }
     }

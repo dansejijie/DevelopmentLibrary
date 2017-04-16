@@ -5,11 +5,15 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_separator.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item_separator.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_emoji_layout.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_emoji_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_simple_media_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_simple_media_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/mass_message_activity.xml",
@@ -20,12 +24,20 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_advanced_team_info_activity.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/activity_boxing_bottom_sheet.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/activity_boxing_bottom_sheet.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_team_member_grid_layout.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_team_member_grid_layout.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_menu_item_layout.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_menu_item_layout.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_contacts.xml",
@@ -36,20 +48,20 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_recent_contact_list_item.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_menu_item_action_area.xml"
-    },
-    {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_snackbar.xml"
-    },
-    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_round_loading_progress_bar.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_round_loading_progress_bar.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_layout_snackbar.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_menu_item_action_area.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_item_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_item_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_time_text_view_layout.xml",
@@ -73,7 +85,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_bottom_sheet_dialog.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_bottom_sheet_dialog.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/image_layout_multi_touch.xml",
@@ -85,7 +97,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_icon.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_list_menu_item_icon.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_preview_image_layout_multi_touch.xml",
@@ -97,19 +109,23 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_search_dropdown_item_icons_2line.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_simple.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_simple.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/support_simple_spinner_dropdown_item.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_empty_txt.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_empty_txt.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_subheader.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item_subheader.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_team_message_activity.xml",
@@ -121,7 +137,11 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_bar_view_list_nav_layout.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_custom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media_custom.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_contacts_select_item.xml",
@@ -129,7 +149,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_bar_up_container.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_bar_up_container.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_preview_image_layout_zoom_control.xml",
@@ -137,7 +157,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_multichoice_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_multichoice_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_title.xml",
@@ -145,7 +165,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media_narrow.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media_narrow.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_item_text.xml",
@@ -168,8 +188,16 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res-ptr2/layout/pull_to_refresh_header_custom.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_recycleview_header.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_recycleview_header.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_select_dialog_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/activity_boxing_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/activity_boxing_view.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_item_picture.xml",
@@ -180,8 +208,12 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_sticker_picker_view.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_recycleview_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_recycleview_item.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_dialog_title_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_dialog_title_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_team_member_list_item.xml",
@@ -213,19 +245,19 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_radio.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_mode_close_item_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_alert_dialog_button_bar_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_big_media.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_zbra_loading_progress_bar.xml",
@@ -237,11 +269,15 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_part_time.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_part_time.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_action_bar_right_clickable_tv.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_action_bar_right_clickable_tv.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_text_input_password_icon.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_default_layout.xml",
@@ -260,6 +296,10 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_picker_images_fragment.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/activity_boxing.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/activity_boxing.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_activity_actions_layout.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_message_activity_actions_layout.xml"
     },
@@ -273,11 +313,19 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item_header.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item_header.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_media_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_media_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_search_view.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_lines_media.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_activity_text_layout.xml",
@@ -289,7 +337,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_toolbar.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_toolbar.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_with_edit_text.xml",
@@ -305,15 +353,31 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_snackbar_include.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_bottom_navigation_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_tab_icon.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_album.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_album.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_preview_image_from_camera_activity.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_preview_image_from_camera_activity.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow_custom.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_big_media_narrow_custom.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_team_info_divider_item.xml",
@@ -333,7 +397,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_mode_bar.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_mode_bar.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_popup_menu_layout.xml",
@@ -345,19 +409,23 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_item.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_voice_trans_layout.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_voice_trans_layout.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_action.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_activity_chooser_view.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_media.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_media.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_popup_menu_list_black_item.xml",
@@ -365,7 +433,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/select_dialog_singlechoice_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_item_audio.xml",
@@ -385,7 +453,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_menu_item.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_menu_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_user_profile_toggle_item.xml",
@@ -397,11 +465,11 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_bar_title_item.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_alert_dialog_material.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_alert_dialog_material.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_recent_contacts.xml",
@@ -410,6 +478,10 @@
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_contact_loading_frame.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_contact_loading_frame.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_popup_menu_header_item_layout.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_item_notification.xml",
@@ -425,7 +497,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_popup_menu_item_layout.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_activity_bottom_layout.xml",
@@ -437,7 +509,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_navigation_menu.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_navigation_menu.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_easy_alert_dialog_bottom_button.xml",
@@ -445,7 +517,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_template_part_chronometer.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_part_chronometer.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_advanced_team_create_announce.xml",
@@ -460,16 +532,28 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_advanced_team_member_info_layout.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_album_item.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_album_item.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_team_member_list_layout.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_team_member_list_layout.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_action_tombstone.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_checkbox.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_watch_video_activity.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_watch_video_activity.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/fragmant_boxing_view.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/fragmant_boxing_view.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_new_message_tip_layout.xml",
@@ -477,7 +561,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/23.3.0/res/layout/design_layout_tab_text.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/layout/design_layout_tab_text.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
@@ -485,7 +569,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_content_include.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_content_include.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_crop_image_activity.xml",
@@ -509,11 +593,19 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_action_menu_layout.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/fragment_boxing_raw_image.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/fragment_boxing_raw_image.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_list_menu_item_layout.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/layout_boxing_app_bar.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/layout_boxing_app_bar.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_fragment.xml",
@@ -532,20 +624,24 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/layout/nim_picker_image_preview_activity.xml"
     },
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/fragment_boxing_bottom_sheet.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/layout/fragment_boxing_bottom_sheet.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_expanded_menu_layout.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_expanded_menu_layout.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_media_cancel_action.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_media_cancel_action.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_screen_simple_overlay_action_mode.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/notification_media_action.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_menu_dialog_item.xml",
@@ -553,7 +649,7 @@
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/layout/abc_activity_chooser_view_list_item.xml"
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/layout/nim_message_activity.xml",

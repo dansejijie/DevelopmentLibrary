@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.hyphenate.chat.EMLocationMessageBody;
 import com.hyphenate.chat.EMMessageBody;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 /**
  * Created by dansejijie on 17/4/4.
@@ -11,8 +12,8 @@ import com.hyphenate.chat.EMMessageBody;
 
 public class LocationAttachment  extends MsgAttachment{
 
-    public LocationAttachment(EMMessageBody body){
-        super(body);
+    public LocationAttachment(IMMessage imMessage){
+        super(imMessage);
     }
 
     public double getLatitude() {

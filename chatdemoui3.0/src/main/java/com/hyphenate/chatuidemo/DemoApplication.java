@@ -21,13 +21,19 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
+import com.netease.nim.uikit.cache.DataCacheManager;
+import com.netease.nim.uikit.cache.NimUserInfoCache;
 import com.netease.nim.uikit.contact.core.query.PinYin;
 import com.netease.nim.uikit.custom.DefalutUserInfoProvider;
+import com.netease.nim.uikit.extra.session.activity.EMImageLoadHelper;
+import com.netease.nim.uikit.session.SessionEventListener;
 import com.netease.nim.uikit.session.activity.P2PMessageActivity;
 import com.netease.nim.uikit.session.viewholder.MsgViewHolderThumbBase;
 import com.netease.nimlib.sdk.NIMClient;
@@ -69,6 +75,9 @@ public class DemoApplication extends Application {
 
 		if (inMainProcess()) {
 
+			EMImageLoadHelper.init(this);
+			Fresco.initialize(this);
+
 			//环信
 			EMOptions options=new EMOptions();
 			EMClient.getInstance().init(this, options);
@@ -82,6 +91,11 @@ public class DemoApplication extends Application {
 
 			// 初始化UIKit模块
 			initUIKit();
+
+			//这里不该有，记的放在成功登陆的时候
+			NimUIKit.setAccount("dansejijie");
+			DataCacheManager.buildDataCache();
+			//end
 
 			// 注册通知消息过滤器
 			registerIMMessageFilter();
@@ -309,6 +323,22 @@ public class DemoApplication extends Application {
 //
 //        // 会话窗口的定制初始化。
 //        SessionHelper.init();
+
+		SessionEventListener listener = new SessionEventListener() {
+			@Override
+			public void onAvatarClicked(Context context, IMMessage message) {
+				// 一般用于打开用户资料页面
+				Toast.makeText(context,message.getFrom(),Toast.LENGTH_LONG).show();
+			}
+
+			@Override
+			public void onAvatarLongClicked(Context context, IMMessage message) {
+				// 一般用于群组@功能，或者弹出菜单，做拉黑，加好友等功能
+			}
+		};
+
+		NimUIKit.setSessionListener(listener);
+
 
 		// 通讯录列表定制初始化
 //        ContactHelper.init();

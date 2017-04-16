@@ -2,6 +2,7 @@ package com.netease.nimlib.sdk.team.model;
 
 import com.hyphenate.chat.EMMessageBody;
 import com.netease.nimlib.sdk.msg.attachment.NotificationAttachment;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.team.constant.TeamBeInviteModeEnum;
 import com.netease.nimlib.sdk.team.constant.TeamExtensionUpdateModeEnum;
 import com.netease.nimlib.sdk.team.constant.TeamFieldEnum;
@@ -21,8 +22,8 @@ import java.util.Map;
 public class UpdateTeamAttachment extends NotificationAttachment {
     private HashMap<TeamFieldEnum, Object> updatedFields = new HashMap(1);
 
-    public UpdateTeamAttachment(EMMessageBody body) {
-        super(body);
+    public UpdateTeamAttachment(IMMessage imMessage) {
+        super(imMessage);
     }
 
     public final void parse(JSONObject var1) {

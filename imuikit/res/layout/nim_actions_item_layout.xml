@@ -5,13 +5,13 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <ImageView
+    <ImageViewx
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/input_panel_image_margin_bottom"
+        android:layout_marginBottom="@dimen/input_panel_image_margin_xbottom"
         android:layout_marginTop="@dimen/input_panel_image_margin_top"
-        android:contentDescription="@string/empty" />
+        android:contentDescription="@string/empty" />x
 
     <TextView
         android:id="@+id/textView"

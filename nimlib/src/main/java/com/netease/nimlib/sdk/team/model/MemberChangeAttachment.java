@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.hyphenate.chat.EMMessageBody;
 import com.netease.nimlib.sdk.msg.attachment.NotificationAttachment;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,8 +24,8 @@ public class MemberChangeAttachment extends NotificationAttachment {
     private ArrayList<String> targets;
     protected Map<String, Object> extension;
 
-    public MemberChangeAttachment(EMMessageBody body) {
-        super(body);
+    public MemberChangeAttachment(IMMessage imMessage) {
+        super(imMessage);
     }
 
     public ArrayList<String> getTargets() {

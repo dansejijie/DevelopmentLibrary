@@ -118,6 +118,7 @@ public class NIMClient {
         return new InvocationFuture() {
             @Override
             public void setCallback(RequestCallback var1) {
+
                 try {
                     EMConversation conversation = EMClient.getInstance().chatManager().getConversation(account);
                     List<EMMessage> msgs = new ArrayList<>();

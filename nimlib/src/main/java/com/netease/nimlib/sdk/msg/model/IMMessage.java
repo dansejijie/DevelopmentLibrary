@@ -56,7 +56,7 @@ public class IMMessage implements Serializable {
 
 
     public boolean isTheSame(IMMessage var1){
-        return var1.emMessage.getMsgId()==emMessage.getMsgId();
+        return var1.emMessage.getMsgId().equals(emMessage.getMsgId());
     };
 
     public String getSessionId(){
@@ -133,15 +133,15 @@ public class IMMessage implements Serializable {
 
         Class clz=emMessage.getBody().getClass();
         if (clz.isAssignableFrom(EMImageMessageBody.class)){
-            return new ImageAttachment(emMessage.getBody());
+            return new ImageAttachment(this);
         }else if (clz.isAssignableFrom(EMVoiceMessageBody.class)){
-            return new AudioAttachment(emMessage.getBody());
+            return new AudioAttachment(this);
         }else if (clz.isAssignableFrom(EMLocationMessageBody.class)){
-            return new LocationAttachment(emMessage.getBody());
+            return new LocationAttachment(this);
         }else if (clz.isAssignableFrom(EMFileMessageBody.class)){
-            return new FileAttachment(emMessage.getBody());
+            return new FileAttachment(this);
         }else {
-            return new MsgAttachment(emMessage.getBody());
+            return new MsgAttachment(this);
         }
     }
 

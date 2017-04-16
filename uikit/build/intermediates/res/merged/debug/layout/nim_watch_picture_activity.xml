@@ -11,8 +11,8 @@
 
     <!-- <include layout="@layout/watch_picture_show_more_action_layout" /> -->
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager_image"
+    <com.netease.nim.uikit.widget.PhotoBrowserView
+        android:id="@+id/photoBrowserView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

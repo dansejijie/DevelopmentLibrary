@@ -132,5 +132,8 @@
         <activity android:name=".team.activity.TeamMemberListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name="com.bilibili.boxing_impl.ui.BoxingActivity"/>
+        <activity android:name=".extra.session.activity.WatchMessagePictureActivity"></activity>
     </application>
 </manifest>

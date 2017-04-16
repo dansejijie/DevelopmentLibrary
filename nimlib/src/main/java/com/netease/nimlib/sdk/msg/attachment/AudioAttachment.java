@@ -6,6 +6,7 @@ import com.hyphenate.chat.EMFileMessageBody;
 import com.hyphenate.chat.EMLocationMessageBody;
 import com.hyphenate.chat.EMMessageBody;
 import com.hyphenate.chat.EMVoiceMessageBody;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 /**
  * Created by dansejijie on 17/4/4.
@@ -14,7 +15,7 @@ import com.hyphenate.chat.EMVoiceMessageBody;
 public class AudioAttachment extends FileAttachment{
 
 
-    public AudioAttachment(EMMessageBody var1) {
+    public AudioAttachment(IMMessage var1) {
         super(var1);
     }
 

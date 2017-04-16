@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="boxing_black">#000000</color>
+    <color name="boxing_black1">#1b1b1b</color>
+    <color name="boxing_black_alpha15">#26000000</color>
+    <color name="boxing_black_alpha20">#33000000</color>
+    <color name="boxing_black_alpha25">#3c000000</color>
+    <color name="boxing_colorAccent">#FF4081</color>
+    <color name="boxing_colorPrimary">#000000</color>
+    <color name="boxing_colorPrimaryAlpha">#44000000</color>
+    <color name="boxing_colorPrimaryDark">#ff212121</color>
+    <color name="boxing_gray">#999999</color>
+    <color name="boxing_gray1">#333333</color>
+    <color name="boxing_white">#ffffff</color>
+    <color name="boxing_white1">#fafafa</color>
+    <color name="boxing_white2">#eaeaea</color>
+    <dimen name="boxing_activity_horizontal_margin">16dp</dimen>
+    <dimen name="boxing_activity_vertical_margin">16dp</dimen>
+    <dimen name="boxing_corner_radius">2dp</dimen>
+    <dimen name="boxing_item_half_spacing">4dp</dimen>
+    <dimen name="boxing_item_spacing">8dp</dimen>
+    <dimen name="boxing_media_margin">2dp</dimen>
+    <dimen name="boxing_text_size_large">14sp</dimen>
+    <dimen name="boxing_text_size_medium">12sp</dimen>
+    <dimen name="boxing_text_size_small">10sp</dimen>
+    <dimen name="boxing_text_size_xlarge">16sp</dimen>
+    <string name="boxing_album_images_fmt">(%d)</string>
+    <string name="boxing_app_name">Boxing</string>
+    <string name="boxing_camera_permission_deny">需要访问你的相机来拍照，请在“系统设置”或授权对话框中允许“使用相机”权限。</string>
+    <string name="boxing_camera_unavailble">相机不可用,请检查相机权限！</string>
+    <string name="boxing_crop_error">肥肠抱歉，裁剪出错啦</string>
+    <string name="boxing_default_album">默认相册</string>
+    <string name="boxing_fab_label_camera">拍照</string>
+    <string name="boxing_finish">完成</string>
+    <string name="boxing_gif_too_big">您选择的gif图片过大，请压缩后再上传</string>
+    <string name="boxing_handling">处理中</string>
+    <string name="boxing_image_preview_ok_fmt">%1$s/%2$s 确定</string>
+    <string name="boxing_image_preview_title_fmt">%1$s/%2$s</string>
+    <string name="boxing_image_select_ok_fmt">(%1$s/%2$s) 确定</string>
+    <string name="boxing_load_image_fail">肥肠抱歉，加载出错啦</string>
+    <string name="boxing_max_image_over_fmt">你最多只能选择%d张图片</string>
+    <string name="boxing_nothing_found">什么也找不到</string>
+    <string name="boxing_ok">确定</string>
+    <string name="boxing_pick_multi_image">图片多选</string>
+    <string name="boxing_pick_single_image">图片单选</string>
+    <string name="boxing_pick_single_image_crop">图片单选加裁剪</string>
+    <string name="boxing_pick_single_video">视频单选</string>
+    <string name="boxing_start_pick">开始选图</string>
+    <string name="boxing_storage_deny">设备存储读取出错或暂不可用，请稍候重试</string>
+    <string name="boxing_storage_permission_deny">需要访问你的存储设备来选择图片，请在“系统设置”或授权对话框中允许“存储空间”权限。</string>
+    <string name="boxing_too_many_picture_fmt">您最多只能选择%d张图片</string>
+    <string name="boxing_video_title">视频相册</string>
+    <style name="Boxing.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/boxing_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/boxing_colorPrimaryDark</item>
+        <item name="colorAccent">@color/boxing_colorAccent</item>
+    </style>
+    <style name="Boxing.AppTheme.NoActionBar" parent="Boxing.AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+    <style name="Boxing.PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/boxing_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/boxing_fade_out</item>
+    </style>
+    <style name="Boxing.TextAppearance.App.Medium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/boxing_text_size_medium</item>
+    </style>
+    <style name="Boxing.ToolbarTheme" parent="Boxing.AppTheme.NoActionBar">
+        <item name="titleTextColor">@color/boxing_white</item>
+        <item name="android:textColorSecondary">@color/boxing_white</item>
+        <item name="android:textColor">@color/boxing_white</item>
+        <item name="android:background">@color/boxing_colorPrimaryDark</item>
+    </style>
+</resources>

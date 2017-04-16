@@ -1,6 +1,7 @@
 package com.netease.nimlib.sdk.team.model;
 
 import com.hyphenate.chat.EMMessageBody;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 import org.json.JSONObject;
 
@@ -11,7 +12,7 @@ public class MuteMemberAttachment extends MemberChangeAttachment {
     private static final String TAG_MUTE = "mute";
     private boolean mute;
 
-    public MuteMemberAttachment(EMMessageBody body) {
+    public MuteMemberAttachment(IMMessage body) {
         super(body);
     }
 

@@ -24,7 +24,7 @@ public class MsgViewHolderFactory {
 
     static {
         // built in
-        register(ImageAttachment.class, MsgViewHolderPicture.class);
+        register(ImageAttachment.class, com.netease.nim.uikit.extra.session.viewholder.MsgViewHolderPicture.class);
         register(AudioAttachment.class, MsgViewHolderAudio.class);
         register(VideoAttachment.class, MsgViewHolderVideo.class);
         register(LocationAttachment.class, MsgViewHolderLocation.class);

@@ -75,7 +75,7 @@ public class DataCacheManager {
         // build self avatar cache
         List<String> accounts = new ArrayList<>(1);
         accounts.add(NimUIKit.getAccount());
-        NimUIKit.getImageLoaderKit().buildAvatarCache(accounts);
+        //NimUIKit.getImageLoaderKit().buildAvatarCache(accounts);
     }
 
     /**

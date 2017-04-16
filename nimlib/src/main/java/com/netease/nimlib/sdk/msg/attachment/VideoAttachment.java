@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.hyphenate.chat.EMMessageBody;
 import com.hyphenate.chat.EMVideoMessageBody;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 /**
  * Created by dansejijie on 17/4/4.
@@ -11,8 +12,8 @@ import com.hyphenate.chat.EMVideoMessageBody;
 
 public class VideoAttachment extends FileAttachment{
 
-    public VideoAttachment(EMMessageBody body){
-        super(body);
+    public VideoAttachment(IMMessage imMessage){
+        super(imMessage);
     }
 
     public int getWidth() {

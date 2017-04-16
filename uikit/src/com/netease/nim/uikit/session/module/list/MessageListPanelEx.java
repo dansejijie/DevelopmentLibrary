@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.hyphenate.EMCallBack;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.UserPreferences;
@@ -230,6 +231,22 @@ public class MessageListPanelEx {
         List<IMMessage> addedListItems = new ArrayList<>(messages.size());
         for (IMMessage message : messages) {
             if (isMyMessage(message)) {
+                message.setMessageStatusCallback(new EMCallBack() {
+                    @Override
+                    public void onSuccess() {
+                        refreshMessageList();
+                    }
+
+                    @Override
+                    public void onError(int code, String error) {
+                        refreshMessageList();
+                    }
+
+                    @Override
+                    public void onProgress(int progress, String status) {
+                        refreshMessageList();
+                    }
+                });
                 items.add(message);
                 addedListItems.add(message);
                 needRefresh = true;
@@ -261,6 +278,22 @@ public class MessageListPanelEx {
 
     // 发送消息后，更新本地消息列表
     public void onMsgSend(IMMessage message) {
+        message.setMessageStatusCallback(new EMCallBack() {
+            @Override
+            public void onSuccess() {
+                refreshMessageList();
+            }
+
+            @Override
+            public void onError(int code, String error) {
+                refreshMessageList();
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+                refreshMessageList();
+            }
+        });
         List<IMMessage> addedListItems = new ArrayList<>(1);
         addedListItems.add(message);
         adapter.updateShowTimeItem(addedListItems, false, true);
@@ -765,22 +798,22 @@ public class MessageListPanelEx {
             longClickItemResend(selectedItem, alertDialog);
             // 2 copy
             longClickItemCopy(selectedItem, alertDialog, msgType);
-            // 3 revoke
-            if (selectedItem.getDirect() == MsgDirectionEnum.Out && selectedItem.getStatus() == MsgStatusEnum.success
-                    && !NimUIKit.getMsgRevokeFilter().shouldIgnore(selectedItem) && !recordOnly) {
-                longClickRevokeMsg(selectedItem, alertDialog);
-            }
+            // 3 revoke //// TODO: 17/4/16 撤回消息 有时间再弄
+//            if (selectedItem.getDirect() == MsgDirectionEnum.Out && selectedItem.getStatus() == MsgStatusEnum.success
+//                    && !NimUIKit.getMsgRevokeFilter().shouldIgnore(selectedItem) && !recordOnly) {
+//                longClickRevokeMsg(selectedItem, alertDialog);
+//            }
             // 4 delete
             longClickItemDelete(selectedItem, alertDialog);
             // 5 trans
-            longClickItemVoidToText(selectedItem, alertDialog, msgType);
-
-            if (!NimUIKit.getMsgForwardFilter().shouldIgnore(selectedItem) && !recordOnly) {
-                // 6 forward to person
-                longClickItemForwardToPerson(selectedItem, alertDialog);
-                // 7 forward to team
-                longClickItemForwardToTeam(selectedItem, alertDialog);
-            }
+//            longClickItemVoidToText(selectedItem, alertDialog, msgType);
+//
+//            if (!NimUIKit.getMsgForwardFilter().shouldIgnore(selectedItem) && !recordOnly) {
+//                // 6 forward to person
+//                longClickItemForwardToPerson(selectedItem, alertDialog);
+//                // 7 forward to team
+//                longClickItemForwardToTeam(selectedItem, alertDialog);
+//            }
         }
 
         // 长按菜单项--重发
@@ -1140,5 +1173,16 @@ public class MessageListPanelEx {
         if (container.account.equals(sessionId)) {
             onMsgSend(message);
         }
+    }
+
+
+
+    public interface OnAvatarClickListener{
+        void onAvatarClickListener(String username);
+    }
+    private OnAvatarClickListener avatarClickListener=null;
+
+    public void setOnAvatarClickListener(OnAvatarClickListener listener){
+        avatarClickListener=listener;
     }
 }

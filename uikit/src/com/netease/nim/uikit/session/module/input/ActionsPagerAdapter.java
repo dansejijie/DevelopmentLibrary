@@ -44,7 +44,7 @@ public class ActionsPagerAdapter extends PagerAdapter{
 
         GridView gridView = new GridView(context);
         gridView.setAdapter(new ActionsGridviewAdapter(context, subBaseActions));
-        if (actions.size() >= 4) {
+        if (actions.size() >= 1) {//当有四个及以上的时候，把0改为4
             gridView.setNumColumns(4);
 
             container.post(new Runnable() {
@@ -56,23 +56,24 @@ public class ActionsPagerAdapter extends PagerAdapter{
                     viewPager.setLayoutParams(layoutParams);
                 }
             });
-        } else {
-            gridView.setNumColumns(actions.size());
-
-            container.post(new Runnable() {
-                @Override
-                public void run() {
-                    ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
-                    layoutParams.height = context.getResources().getDimensionPixelOffset(
-                            R.dimen.message_bottom_function_viewpager_height) / 2;
-                    viewPager.setLayoutParams(layoutParams);
-                }
-            });
         }
+//        else {
+//            gridView.setNumColumns(actions.size());
+//
+//            container.post(new Runnable() {
+//                @Override
+//                public void run() {
+//                    ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+//                    layoutParams.height = context.getResources().getDimensionPixelOffset(
+//                            R.dimen.message_bottom_function_viewpager_height) / 2;
+//                    viewPager.setLayoutParams(layoutParams);
+//                }
+//            });
+//        }
         gridView.setSelector(R.color.transparent);
         gridView.setHorizontalSpacing(0);
         gridView.setVerticalSpacing(0);
-        gridView.setGravity(Gravity.CENTER);
+        //gridView.setGravity(Gravity.CENTER);
         gridView.setTag(Integer.valueOf(position));
         gridView.setOnItemClickListener(new GridView.OnItemClickListener() {
 

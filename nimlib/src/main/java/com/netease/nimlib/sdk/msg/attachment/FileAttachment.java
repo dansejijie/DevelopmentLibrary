@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.hyphenate.chat.EMFileMessageBody;
 import com.hyphenate.chat.EMMessageBody;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 import org.json.JSONObject;
 
@@ -16,8 +17,8 @@ import java.io.File;
 
 public class FileAttachment extends MsgAttachment {
 
-    public FileAttachment(EMMessageBody emMessageBody) {
-        super(emMessageBody);
+    public FileAttachment(IMMessage imMessage) {
+        super(imMessage);
     }
 
     protected String path;
@@ -35,6 +36,7 @@ public class FileAttachment extends MsgAttachment {
 
 
     public String getPath() {
+
         String var1 = this.getPathForSave();
         return (new File(var1)).exists()?var1:null;
     }

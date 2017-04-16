@@ -11,14 +11,16 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.cache.TeamDataCache;
-import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.ui.recyclerview.holder.BaseViewHolder;
 import com.netease.nim.uikit.common.ui.recyclerview.holder.RecyclerViewHolder;
 import com.netease.nim.uikit.common.util.sys.TimeUtil;
+import com.netease.nim.uikit.extra.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.session.module.list.MsgAdapter;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.msg.MsgService;
@@ -86,12 +88,12 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
 
     // 当是接收到的消息时，内容区域背景的drawable id
     protected int leftBackground() {
-        return R.drawable.nim_message_item_left_selector;
+        return R.drawable.ease_chatfrom_bg;
     }
 
     // 当是发送出去的消息时，内容区域背景的drawable id
     protected int rightBackground() {
-        return R.drawable.nim_message_item_right_selector;
+        return R.drawable.ease_chatto_bg;
     }
 
     // 返回该消息是不是居中显示
@@ -234,6 +236,15 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
     }
 
     private void setHeadImageView() {
+
+        // 头像默认设置
+        RoundingParams roundingParams=RoundingParams.asCircle();
+        roundingParams.setRoundAsCircle(true);
+        GenericDraweeHierarchyBuilder hierarchyBuilder = GenericDraweeHierarchyBuilder.newInstance(NimUIKit.getContext().getResources())
+                .setPlaceholderImage(R.drawable.ease_default_avatar).setRoundingParams(roundingParams); //TODO
+        avatarLeft.setHierarchy(hierarchyBuilder.build());
+        avatarRight.setHierarchy(hierarchyBuilder.build());
+
         HeadImageView show = isReceivedMessage() ? avatarLeft : avatarRight;
         HeadImageView hide = isReceivedMessage() ? avatarRight : avatarLeft;
         hide.setVisibility(View.GONE);

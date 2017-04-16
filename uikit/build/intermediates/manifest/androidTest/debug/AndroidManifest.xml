@@ -17,7 +17,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <application>
+    <application
+        android:allowBackup="true"
+        android:label="@string/boxing_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Boxing.AppTheme" >
         <uses-library android:name="android.test.runner" />
         <!-- 会话窗口 -->
         <!--
@@ -139,6 +143,21 @@
             android:name="com.netease.nim.uikit.team.activity.TeamMemberListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.bilibili.boxing_impl.ui.BoxingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar" />
+        <activity
+            android:name="com.bilibili.boxing_impl.ui.BoxingViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.bilibili.boxing_impl.ui.BoxingBottomSheetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar" />
     </application>
 
 </manifest>

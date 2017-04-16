@@ -1,6 +1,14 @@
 [
     {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/androidTest/debug/menu/activity_boxing_pick_flow.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/menu/activity_boxing_pick_flow.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/androidTest/debug/menu/contacts_search_menu.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/bundles/debug/res/menu/contacts_search_menu.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/androidTest/debug/menu/activity_boxing_image_viewer.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.bilibili/boxing-impl/0.5.0/res/menu/activity_boxing_image_viewer.xml"
     }
 ]

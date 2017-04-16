@@ -1,6 +1,7 @@
 package com.netease.nim.uikit.session.module.list;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.netease.nim.uikit.R;
@@ -71,6 +72,7 @@ public class MsgAdapter extends BaseMultiItemFetchLoadAdapter<IMMessage, BaseVie
         int index = 0;
         for (IMMessage item : getData()) {
             if (item.isTheSame(message)) {
+                Log.d("TAG","delete item");
                 break;
             }
             ++index;
@@ -221,6 +223,7 @@ public class MsgAdapter extends BaseMultiItemFetchLoadAdapter<IMMessage, BaseVie
 
         // 发送失败或者多媒体文件下载失败指示按钮点击响应处理
         void onFailedBtnClick(IMMessage resendMessage);
+
     }
 
     public void setUuid(String messageId) {

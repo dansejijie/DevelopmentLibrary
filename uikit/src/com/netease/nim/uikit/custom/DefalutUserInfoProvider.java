@@ -24,6 +24,8 @@ public class DefalutUserInfoProvider implements UserInfoProvider {
 
     private Context context;
 
+
+
     public DefalutUserInfoProvider(Context context) {
         this.context = context;
     }
@@ -40,7 +42,7 @@ public class DefalutUserInfoProvider implements UserInfoProvider {
 
     @Override
     public int getDefaultIconResId() {
-        return R.drawable.nim_avatar_default;
+        return R.drawable.ease_default_avatar;
     }
 
     @Override
