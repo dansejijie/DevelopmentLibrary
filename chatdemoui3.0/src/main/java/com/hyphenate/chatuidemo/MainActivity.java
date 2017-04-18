@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
-import com.netease.nim.uikit.session.activity.P2PMessageActivity;
+import com.netease.nim.uikit.extra.session.activity.P2PMessageActivity;
 import com.netease.nim.uikit.session.constant.Extras;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 

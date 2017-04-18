@@ -6,7 +6,7 @@ import android.util.Log;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.UIKitLogTag;
 import com.netease.nim.uikit.common.util.log.LogUtil;
-import com.netease.nim.uikit.extra.uinfo.model.EaseUserInfo;
+import com.netease.nim.uikit.extra.uinfo.model.EaseUser;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.RequestCallback;
@@ -43,8 +43,8 @@ public class NimUserInfoCache {
      */
     public void buildCache() {
         //List<NimUserInfo> users = NIMClient.getService(UserService.class).getAllUserInfo();
-        List<NimUserInfo>users= Arrays.<NimUserInfo>asList(new EaseUserInfo("dansejijie","http://img02.tooopen.com/images/20140504/sy_60294738471.jpg"),
-                new EaseUserInfo("dansejijie2","http://img13.poco.cn/mypoco/myphoto/20120828/15/55689209201208281549023849547194135_001.jpg"));
+        List<NimUserInfo>users= Arrays.<NimUserInfo>asList(new EaseUser("dansejijie","http://img02.tooopen.com/images/20140504/sy_60294738471.jpg"),
+                new EaseUser("dansejijie2","http://img13.poco.cn/mypoco/myphoto/20120828/15/55689209201208281549023849547194135_001.jpg"));
         addOrUpdateUsers(users, false);
         LogUtil.i(UIKitLogTag.USER_CACHE, "build NimUserInfoCache completed, users count = " + account2UserMap.size());
     }

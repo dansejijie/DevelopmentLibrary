@@ -3367,7 +3367,7 @@ containing a value of this type.
         public static int action_mode_bar=0x7f0e0068;
         public static int action_mode_bar_stub=0x7f0e0067;
         public static int action_mode_close_button=0x7f0e004c;
-        public static int action_search=0x7f0e01db;
+        public static int action_search=0x7f0e01dc;
         public static int action_text=0x7f0e01c2;
         public static int actions=0x7f0e01d0;
         public static int actionsLayout=0x7f0e0135;
@@ -3511,6 +3511,7 @@ containing a value of this type.
         public static int homeAsUp=0x7f0e0015;
         public static int icon=0x7f0e0052;
         public static int icon_group=0x7f0e01d1;
+        public static int id_container=0x7f0e01d9;
         public static int identity_container=0x7f0e00ea;
         public static int ifRoom=0x7f0e0045;
         public static int image=0x7f0e004f;
@@ -3571,8 +3572,8 @@ containing a value of this type.
         public static int menu_button=0x7f0e0132;
         public static int menu_button_click_layout=0x7f0e0130;
         public static int menu_dialog_items_root=0x7f0e012f;
-        public static int menu_image_item_selected=0x7f0e01d9;
-        public static int menu_open_image=0x7f0e01da;
+        public static int menu_image_item_selected=0x7f0e01da;
+        public static int menu_open_image=0x7f0e01db;
         public static int menu_select_icon=0x7f0e0133;
         public static int messageActivityBottomLayout=0x7f0e0138;
         public static int messageActivityLayout=0x7f0e0145;
@@ -4003,6 +4004,7 @@ containing a value of this type.
         public static int select_dialog_singlechoice_material=0x7f0300a9;
         public static int simple_load_more=0x7f0300aa;
         public static int support_simple_spinner_dropdown_item=0x7f0300ab;
+        public static int test_main=0x7f0300ac;
     }
     public static final class menu {
         public static int activity_boxing_image_viewer=0x7f0f0000;
@@ -4670,6 +4672,8 @@ containing a value of this type.
         public static int dialog_message_text_style=0x7f090184;
         public static int dialog_title_text_style=0x7f090185;
         public static int easy_dialog_edit_text_style=0x7f090186;
+        /**  后面的activity变暗 
+         */
         public static int easy_dialog_style=0x7f090187;
         public static int edit_text_style=0x7f090188;
         public static int grid_view=0x7f090189;

@@ -135,5 +135,6 @@
 
         <activity android:name="com.bilibili.boxing_impl.ui.BoxingActivity"/>
         <activity android:name=".extra.session.activity.WatchMessagePictureActivity"></activity>
+        <activity android:name=".extra.session.activity.P2PMessageActivity"></activity>
     </application>
 </manifest>

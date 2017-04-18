@@ -16,3 +16,5 @@
 11、InputPanel 里修改表情，并在MsgViewHlderText设置显示表情的显示。
 12、InputPanel 里的录音更改为环信的
 13、修改Action显示的高度：ActionsPagerAdapter和nim_message_activity_actions_layout 布局文件
+14、新增 TFragment和MessageFragment用来继承android.app.Fragmeng
+15、Extras添加环信的常量

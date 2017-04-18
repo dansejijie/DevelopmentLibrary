@@ -153,10 +153,13 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="emojicon_tab_nomal">#ffffff</color>
+    <color name="emojicon_tab_selected">#D9D9D9</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <color name="global_bg">#9000</color>
     <color name="gray7">#c5c4c4</color>
+    <color name="gray_normal">#666667</color>
     <color name="green_4DC0A4">#4DC0A4</color>
     <color name="grey">#333333</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
@@ -402,6 +405,7 @@
         </attr></declare-styleable>
     <declare-styleable name="DesignTheme"><attr format="reference" name="bottomSheetDialogTheme"/><attr format="reference" name="bottomSheetStyle"/><attr format="color" name="textColorError"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
+    <declare-styleable name="EaseEmojiconMenu"><attr format="integer" name="bigEmojiconRows"/><attr format="integer" name="emojiconColumns"/></declare-styleable>
     <declare-styleable name="FloatingActionButton"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize">
             
             <enum name="auto" value="-1"/>
@@ -700,7 +704,7 @@
     <dimen name="mask_sticker_bubble_width">120dip</dimen>
     <dimen name="max_bubble_width">240dip</dimen>
     <dimen name="max_text_bubble_width">222dip</dimen>
-    <dimen name="message_bottom_function_viewpager_height">220dp</dimen>
+    <dimen name="message_bottom_function_viewpager_height">250dp</dimen>
     <dimen name="message_bubble_basic_margin">5dip</dimen>
     <dimen name="message_list_panel_jump_offset_y">30dip</dimen>
     <dimen name="message_music_size">60dip</dimen>

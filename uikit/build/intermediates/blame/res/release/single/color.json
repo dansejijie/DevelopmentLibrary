@@ -4,6 +4,74 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/switch_thumb_material_dark.xml"
     },
     {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_switch_track.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_edittext.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_default.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/switch_thumb_material_dark.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_material_light.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_switch_thumb.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/color_picker_preview_selector.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/color/color_picker_preview_selector.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_seek_thumb.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/design_error.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/color/design_error.xml"
     },
@@ -20,8 +88,8 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_switch_track.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/color_green_text_view_selector.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/res/color/color_green_text_view_selector.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_switch_thumb.xml",
@@ -32,56 +100,80 @@
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/switch_thumb_material_light.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_edittext.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_edittext.xml"
-    },
-    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/design_tint_password_toggle.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/color/design_tint_password_toggle.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_default.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_default.xml"
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_edittext.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_default.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_material_dark.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_secondary_text_material_dark.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_spinner.xml"
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_hint_foreground_material_light.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_btn_checkable.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_hint_foreground_material_dark.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_hint_foreground_material_dark.xml"
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_spinner.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_spinner.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_tint_seek_thumb.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_hint_foreground_material_dark.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/color_picker_preview_selector.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/res/color/color_picker_preview_selector.xml"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_search_url_text.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_search_url_text.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_material_dark.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_material_dark.xml"
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/design_error.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/color/design_error.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/switch_thumb_material_light.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/design_tint_password_toggle.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/design/25.0.1/res/color/design_tint_password_toggle.xml"
+    },
+    {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_secondary_text_material_light.xml",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/color_green_text_view_selector.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/color/color_green_text_view_selector.xml"
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/color_picker_preview_selector.xml",
-        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/color/color_picker_preview_selector.xml"
+        "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/color_green_text_view_selector.xml",
+        "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/color/color_green_text_view_selector.xml"
     },
     {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/release/color/abc_primary_text_disable_only_material_light.xml",

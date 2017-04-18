@@ -140,6 +140,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.bilibili.boxing_impl.ui.BoxingActivity" />
         <activity android:name="com.netease.nim.uikit.extra.session.activity.WatchMessagePictureActivity" />
+        <activity android:name="com.netease.nim.uikit.extra.session.activity.P2PMessageActivity" />
     </application>
 
 </manifest>

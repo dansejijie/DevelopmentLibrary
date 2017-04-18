@@ -822,8 +822,8 @@ public final class R {
 		public static int media_layout = 0x7f0e00b2;
 		public static int media_recycleview = 0x7f0e009a;
 		public static int media_result = 0x7f0e007d;
-		public static int menu_image_item_selected = 0x7f0e01d9;
-		public static int menu_open_image = 0x7f0e01da;
+		public static int menu_image_item_selected = 0x7f0e01da;
+		public static int menu_open_image = 0x7f0e01db;
 		public static int middle = 0x7f0e0042;
 		public static int mini = 0x7f0e0039;
 		public static int multi_picker_layout = 0x7f0e009c;

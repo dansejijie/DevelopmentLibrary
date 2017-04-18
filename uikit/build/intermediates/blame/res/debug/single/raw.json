@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/raw/audio_end_tip.wav",
+        "source": "/Users/tygzx/Work/android/DevelopmentLibrary/uikit/res/raw/audio_end_tip.wav"
+    },
+    {
         "merged": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/build/intermediates/res/merged/debug/raw/audio_end_tip.wav",
         "source": "/Users/dansejijie/work/android/DevelopmentLibrary/uikit/res/raw/audio_end_tip.wav"
     }
