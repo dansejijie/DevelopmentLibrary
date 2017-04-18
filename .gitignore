@@ -1,5 +1,11 @@
 *.iml
 .gradle
+.idea
+/chatdemoui3.0/build
+/nimlib/build
+/uikit/build
+/utils/build
+/widget/build
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
