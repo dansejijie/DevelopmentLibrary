@@ -27,6 +27,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:${rootProject.ext.SUPPORT_VERSION}"
     compile 'com.orhanobut:logger:1.15'
+    compile 'com.liulishuo.filedownloader:library:1.4.2'
 }
 
 if (android.publishNonDefault) {

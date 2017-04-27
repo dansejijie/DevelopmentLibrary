@@ -8,8 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/chatdemoui3.0" />
-            <option value="$PROJECT_DIR$/imuikit" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/nimlib" />
             <option value="$PROJECT_DIR$/uikit" />

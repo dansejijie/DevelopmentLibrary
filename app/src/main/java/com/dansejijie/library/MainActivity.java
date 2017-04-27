@@ -5,23 +5,21 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.dansejijie.library.activity.Camera2Demo;
 import com.dansejijie.library.activity.CameraActivity;
 import com.dansejijie.library.bean.Dog;
 import com.dansejijie.library.test.TestInputEvent;
 import com.dansejijie.library.test.TestScrollView;
+import com.dansejijie.library.utils.download.FileDownloadActivity;
 import com.dansejijie.library.widget.PlatActivity;
 import com.dansejijie.library.widget.TestScrollViewActivity;
+import com.dansejijie.library.widget.activity.pdfReader.PDFViewActivity;
+import com.dansejijie.library.widget.activity.PDFWebViewActivity;
 import com.dansejijie.library.widget.test.Tiger;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.meituan.robust.patch.RobustModify;
-import com.meituan.robust.patch.annotaion.Add;
-import com.meituan.robust.patch.annotaion.Modify;
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,12 +47,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mainAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        Shout shout=new Shout(new Shout.onShoutListener() {
-            @Override
-            public void dogshout() {
-                Log.i("TAG","s");
-            }
-        });
 
 
         Dog dog=new Dog();
@@ -70,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Add
     public String getString() {
         return "Robust";
     }
@@ -107,6 +98,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Camera2Demo.start(MainActivity.this);
+            }
+        }),new Action("PDFView", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PDFViewActivity.start(MainActivity.this);
+            }
+        }),new Action("PDFWebView", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PDFWebViewActivity.start(MainActivity.this);
+            }
+        }),new Action("FileDownloadActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FileDownloadActivity.start(MainActivity.this);
             }
         }));
     }
