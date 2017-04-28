@@ -3,11 +3,13 @@ package com.dansejijie.library.widget.activity.pdfReader;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
-import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Base64;
 import android.util.Log;
-
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
@@ -15,7 +17,6 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
-
 import java.io.File;
 import java.util.HashMap;
 
@@ -31,9 +32,16 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
     private String filePath;
     private int page;
 
+    private ProgressBar progressBar;
+    private TextView tv_erroInfo;
+
+
+
 
     public CustomPDFView(Context context, AttributeSet set) {
         super(context, set);
+
+
         try {
 
             chapterMap=PageSaveUtil.getPageInfo(context);
@@ -44,14 +52,28 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
 
         } catch (Exception e) {
             e.printStackTrace();
+            if (chapterMap==null){
+                chapterMap=new HashMap<>();
+            }
         }
     }
 
     public void open(Uri uri){
 
+        if (progressBar!=null){
+            removeView(progressBar);
+        }
+
+        if (tv_erroInfo!=null){
+            removeView(tv_erroInfo);
+        }
+
+
+
         if (uri.toString().startsWith("http://")){
             String fileName= new String(Base64.encode(uri.toString().getBytes(),Base64.DEFAULT))+".pdf";
-            String path= Environment.getExternalStorageDirectory().getAbsolutePath()+ "/"+getContext().getPackageName()+"/"+fileName;
+
+            String path= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+getContext().getPackageName()+"/"+fileName;
             File file=new File(path);
             if (file.exists()){
 
@@ -86,6 +108,17 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
                             @Override
                             protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                                 Log.d(TAG,"pengding");
+                                if (progressBar==null){
+                                    progressBar=new ProgressBar(getContext());
+//                                    progressBar.setMax(100);
+//                                    progressBar.setProgress(20);
+                                    RelativeLayout.LayoutParams layoutParams=new LayoutParams(100,100);
+                                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+                                    progressBar.setLayoutParams(layoutParams);
+                                }
+
+                                addView(progressBar);
+
                             }
 
                             @Override
@@ -114,6 +147,14 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
                             @Override
                             protected void completed(BaseDownloadTask task) {
 
+                                if (progressBar!=null){
+                                    removeView(progressBar);
+                                }
+
+                                if (tv_erroInfo!=null){
+                                    removeView(tv_erroInfo);
+                                }
+
                                 filePath = task.getPath();
                                 Log.e(TAG,"completed path:"+filePath);
 
@@ -138,6 +179,20 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
 
                             @Override
                             protected void error(BaseDownloadTask task, Throwable e) {
+
+                                if (progressBar!=null){
+                                    removeView(progressBar);
+                                }
+                                if (tv_erroInfo==null){
+                                    tv_erroInfo=new TextView(getContext());
+                                    RelativeLayout.LayoutParams layoutParams=new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                    layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+                                    tv_erroInfo.setLayoutParams(layoutParams);
+                                    tv_erroInfo.setTextSize(12*getContext().getResources().getDisplayMetrics().density);
+                                    tv_erroInfo.setText("加载失败");
+                                }
+
+                                addView(tv_erroInfo);
 
                                 Log.e(TAG,"error");
                                 e.printStackTrace();
@@ -196,4 +251,7 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
     public void loadComplete(int nbPages) {
         Log.d(TAG,"loadComplete page:"+nbPages);
     }
+
+
+
 }

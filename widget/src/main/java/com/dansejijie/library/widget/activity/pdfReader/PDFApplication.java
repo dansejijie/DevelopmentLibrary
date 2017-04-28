@@ -12,5 +12,6 @@ public class PDFApplication  {
 
     public static void init(Context context){
         FileDownloader.init(context);
+        FileDownloader.setGlobalPost2UIInterval(500);
     }
 }

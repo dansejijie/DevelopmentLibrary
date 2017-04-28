@@ -7,7 +7,7 @@
         android:supportsRtl="true">
 
         <activity android:name=".activity.pdfReader.PDFViewActivity"></activity>
-        <activity android:name=".activity.PDFWebViewActivity"></activity>
+        <activity android:name=".activity.pdfReader.CustomRelativeLayoutActivity"></activity>
 
     </application>
 

@@ -2,6 +2,7 @@ package com.dansejijie.library;
 
 import android.app.Application;
 
+import com.dansejijie.library.widget.activity.pdfReader.PDFApplication;
 import com.liulishuo.filedownloader.FileDownloader;
 
 
@@ -14,6 +15,6 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FileDownloader.init(getApplicationContext());
+        PDFApplication.init(this);
     }
 }

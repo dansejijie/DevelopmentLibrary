@@ -15,8 +15,8 @@ import com.dansejijie.library.test.TestScrollView;
 import com.dansejijie.library.utils.download.FileDownloadActivity;
 import com.dansejijie.library.widget.PlatActivity;
 import com.dansejijie.library.widget.TestScrollViewActivity;
+import com.dansejijie.library.widget.activity.pdfReader.CustomRelativeLayoutActivity;
 import com.dansejijie.library.widget.activity.pdfReader.PDFViewActivity;
-import com.dansejijie.library.widget.activity.PDFWebViewActivity;
 import com.dansejijie.library.widget.test.Tiger;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -104,15 +104,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 PDFViewActivity.start(MainActivity.this);
             }
-        }),new Action("PDFWebView", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PDFWebViewActivity.start(MainActivity.this);
-            }
         }),new Action("FileDownloadActivity", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FileDownloadActivity.start(MainActivity.this);
+            }
+        }),new Action("CustomRelatieLayoutActivity", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomRelativeLayoutActivity.start(MainActivity.this);
             }
         }));
     }
