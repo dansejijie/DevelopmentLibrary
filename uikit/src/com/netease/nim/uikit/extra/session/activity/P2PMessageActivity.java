@@ -1,6 +1,7 @@
 package com.netease.nim.uikit.extra.session.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -16,16 +17,27 @@ import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 
 public class P2PMessageActivity extends Activity {
 
+    MessageFragment messageFragment;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_main);
 
-        MessageFragment messageFragment=new MessageFragment();
+        messageFragment=new MessageFragment();
         Bundle args = new Bundle();
         args.putString(Extras.EXTRA_ACCOUNT, "dansejijie2");
         args.putSerializable(Extras.EXTRA_TYPE, SessionTypeEnum.P2P);
         messageFragment.setArguments(args);
         getFragmentManager().beginTransaction().add(R.id.id_container,messageFragment).commit();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        messageFragment.onActivityResult(requestCode,resultCode,data);
+    }
+
+
+
 }

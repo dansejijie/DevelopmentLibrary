@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
+import com.github.barteksc.pdfviewer.listener.OnRenderListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
@@ -89,6 +90,12 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
                         .enableAnnotationRendering(true)
                         .onLoad(CustomPDFView.this)
                         .scrollHandle(new DefaultScrollHandle(getContext()))
+                        .onRender(new OnRenderListener() {
+                            @Override
+                            public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
+                                fitToWidth();
+                            }
+                        })
                         .load();
 
             }else {
@@ -167,7 +174,15 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
                                         .enableAnnotationRendering(true)
                                         .onLoad(CustomPDFView.this)
                                         .scrollHandle(new DefaultScrollHandle(getContext()))
+                                        .onRender(new OnRenderListener() {
+                                            @Override
+                                            public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
+                                                fitToWidth();
+                                            }
+                                        })
                                         .load();
+
+
 
                             }
 
@@ -217,6 +232,12 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
                     .enableAnnotationRendering(true)
                     .onLoad(CustomPDFView.this)
                     .scrollHandle(new DefaultScrollHandle(getContext()))
+                    .onRender(new OnRenderListener() {
+                        @Override
+                        public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
+                            fitToWidth();
+                        }
+                    })
                     .load();
         }
 

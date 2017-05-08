@@ -79,6 +79,8 @@ public class DemoApplication extends Application {
 			Fresco.initialize(this);
 
 			//环信
+
+
 			EMOptions options=new EMOptions();
 			EMClient.getInstance().init(this, options);
 

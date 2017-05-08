@@ -976,4 +976,12 @@ public abstract class BaseFetchLoadAdapter<T, K extends BaseViewHolder> extends 
         anim.setDuration(mAnimationDuration).start();
         anim.setInterpolator(mInterpolator);
     }
+
+    public LoadMoreView getLoadMoreView(){
+        return mLoadMoreView;
+    }
+
+    public LoadMoreView getFetchMoreView(){
+        return mFetchMoreView;
+    }
 }

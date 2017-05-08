@@ -366,10 +366,10 @@ public abstract class MsgViewHolderBase extends RecyclerViewHolder<BaseMultiItem
     }
 
     private void setReadReceipt() {
-        if (!TextUtils.isEmpty(getMsgAdapter().getUuid()) && message.getUuid().equals(getMsgAdapter().getUuid())) {
-            readReceiptTextView.setVisibility(View.VISIBLE);
-        } else {
-            readReceiptTextView.setVisibility(View.GONE);
-        }
+//        if (!TextUtils.isEmpty(getMsgAdapter().getUuid()) && message.getUuid().equals(getMsgAdapter().getUuid())) {
+//            readReceiptTextView.setVisibility(View.VISIBLE);
+//        } else {
+//            readReceiptTextView.setVisibility(View.GONE);
+//        }
     }
 }

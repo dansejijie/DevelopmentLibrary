@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.hyphenate.EMCallBack;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
@@ -239,9 +241,11 @@ public class MessageFragment extends TFragment implements ModuleProxy {
         }
         appendPushConfig(message);
         // send message to server and save to db
+        messageListPanel.onMsgSend(message);
+
         NIMClient.getService(MsgService.class).sendMessage(message, false);
 
-        messageListPanel.onMsgSend(message);
+
 
         return true;
     }
@@ -304,5 +308,66 @@ public class MessageFragment extends TFragment implements ModuleProxy {
      */
     public void receiveReceipt() {
         messageListPanel.receiveReceipt();
+    }
+
+
+
+
+    protected EaseChatFragmentHelper chatFragmentHelper;
+
+    public void setChatFragmentListener(EaseChatFragmentHelper chatFragmentHelper) {
+        this.chatFragmentHelper = chatFragmentHelper;
+    }
+
+    public interface EaseChatFragmentHelper {
+        /**
+         * set message attribute
+         */
+        void onSetMessageAttributes(EMMessage message);
+
+        /**
+         * enter to chat detail
+         */
+        void onEnterToChatDetails();
+
+        /**
+         * on avatar clicked
+         *
+         * @param username
+         */
+        void onAvatarClick(String username);
+
+        /**
+         * on avatar long pressed
+         *
+         * @param username
+         */
+        void onAvatarLongClick(String username);
+
+        /**
+         * on message bubble clicked
+         */
+        boolean onMessageBubbleClick(EMMessage message);
+
+        /**
+         * on message bubble long pressed
+         */
+        void onMessageBubbleLongClick(EMMessage message);
+
+        /**
+         * on extend menu item clicked, return true if you want to override
+         *
+         * @param view
+         * @param itemId
+         * @return
+         */
+        boolean onExtendMenuItemClick(int itemId, View view);
+
+        /**
+         * on set custom chat row provider
+         *
+         * @return
+         */
+        //EaseCustomChatRowProvider onSetCustomChatRowProvider();
     }
 }

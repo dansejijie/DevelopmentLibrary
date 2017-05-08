@@ -9,4 +9,8 @@ public class RobotUser extends EaseUser {
     public RobotUser(String account, String avatar) {
         super(account, avatar);
     }
+
+    public RobotUser(String account){
+        super(account);
+    }
 }

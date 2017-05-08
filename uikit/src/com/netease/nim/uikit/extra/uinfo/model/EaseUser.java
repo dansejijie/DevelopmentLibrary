@@ -16,6 +16,10 @@ public class EaseUser implements NimUserInfo {
 
     private String avatar;
 
+    private String nick;
+
+    private String letter;
+
     public EaseUser(String account){
         this.account=account;
     }
@@ -23,6 +27,12 @@ public class EaseUser implements NimUserInfo {
     public EaseUser(String account, String avatar){
         this.account=account;
         this.avatar=avatar;
+    }
+
+    public EaseUser(String account, String avatar,String nick){
+        this.account=account;
+        this.avatar=avatar;
+        this.nick=nick;
     }
 
     @Override
@@ -73,5 +83,25 @@ public class EaseUser implements NimUserInfo {
     @Override
     public String getAvatar() {
         return avatar;
+    }
+
+    public String getNick(){
+        return nick;
+    }
+
+    public void setNick(String nick){
+        this.nick=nick;
+    }
+
+    public void setAvatar(String avatar){
+        this.avatar=avatar;
+    }
+
+    public void setInitialLetter(String letter){
+        this.letter=letter;
+    }
+
+    public String getInitialLetter(){
+        return this.letter;
     }
 }

@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import com.dansejijie.library.widget.R;
+import com.github.barteksc.pdfviewer.PDFView;
 import com.shockwave.pdfium.PdfDocument;
 import java.util.List;
 
@@ -70,6 +71,7 @@ public class PDFViewActivity extends Activity {
                 pdfView.open(uri);
             }
         });
+
     }
 
     @Override

@@ -25,6 +25,7 @@ import com.netease.nim.uikit.common.ui.dialog.CustomAlertDialog;
 import com.netease.nim.uikit.common.ui.dialog.EasyAlertDialog;
 import com.netease.nim.uikit.common.ui.dialog.EasyAlertDialogHelper;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseFetchLoadAdapter;
+import com.netease.nim.uikit.common.ui.recyclerview.loadmore.LoadMoreView;
 import com.netease.nim.uikit.common.ui.recyclerview.loadmore.MsgListFetchLoadMoreView;
 import com.netease.nim.uikit.common.util.media.BitmapDecoder;
 import com.netease.nim.uikit.common.util.sys.ClipboardUtil;
@@ -203,10 +204,12 @@ public class MessageListPanelEx {
 
     // 刷新消息列表
     public void refreshMessageList() {
+
         container.activity.runOnUiThread(new Runnable() {
 
             @Override
             public void run() {
+                adapter.getFetchMoreView().setLoadMoreStatus(LoadMoreView.STATUS_DEFAULT);
                 adapter.notifyDataSetChanged();
             }
         });

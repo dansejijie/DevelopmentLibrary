@@ -51,14 +51,14 @@ public abstract class MsgViewHolderThumbBase extends MsgViewHolderBase {
 
     protected SimpleDraweeView thumbnail;
     protected View progressCover;
-    protected TextView progressLabel;
+    //protected TextView progressLabel;
 
     @Override
     protected void inflateContentView() {
         thumbnail = findViewById(R.id.message_item_thumb_thumbnail);
         progressBar = findViewById(R.id.message_item_thumb_progress_bar); // 覆盖掉
         progressCover = findViewById(R.id.message_item_thumb_progress_cover);
-        progressLabel = findViewById(R.id.message_item_thumb_progress_text);
+        //progressLabel = findViewById(R.id.message_item_thumb_progress_text);
     }
 
     @Override
@@ -191,12 +191,12 @@ public abstract class MsgViewHolderThumbBase extends MsgViewHolderBase {
                 || (isReceivedMessage() && message.getAttachStatus() == AttachStatusEnum.transferring)) {
             progressCover.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
-            progressLabel.setVisibility(View.VISIBLE);
-            progressLabel.setText(StringUtil.getPercentString(getMsgAdapter().getProgress(message)));
+            //progressLabel.setVisibility(View.VISIBLE);
+            //progressLabel.setText(StringUtil.getPercentString(getMsgAdapter().getProgress(message)));
         } else {
             progressCover.setVisibility(View.GONE);
             progressBar.setVisibility(View.GONE);
-            progressLabel.setVisibility(View.GONE);
+            //progressLabel.setVisibility(View.GONE);
         }
     }
 
