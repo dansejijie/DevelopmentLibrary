@@ -74,7 +74,7 @@ public class CustomPDFView extends PDFView implements OnPageChangeListener,OnLoa
         if (uri.toString().startsWith("http://")){
             String fileName= new String(Base64.encode(uri.toString().getBytes(),Base64.DEFAULT))+".pdf";
 
-            String path= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+getContext().getPackageName()+"/"+fileName;
+            String path= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"com.backustech.apps.huitu.debug"+"/"+fileName;
             File file=new File(path);
             if (file.exists()){
 
